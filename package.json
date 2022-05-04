@@ -1,0 +1,33 @@
+{
+  "name": "anerandros.info",
+  "packageManager": "yarn@3.2.0",
+  "devDependencies": {
+    "@parcel/compressor-brotli": "^2.5.0",
+    "@parcel/config-default": "^2.5.0",
+    "@parcel/transformer-elm": "2.5.0",
+    "elm": "^0.19.1-5",
+    "elm-review": "^2.7.2",
+    "elm-test": "^0.19.1-revision7",
+    "parcel": "^2.5.0",
+    "standard": "^17.0.0"
+  },
+  "source": "src/index.html",
+  "scripts": {
+    "standard": "standard --fix \"src/**/*.js\"",
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "standard": {
+    "ignore": [
+      "public",
+      "dist",
+      "tmp.js"
+    ]
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "targets": {
+    "default": {
+      "distDir": "public"
+    }
+  }
+}
