@@ -1,3 +1,23 @@
-.DS_Store
+# generic
 .vscode
 .cache
+.DS_Store
+
+# yarn
+.yarn
+.pnp.*
+
+# parceljs
+.parcel-cache
+
+# node
+node_modules
+
+# don't know where bin comes from?
+bin
+
+# elm-package generated files
+elm-stuff
+
+# elm-repl generated files
+repl-temp-*
