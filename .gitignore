@@ -9,6 +9,7 @@
 
 # parceljs
 .parcel-cache
+dist
 
 # node
 node_modules

@@ -2,19 +2,8 @@ module Main exposing (Flags, Model, Msg(..), main)
 
 import Browser
 import Browser.Events
-import Element
-    exposing
-        ( Element
-        , el
-        , layout
-        , padding
-        , paragraph
-        , rgb255
-        , text
-        )
-import Element.Font as Font
-import Element.Region as Region
-import Html exposing (Html)
+import Html exposing (Html, div, text)
+import Html.Attributes exposing (class)
 
 
 
@@ -26,7 +15,6 @@ type Msg
 
 
 
--- TYPES
 -- MODEL
 
 
@@ -35,6 +23,7 @@ type alias Model =
         { width : Int
         , height : Int
         }
+    , hello : String
     }
 
 
@@ -58,39 +47,25 @@ init flags =
             { width = flags.win_width
             , height = flags.win_height
             }
+      , hello = "Hello Elm + Tailwind CSS :)"
       }
     , Cmd.none
     )
-
-
-view : Model -> Html Msg
-view _ =
-    layout [ Region.mainContent ] <|
-        viewLoaded
 
 
 
 -- VIEW
 
 
-viewLoaded : Element msg
-viewLoaded =
-    paragraph [ padding 10 ]
-        [ el
-            [ Font.family
-                [ Font.typeface "Raleway"
-                , Font.sansSerif
-                ]
-            , Font.size 40
-            , Font.medium
-            , Font.color (rgb255 13 30 45)
-            ]
-            (text "Aner Andros")
+view : Model -> Html Msg
+view model =
+    div
+        [ class "text-4xl flex justify-center items-center h-screen"
         ]
+        [ text model.hello ]
 
 
 
--- VIEW HELPERS
 -- UPDATE
 
 
@@ -104,7 +79,6 @@ update msg model =
 
 
 
--- UPDATE HELPERS
 -- MAIN
 
 
@@ -119,19 +93,6 @@ main =
 
 
 
--- COMMANDS
--- getNewWordCmd : Cmd Msg
--- getNewWordCmd =
---     Http.get
---         { url = randomWordsApiUrl
---         , expect = Http.expectJson GetNewWord (Decode.list newWordDecoder)
---         }
--- newWordDecoder : Decoder NewWord
--- newWordDecoder =
---     Decode.succeed NewWord
---         |> Pipeline.required "word" Decode.string
---         |> Pipeline.required "definition" Decode.string
---         |> Pipeline.required "pronunciation" Decode.string
 -- SUBSCRIPTIONS
 
 
