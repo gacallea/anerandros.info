@@ -6,7 +6,11 @@ module.exports = {
     './src/css/styles.css'
   ],
   theme: {
-    extend: {}
+    extend: {},
+    fontFamily: {
+      sans: ['Lexend Deca', 'Helvetica', 'Arial', 'sans-serif'],
+      display: ['Righteous']
+    }
   },
   plugins: [require('@tailwindcss/typography')]
 }
