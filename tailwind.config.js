@@ -8,7 +8,5 @@ module.exports = {
   theme: {
     extend: {}
   },
-  plugins: []
-  // separator: '_',
-  // prefix: 'tw-'
+  plugins: [require('@tailwindcss/typography')]
 }
