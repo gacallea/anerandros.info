@@ -60,61 +60,43 @@ init flags =
 view : Model -> Html Msg
 view _ =
     main_
-        [ class "container mx-auto"
+        [ class "container mx-auto max-w-7xl"
         ]
         [ header_
         , hero
-        , music
-        , about
-        , live
+
+        -- , music
+        -- , about
+        -- , live
         , footer_
         ]
 
 
 header_ : Html Msg
 header_ =
-    -- header: (navbar++ mobile: logo left + burger right; full: links right)
-    header [ class "flex flex-row justify-between py-2" ] [ outlets, navbar ]
-
-
-socialIcon : String -> String -> Html msg
-socialIcon link icon =
-    li
-        [ class "pl-0 px-1" ]
-        [ a
-            [ href <| link, target "_blank", rel "noopener noreferrer" ]
-            [ i [ class <| icon ] [] ]
-        ]
-
-
-outlets : Html Msg
-outlets =
-    div []
-        [ ul [ class "inline-flex" ]
-            [ socialIcon "https://soundcloud.com/aascloud" "bx-fw bx bxl-soundcloud"
-            , socialIcon "https://open.spotify.com/artist/00Cg2yZTaYr1EfRZDjStlh" "bx-fw bx bxl-spotify"
-            , socialIcon "https://music.apple.com/us/artist/aner-andros/1034283469" "bx-fw bx bxl-apple"
-            , socialIcon "https://www.youtube.com/channel/UC2ZkNnT2pHj01jKuj56mJfg" "bx-fw bx bxl-youtube"
-            , socialIcon "https://www.deezer.com/us/artist/8776748" "bx-fw bx bxl-deezer"
-            ]
-        ]
+    header [ class "flex flex-row justify-center sm:justify-end" ] [ logo, navbar ]
 
 
 navlink : String -> String -> Html Msg
 navlink link name =
     li
-        [ class "px-2 pr-0 font-medium" ]
+        [ class "font-normal sm:font-medium" ]
         [ a
-            [ href <| link ]
+            [ class "p-2 hover:underline hover:underline-offset-4 hover:bg-slate-100", href <| link ]
             [ text <| name ]
         ]
+
+
+logo : Html Msg
+logo =
+    div [ class "text-sm md:text-base my-2 ml-4 mr-auto hidden sm:inline-flex" ] [ text "aner andros" ]
 
 
 navbar : Html Msg
 navbar =
     nav []
-        [ ul [ class "inline-flex" ]
-            [ navlink "/" "home"
+        [ ul [ class "inline-flex text-sm md:text-base my-2 sm:mr-4" ]
+            [ navlink "#top" "home"
             , navlink "#discog" "music"
             , navlink "#about" "about"
             , navlink "#live" "live"
@@ -138,7 +120,7 @@ hero =
             ]
         , div
             [ class "align-bottom" ]
-            [ img [ src "./img/aner_andros-big.jpg", alt "gwr logo" ] []
+            [ img [ src "./img/covers/aasb.jpg", alt "feat cover" ] []
             , latestAlbum
             ]
         ]
@@ -147,6 +129,29 @@ hero =
 latestAlbum : Html Msg
 latestAlbum =
     p [ class "bg-slate-50" ] [ i [ class "bx-fw bx bx-play-circle" ] [], text "featured release w/ play option" ]
+
+
+socialIcon : String -> String -> Html msg
+socialIcon link icon =
+    li
+        [ class "pl-0 px-5" ]
+        [ a
+            [ href <| link, target "_blank", rel "noopener noreferrer" ]
+            [ i [ class <| icon ] [] ]
+        ]
+
+
+outlets : Html Msg
+outlets =
+    div []
+        [ ul [ class "" ]
+            [ socialIcon "https://soundcloud.com/aascloud" "bx-fw bx bxl-soundcloud"
+            , socialIcon "https://open.spotify.com/artist/00Cg2yZTaYr1EfRZDjStlh" "bx-fw bx bxl-spotify"
+            , socialIcon "https://music.apple.com/us/artist/aner-andros/1034283469" "bx-fw bx bxl-apple"
+            , socialIcon "https://www.youtube.com/channel/UC2ZkNnT2pHj01jKuj56mJfg" "bx-fw bx bxl-youtube"
+            , socialIcon "https://www.deezer.com/us/artist/8776748" "bx-fw bx bxl-deezer"
+            ]
+        ]
 
 
 discogCategory : String -> String -> Html Msg
@@ -227,7 +232,7 @@ live =
 
 footer_ : Html Msg
 footer_ =
-    footer [ class "bg-gray-50 flex flex-row justify-center text-sm" ]
+    footer [ class "flex flex-row justify-center text-xs md:text-sm mt-2 mx-10 md:mx-4 border-t border-slate-300" ]
         [ div [ class "py-4 text-center" ]
             [ p []
                 [ text "© Copyright Aner Andros. All Rights Reserved." ]
