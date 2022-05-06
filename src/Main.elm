@@ -96,10 +96,10 @@ view _ =
         ]
         [ header_
         , hero
-
-        -- , music
+        , music
         , about
-        , live
+
+        -- , live
         , footer_
         ]
 
@@ -121,9 +121,12 @@ header_ =
 logo_nav : Html Msg
 logo_nav =
     div
-        [ class "text-sm md:text-base my-2 ml-4 mr-auto hidden sm:inline-flex"
+        [ class "text-md md:text-base my-2 sm:ml-4 mr-auto hidden sm:inline-flex font-normal sm:font-medium"
         ]
-        [ text "aner andros"
+        [ ul
+            [ class "inline-flex text-md md:text-base"
+            ]
+            [ navLink "#top" "aner andros" ]
         ]
 
 
@@ -131,24 +134,38 @@ navbar : Html Msg
 navbar =
     nav []
         [ ul
-            [ class "inline-flex text-sm md:text-base my-2 sm:mr-4"
+            [ class "inline-flex text-md md:text-base my-2 sm:mr-4"
             ]
-            [ navlink "#top" "home"
-            , navlink "#music" "music"
-            , navlink "#about" "about"
-            , navlink "#live" "live"
+            [ navLink "#top" "home"
+            , navLink "#music" "music"
+            , navLink "#about" "about"
+            , extLink "https://www.songkick.com/artists/8738984-aner-andros" "live"
             ]
         ]
 
 
-navlink : String -> String -> Html Msg
-navlink link name =
+navLink : String -> String -> Html Msg
+navLink link name =
     li
-        [ class "font-normal sm:font-medium"
-        ]
+        []
         [ a
             [ class "p-2 hover:underline hover:underline-offset-4 hover:bg-slate-100"
             , href <| link
+            ]
+            [ text <| name
+            ]
+        ]
+
+
+extLink : String -> String -> Html Msg
+extLink link name =
+    li
+        []
+        [ a
+            [ class "p-2 hover:underline hover:underline-offset-4 hover:bg-slate-100"
+            , href <| link
+            , target "_blank"
+            , rel "noopener noreferrer"
             ]
             [ text <| name
             ]
@@ -163,10 +180,10 @@ hero : Html Msg
 hero =
     section
         [ id "hero"
-        , class "flex flex-col sm:flex-row sm:justify-between sm:mx-4"
+        , class "flex flex-col sm:flex-row sm:justify-around sm:mx-2 lg:m-8"
         ]
         [ div
-            [ class "text-xs lg:text-base text-center lg:text-justify"
+            [ class "text-sm lg:text-base text-center lg:text-justify"
             ]
             [ logo
             , h1 [ class "sm:font-semibold py-4 overline" ]
@@ -174,7 +191,7 @@ hero =
                 ]
             ]
         , div
-            [ class "text-sm lg:text-base text-center" ]
+            [ class "text-md lg:text-base text-center content-end" ]
             [ latestAlbum
             , outlets
             ]
@@ -184,7 +201,7 @@ hero =
 logo : Html Msg
 logo =
     div
-        [ class "bg-gray-50 flex flex-row justify-center w-full"
+        [ class "flex flex-row justify-center w-full mt-0 md:mt-2"
         ]
         [ img [ src "https://placekitten.com/400/400", alt "aa logo" ] []
         ]
@@ -193,10 +210,10 @@ logo =
 latestAlbum : Html Msg
 latestAlbum =
     div
-        [ class "flex flex-col justify-center mb-2 mt-2 mx-2 border-t border-slate-300"
+        [ class "flex flex-col justify-center mb-2 mt-0 md:mt-2 mx-2 border-t md:border-0 border-slate-300"
         ]
-        [ h2 [ class "sm:font-semibold py-4 underline" ]
-            [ text "latest album"
+        [ h2 [ class "sm:font-semibold py-4 md:p-0 underline block md:hidden landscape:hidden" ]
+            [ text "latest release"
             ]
         , iframe
             [ class "w-full h-80"
@@ -228,7 +245,7 @@ outlets : Html Msg
 outlets =
     div []
         [ ul
-            [ class "inline-flex py-2 justify-center"
+            [ class "inline-flex py-2 justify-center text-lg lg:text-xl"
             ]
             [ socialIcon soundCloudLink "bx-fw bx bxl-soundcloud"
             , socialIcon spotifyLink "bx-fw bx bxl-spotify"
@@ -243,30 +260,21 @@ outlets =
 -- DISCOGRAPHY
 
 
-releaseKind : String -> String -> Html Msg
-releaseKind anchor name =
-    li
-        [ class "px-2 pr-0"
-        ]
-        [ a
-            [ href <| anchor
-            ]
-            [ text <| name ]
-        ]
-
-
 music : Html Msg
 music =
     -- music (mobile: 2x2 grid; full: horizontal scroll gallery)
     section
         [ id "music"
-        , class "bg-red-100 text-center"
+        , class "flex flex-col text-md lg:text-base mt-2 mx-1 md:mx-2 border-t border-slate-300"
         ]
-        [ nav
-            [ class "bg-red-50"
+        [ h2 [ class "sm:font-semibold pt-4 mb-4 underline text-center" ]
+            [ text "music"
             ]
+        , discog
+        , div
+            []
             [ ul
-                [ class "flex flex-row justify-center"
+                [ class "flex flex-row justify-center text-sm lg:text-base my-4 sm:mr-4"
                 ]
                 [ releaseKind "#all" "all"
                 , releaseKind "#albums" "albums"
@@ -275,15 +283,30 @@ music =
                 , releaseKind "#collages" "collages"
                 ]
             ]
-        , discog
+        ]
+
+
+releaseKind : String -> String -> Html Msg
+releaseKind anchor name =
+    li
+        [ class "px-2 pr-0 hover:underline hover:underline-offset-4"
+        ]
+        [ a
+            [ href <| anchor
+            ]
+            [ text <| name ]
         ]
 
 
 discog : Html Msg
 discog =
-    div []
+    div [ class "bg-pink-50 py-8 text-center" ]
         [ text "dada"
         ]
+
+
+
+-- ABOUT
 
 
 about : Html Msg
@@ -291,12 +314,12 @@ about =
     -- about (resp. paragraph)
     section
         [ id "about"
-        , class "flex flex-col text-sm lg:text-base mt-2 mx-2 border-t border-slate-300"
+        , class "flex flex-col text-md lg:text-base mt-2 mx-1 md:mx-2 border-t border-slate-300"
         ]
-        [ h2 [ class "sm:font-semibold pt-4 underline text-center" ]
+        [ h2 [ class "sm:font-semibold pt-4 mb-4 underline text-center" ]
             [ text "about"
             ]
-        , div [ class "p-4" ]
+        , div [ class "bg-gray-50 p-8 mb-4 md:mb-8" ]
             [ p [ class "p-1" ]
                 [ text "Eclectic producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors when drawing oneiric soundscapes in the making of musical voyages. "
                 , a
@@ -335,15 +358,20 @@ about =
         ]
 
 
-live : Html Msg
-live =
-    -- live (resp. sort of calendar)
-    section [ id "live", class "bg-pink-200" ] [ text "live" ]
+
+-- LIVE
+{-
+   live : Html Msg
+   live =
+       -- live (resp. sort of calendar)
+       section [ id "live", class "bg-pink-200" ] [ text "live" ]
+-}
+-- FOOTER
 
 
 footer_ : Html Msg
 footer_ =
-    footer [ class "flex flex-row justify-center text-xs md:text-sm mt-2 mx-2 border-t border-slate-300" ]
+    footer [ class "flex flex-row justify-center text-sm md:text-sm mt-2 mx-2 border-t border-slate-300" ]
         [ div [ class "py-4 text-center" ]
             [ p []
                 [ text "© Copyright Aner Andros. All Rights Reserved." ]
