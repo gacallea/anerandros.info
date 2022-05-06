@@ -99,8 +99,7 @@ view _ =
 
         -- , music
         , about
-
-        -- , live
+        , live
         , footer_
         ]
 
