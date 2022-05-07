@@ -1,11 +1,46 @@
 module Main exposing (Flags, Model, Msg(..), main)
 
-import Accessibility as Html exposing (..)
 import Accessibility.Aria as Aria exposing (..)
 import Browser
 import Browser.Events
+import Dict exposing (Dict)
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (onClick)
+
+
+
+-- TYPES
+
+
+type ReleaseGrouping
+    = All
+    | Albums
+    | Eps
+    | Remixes
+    | Collages
+
+
+type alias ReleaseData =
+    { name : String
+    , cover : String
+    , apple : Maybe String
+    , amazon : Maybe String
+    , soundcloud : Maybe String
+    , spotify : Maybe String
+    , youtube : Maybe String
+    , mixcloud : Maybe String
+    , bandcamp : Maybe String
+    }
+
+
+
+-- MESSAGES
+
+
+type Msg
+    = OnResize Int Int
+    | ChooseRelease ReleaseGrouping
 
 
 
@@ -55,11 +90,105 @@ anerSongKick : String
 anerSongKick =
     "https://www.songkick.com/artists/8738984-aner-andros"
 
--- MESSAGES
 
 
-type Msg
-    = OnResize Int Int
+-- RELEASES
+
+
+allReleases : Dict String ReleaseData
+allReleases =
+    Dict.fromList
+        [ ( "album", liminalTales )
+        , ( "album", remapEthosStream )
+        , ( "ep", artefactsASb )
+        , ( "ep", eosVolOne )
+        , ( "remix", enkefalina )
+        , ( "collage", ispirazione )
+        ]
+
+
+liminalTales : ReleaseData
+liminalTales =
+    { name = "Liminal Tales"
+    , cover = "https://placekitten.com/310"
+    , apple = Just "https://music.apple.com/album/liminal-tales/1091282352"
+    , amazon = Just "https://www.amazon.co.uk/Liminal-Tales-Aner-Andros/dp/B01CQHFGNU"
+    , soundcloud = Just "https://soundcloud.com/aascloud/sets/liminal-tales"
+    , spotify = Just "https://open.spotify.com/album/7lXlg36oOH20eHjw0ZJ4gG"
+    , youtube = Just "https://www.youtube.com/watch?v=N-HR7dEHIT4&list=OLAK5uy_meDmf2_3kFZJK11JuoDQ0mLZQPPH7NDhc"
+    , mixcloud = Nothing
+    , bandcamp = Nothing
+    }
+
+
+remapEthosStream : ReleaseData
+remapEthosStream =
+    { name = "Remap Ethos Stream"
+    , cover = "https://placekitten.com/320"
+    , apple = Just "https://music.apple.com/it/album/remap-ethos-stream/1034283468"
+    , amazon = Just "https://www.amazon.co.uk/Remap-Ethos-Stream-Aner-Andros/dp/B014MFIF28"
+    , soundcloud = Just "https://soundcloud.com/aascloud/sets/remap-ethos-stream"
+    , spotify = Just "https://open.spotify.com/album/6ezmJo8RpXfyJQNeT40kaJ"
+    , youtube = Just "https://www.youtube.com/watch?v=MpBklnNxaXs&list=PLXR_uSsXKC8lJWDk40IswaLbLzfn28y3j"
+    , mixcloud = Nothing
+    , bandcamp = Nothing
+    }
+
+
+artefactsASb : ReleaseData
+artefactsASb =
+    { name = "Artefacts and Sonic Brushstrokes"
+    , cover = "https://placekitten.com/330"
+    , apple = Just "https://music.apple.com/album/artefacts-and-sonic-brushstrokes-ep/1281231021"
+    , amazon = Just "https://www.amazon.com/Artefacts-Sonic-Brushstrokes-Aner-Andros/dp/B075M7SFZL"
+    , soundcloud = Just "https://soundcloud.com/aascloud/sets/artefacts-and-sonic"
+    , spotify = Just "https://open.spotify.com/album/0UTE8yS5IBpV1ov6h08Jwx"
+    , youtube = Just "https://www.youtube.com/watch?v=nsgzFFrYer8&list=PLXR_uSsXKC8llnnqiwCN6xMJlWohyU-tS"
+    , mixcloud = Nothing
+    , bandcamp = Nothing
+    }
+
+
+eosVolOne : ReleaseData
+eosVolOne =
+    { name = "Embroidering on Silence Vol. I"
+    , cover = "https://placekitten.com/340"
+    , apple = Just "https://music.apple.com/ca/album/embroidering-on-silence-vol-i/1242232285"
+    , amazon = Just "https://www.amazon.com/Embroidering-Silence-Vol-Aner-Andros/dp/B072634MT3/143-8572494-9262537"
+    , soundcloud = Just "https://soundcloud.com/aascloud/sets/embroidering-on-silence-vol-i"
+    , spotify = Just "https://open.spotify.com/album/2zQ5hqT9Z2D140rywnebL2"
+    , youtube = Just "https://www.youtube.com/watch?v=CeIByiQU4HM"
+    , mixcloud = Nothing
+    , bandcamp = Nothing
+    }
+
+
+enkefalina : ReleaseData
+enkefalina =
+    { name = "Enkefalina (Aner Andros Remix)"
+    , cover = "https://placekitten.com/280"
+    , apple = Nothing
+    , amazon = Nothing
+    , soundcloud = Nothing
+    , spotify = Nothing
+    , youtube = Nothing
+    , mixcloud = Nothing
+    , bandcamp = Just "https://olim.bandcamp.com/track/enkefalina-aner-andros-remix"
+    }
+
+
+ispirazione : ReleaseData
+ispirazione =
+    { name = "ISPIRAZIONE"
+    , cover = "https://placekitten.com/290"
+    , apple = Nothing
+    , amazon = Nothing
+    , soundcloud = Nothing
+    , spotify = Nothing
+    , youtube = Nothing
+    , mixcloud = Just "https://www.mixcloud.com/aasmixes/playlists/aas-collages/"
+    , bandcamp = Nothing
+    }
 
 
 
@@ -71,6 +200,7 @@ type alias Model =
         { width : Int
         , height : Int
         }
+    , showRelease : ReleaseGrouping
     }
 
 
@@ -94,6 +224,7 @@ init flags =
             { width = flags.win_width
             , height = flags.win_height
             }
+      , showRelease = All
       }
     , Cmd.none
     )
@@ -104,14 +235,14 @@ init flags =
 
 
 view : Model -> Html Msg
-view _ =
+view model =
     main_
         [ class "container mx-auto max-w-7xl"
         , Aria.label "main content"
         ]
         [ header_
         , hero
-        , music
+        , music model
         , about
         , footer_
         ]
@@ -290,8 +421,8 @@ outlets =
 -- DISCOGRAPHY
 
 
-music : Html Msg
-music =
+music : Model -> Html Msg
+music model =
     section
         [ id "music", class "mt-2 mx-1 md:mx-2", Aria.label "discography section" ]
         [ div
@@ -299,25 +430,26 @@ music =
             [ h2 [ class "sm:font-semibold pt-4 mb-4 underline" ]
                 [ text "music"
                 ]
-            , discog
+            , discog model
             , ul
                 [ class "flex flex-row justify-center text-sm lg:text-base my-4 sm:mr-4"
                 ]
-                [ releaseKind "#all" "all"
-                , releaseKind "#albums" "albums"
-                , releaseKind "#eps" "eps"
-                , releaseKind "#remixes" "remixes"
-                , releaseKind "#collages" "collages"
+                [ releaseKind "#all" "all" All
+                , releaseKind "#albums" "albums" Albums
+                , releaseKind "#eps" "eps" Eps
+                , releaseKind "#remixes" "remixes" Remixes
+                , releaseKind "#collages" "collages" Collages
                 ]
             ]
         ]
 
 
-releaseKind : String -> String -> Html Msg
-releaseKind anchor name =
+releaseKind : String -> String -> ReleaseGrouping -> Html Msg
+releaseKind anchor name rel =
     li
         [ class "px-2 hover:underline hover:underline-offset-4"
         , Aria.label "kind of release selectors"
+        , onClick (ChooseRelease rel)
         ]
         [ a
             [ href <| anchor
@@ -326,27 +458,63 @@ releaseKind anchor name =
         ]
 
 
-discog : Html Msg
-discog =
+discog : Model -> Html Msg
+discog model =
     ul
         [ class "flex flex-row justify-between p-2 m-2"
         , Aria.label "all published releases"
         ]
-        [ li [] [ release "https://placekitten.com/300" "Artefacts and Sonic Brushstrokes" "ep" ]
-        , li [] [ release "https://placekitten.com/300" "Liminal Tales" "album" ]
-        , li [] [ release "https://placekitten.com/300" "Embroidering on Silence Vol. I" "ep" ]
-        , li [] [ release "https://placekitten.com/300" "Remap Ethos Stream" "album" ]
-        , li [] [ release "https://placekitten.com/300" "Enkefalina (Aner Andros Remix)" "remix" ]
-        , li [] [ release "https://placekitten.com/300" "ISPIRAZIONE" "collage" ]
+        [ case showReleases model allReleases of
+            Just data ->
+                li []
+                    [ img
+                        [ src data.cover
+                        , alt data.name
+                        , title data.name
+                        ]
+                        []
+                    ]
+
+            Nothing ->
+                li []
+                    [ img
+                        [ src "nothing"
+                        , alt "nothing"
+                        , title "nothing"
+                        ]
+                        []
+                    ]
         ]
 
 
-release : String -> String -> String -> Html Msg
-release cover name kind =
-    img name
-        [ src cover
-        , alt name
-        , title name
+showReleases : Model -> Dict String ReleaseData -> Maybe ReleaseData
+showReleases model dict =
+    case model.showRelease of
+        All ->
+            Dict.get "nothing" dict
+
+        Albums ->
+            Dict.get "album" dict
+
+        Eps ->
+            Dict.get "ep" dict
+
+        Remixes ->
+            Dict.get "remix" dict
+
+        Collages ->
+            Dict.get "collage" dict
+
+
+release : String -> String -> Html Msg
+release cover name =
+    li [ Aria.label name ]
+        [ img
+            [ src cover
+            , alt name
+            , title name
+            ]
+            []
         ]
 
 
@@ -442,6 +610,11 @@ update msg model =
     case msg of
         OnResize x y ->
             ( { model | viewport = { width = x, height = y } }
+            , Cmd.none
+            )
+
+        ChooseRelease rel ->
+            ( { model | showRelease = rel }
             , Cmd.none
             )
 
