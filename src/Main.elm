@@ -49,6 +49,9 @@ anerDeezer =
     "https://www.deezer.com/us/artist/8776748"
 
 
+anerSongKick : String
+anerSongKick =
+    "https://www.songkick.com/artists/8738984-aner-andros"
 
 -- MESSAGES
 
@@ -154,7 +157,7 @@ navbar =
             [ navLink "#top" "home"
             , navLink "#music" "music"
             , navLink "#about" "about"
-            , extLink "https://www.songkick.com/artists/8738984-aner-andros" "live"
+            , extLink anerSongKick "live"
             ]
         ]
 
