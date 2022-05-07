@@ -21,28 +21,31 @@ latestAlbumLink =
     "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/363304199&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
 
 
-soundCloudLink : String
-soundCloudLink =
+-- STREAMING OUTLETS
+
+
+anerSoundCloud : String
+anerSoundCloud =
     "https://soundcloud.com/aascloud"
 
 
-spotifyLink : String
-spotifyLink =
+anerSpotify : String
+anerSpotify =
     "https://open.spotify.com/artist/00Cg2yZTaYr1EfRZDjStlh"
 
 
-appleMusicLink : String
-appleMusicLink =
+anerAppleMusic : String
+anerAppleMusic =
     "https://music.apple.com/us/artist/aner-andros/1034283469"
 
 
-youtubeLink : String
-youtubeLink =
+anerYoutube : String
+anerYoutube =
     "https://www.youtube.com/channel/UC2ZkNnT2pHj01jKuj56mJfg"
 
 
-deezerLink : String
-deezerLink =
+anerDeezer : String
+anerDeezer =
     "https://www.deezer.com/us/artist/8776748"
 
 
