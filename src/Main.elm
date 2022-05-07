@@ -13,7 +13,7 @@ import Html.Events exposing (onClick)
 -- TYPES
 
 
-type ReleaseGrouping
+type ReleaseKind
     = All
     | Albums
     | Eps
@@ -22,8 +22,13 @@ type ReleaseGrouping
 
 
 type alias ReleaseData =
-    { name : String
+    { kind : ReleaseKind
+    , label : Maybe String
+    , catalog : Maybe String
+    , year : String
+    , name : String
     , cover : String
+    , coverArtist : String
     , apple : Maybe String
     , amazon : Maybe String
     , soundcloud : Maybe String
@@ -40,7 +45,7 @@ type alias ReleaseData =
 
 type Msg
     = OnResize Int Int
-    | ChooseRelease ReleaseGrouping
+    | ChooseRelease ReleaseKind
 
 
 
@@ -86,6 +91,10 @@ anerDeezer =
     "https://www.deezer.com/us/artist/8776748"
 
 
+
+-- LIVE SHOWS
+
+
 anerSongKick : String
 anerSongKick =
     "https://www.songkick.com/artists/8738984-aner-andros"
@@ -95,22 +104,61 @@ anerSongKick =
 -- RELEASES
 
 
-allReleases : Dict String ReleaseData
+allReleases : Dict Int ReleaseData
 allReleases =
+    {-
+       1XX = albums
+       2XX = eps
+       3XX = remixes
+       4XX = collages
+    -}
     Dict.fromList
-        [ ( "album", liminalTales )
-        , ( "album", remapEthosStream )
-        , ( "ep", artefactsASb )
-        , ( "ep", eosVolOne )
-        , ( "remix", enkefalina )
-        , ( "collage", ispirazione )
+        [ ( 100, remapEthosStream )
+        , ( 101, liminalTales )
+        , ( 200, eosVolOne )
+        , ( 201, artefactsASb )
+        , ( 300, enkefalina )
+        , ( 400, ispirazione )
         ]
+
+
+derivateReleaseDict : ReleaseKind -> Dict Int ReleaseData
+derivateReleaseDict kind =
+    Dict.values allReleases
+        |> List.filter (\rel -> rel.kind == kind)
+        |> List.indexedMap Tuple.pair
+        |> Dict.fromList
+
+
+allAlbums : Dict Int ReleaseData
+allAlbums =
+    derivateReleaseDict Albums
+
+
+allEps : Dict Int ReleaseData
+allEps =
+    derivateReleaseDict Eps
+
+
+allRemixes : Dict Int ReleaseData
+allRemixes =
+    derivateReleaseDict Remixes
+
+
+allCollages : Dict Int ReleaseData
+allCollages =
+    derivateReleaseDict Collages
 
 
 liminalTales : ReleaseData
 liminalTales =
-    { name = "Liminal Tales"
-    , cover = "https://placekitten.com/310"
+    { kind = Albums
+    , label = Just "Gentle Wash Records"
+    , catalog = Just "GWR0002"
+    , year = "2016"
+    , name = "Liminal Tales"
+    , cover = "https://placekitten.com/300"
+    , coverArtist = "https://www.flickr.com/photos/ramocchia/"
     , apple = Just "https://music.apple.com/album/liminal-tales/1091282352"
     , amazon = Just "https://www.amazon.co.uk/Liminal-Tales-Aner-Andros/dp/B01CQHFGNU"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/liminal-tales"
@@ -123,8 +171,13 @@ liminalTales =
 
 remapEthosStream : ReleaseData
 remapEthosStream =
-    { name = "Remap Ethos Stream"
-    , cover = "https://placekitten.com/320"
+    { kind = Albums
+    , label = Just "Gentle Wash Records"
+    , catalog = Just "GWR0000"
+    , year = "2015"
+    , name = "Remap Ethos Stream"
+    , cover = "https://placekitten.com/300"
+    , coverArtist = "http://www.riccardoarena.org/"
     , apple = Just "https://music.apple.com/it/album/remap-ethos-stream/1034283468"
     , amazon = Just "https://www.amazon.co.uk/Remap-Ethos-Stream-Aner-Andros/dp/B014MFIF28"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/remap-ethos-stream"
@@ -137,8 +190,13 @@ remapEthosStream =
 
 artefactsASb : ReleaseData
 artefactsASb =
-    { name = "Artefacts and Sonic Brushstrokes"
-    , cover = "https://placekitten.com/330"
+    { kind = Eps
+    , label = Just "Gentle Wash Records"
+    , catalog = Just "GWR0003"
+    , year = "2017"
+    , name = "Artefacts and Sonic Brushstrokes"
+    , cover = "https://placekitten.com/300"
+    , coverArtist = "http://trashriotart.tumblr.com/"
     , apple = Just "https://music.apple.com/album/artefacts-and-sonic-brushstrokes-ep/1281231021"
     , amazon = Just "https://www.amazon.com/Artefacts-Sonic-Brushstrokes-Aner-Andros/dp/B075M7SFZL"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/artefacts-and-sonic"
@@ -151,8 +209,13 @@ artefactsASb =
 
 eosVolOne : ReleaseData
 eosVolOne =
-    { name = "Embroidering on Silence Vol. I"
-    , cover = "https://placekitten.com/340"
+    { kind = Eps
+    , label = Just "Gentle Wash Records"
+    , catalog = Just "GWR0001"
+    , year = "2015"
+    , name = "Embroidering on Silence Vol. I"
+    , cover = "https://placekitten.com/300"
+    , coverArtist = "https://carolrollo.it/"
     , apple = Just "https://music.apple.com/ca/album/embroidering-on-silence-vol-i/1242232285"
     , amazon = Just "https://www.amazon.com/Embroidering-Silence-Vol-Aner-Andros/dp/B072634MT3/143-8572494-9262537"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/embroidering-on-silence-vol-i"
@@ -165,8 +228,13 @@ eosVolOne =
 
 enkefalina : ReleaseData
 enkefalina =
-    { name = "Enkefalina (Aner Andros Remix)"
-    , cover = "https://placekitten.com/280"
+    { kind = Remixes
+    , label = Just "Nomad Records"
+    , catalog = Nothing
+    , year = "2017"
+    , name = "Enkefalina (Aner Andros Remix)"
+    , cover = "https://placekitten.com/300"
+    , coverArtist = "https://carolrollo.it/"
     , apple = Nothing
     , amazon = Nothing
     , soundcloud = Nothing
@@ -179,8 +247,13 @@ enkefalina =
 
 ispirazione : ReleaseData
 ispirazione =
-    { name = "ISPIRAZIONE"
-    , cover = "https://placekitten.com/290"
+    { kind = Collages
+    , label = Nothing
+    , catalog = Nothing
+    , year = "2016"
+    , name = "ISPIRAZIONE"
+    , cover = "https://placekitten.com/300"
+    , coverArtist = "https://carolrollo.it/"
     , apple = Nothing
     , amazon = Nothing
     , soundcloud = Nothing
@@ -200,7 +273,7 @@ type alias Model =
         { width : Int
         , height : Int
         }
-    , showRelease : ReleaseGrouping
+    , showRelease : ReleaseKind
     }
 
 
@@ -434,28 +507,38 @@ music model =
             , ul
                 [ class "flex flex-row justify-center text-sm lg:text-base my-4 sm:mr-4"
                 ]
-                [ releaseKind "#all" "all" All
-                , releaseKind "#albums" "albums" Albums
-                , releaseKind "#eps" "eps" Eps
-                , releaseKind "#remixes" "remixes" Remixes
-                , releaseKind "#collages" "collages" Collages
+              <|
+                releaseSelector selectors
+            ]
+        ]
+
+
+selectors : List ( String, ReleaseKind )
+selectors =
+    [ ( "all", All )
+    , ( "albums", Albums )
+    , ( "eps", Eps )
+    , ( "remixes", Remixes )
+    , ( "collages", Collages )
+    ]
+
+
+releaseSelector : List ( String, ReleaseKind ) -> List (Html Msg)
+releaseSelector list =
+    List.map
+        (\sel ->
+            li
+                [ class "px-2 hover:underline hover:underline-offset-4"
+                , Aria.label "kind of release selectors"
+                , onClick (ChooseRelease (Tuple.second sel))
                 ]
-            ]
-        ]
-
-
-releaseKind : String -> String -> ReleaseGrouping -> Html Msg
-releaseKind anchor name rel =
-    li
-        [ class "px-2 hover:underline hover:underline-offset-4"
-        , Aria.label "kind of release selectors"
-        , onClick (ChooseRelease rel)
-        ]
-        [ a
-            [ href <| anchor
-            ]
-            [ text <| name ]
-        ]
+                [ a
+                    [ href <| String.append "#" (Tuple.first sel)
+                    ]
+                    [ text <| Tuple.first sel ]
+                ]
+        )
+        list
 
 
 discog : Model -> Html Msg
@@ -464,58 +547,44 @@ discog model =
         [ class "flex flex-row justify-between p-2 m-2"
         , Aria.label "all published releases"
         ]
-        [ case showReleases model allReleases of
-            Just data ->
-                li []
-                    [ img
-                        [ src data.cover
-                        , alt data.name
-                        , title data.name
-                        ]
-                        []
+    <|
+        release <|
+            case model.showRelease of
+                All ->
+                    Dict.foldl showReleases [] allReleases
+
+                Albums ->
+                    Dict.foldl showReleases [] allAlbums
+
+                Eps ->
+                    Dict.foldl showReleases [] allEps
+
+                Remixes ->
+                    Dict.foldl showReleases [] allRemixes
+
+                Collages ->
+                    Dict.foldl showReleases [] allCollages
+
+
+showReleases : Int -> ReleaseData -> List ReleaseData -> List ReleaseData
+showReleases _ rel releases =
+    rel :: releases
+
+
+release : List ReleaseData -> List (Html msg)
+release data =
+    List.map
+        (\i ->
+            li []
+                [ img
+                    [ src i.cover
+                    , alt i.name
+                    , title i.name
                     ]
-
-            Nothing ->
-                li []
-                    [ img
-                        [ src "nothing"
-                        , alt "nothing"
-                        , title "nothing"
-                        ]
-                        []
-                    ]
-        ]
-
-
-showReleases : Model -> Dict String ReleaseData -> Maybe ReleaseData
-showReleases model dict =
-    case model.showRelease of
-        All ->
-            Dict.get "nothing" dict
-
-        Albums ->
-            Dict.get "album" dict
-
-        Eps ->
-            Dict.get "ep" dict
-
-        Remixes ->
-            Dict.get "remix" dict
-
-        Collages ->
-            Dict.get "collage" dict
-
-
-release : String -> String -> Html Msg
-release cover name =
-    li [ Aria.label name ]
-        [ img
-            [ src cover
-            , alt name
-            , title name
-            ]
-            []
-        ]
+                    []
+                ]
+        )
+        data
 
 
 
@@ -613,8 +682,8 @@ update msg model =
             , Cmd.none
             )
 
-        ChooseRelease rel ->
-            ( { model | showRelease = rel }
+        ChooseRelease kind ->
+            ( { model | showRelease = kind }
             , Cmd.none
             )
 
