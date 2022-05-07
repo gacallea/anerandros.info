@@ -381,7 +381,7 @@ navLink link name =
     li
         [ Aria.label "main menu link" ]
         [ a
-            [ class "p-2 hover:underline hover:underline-offset-4 hover:bg-slate-100"
+            [ class "p-2 hover:underline hover:underline-offset-4"
             , href <| link
             , target target_
             , rel "noopener noreferrer"
