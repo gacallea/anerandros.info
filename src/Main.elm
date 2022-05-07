@@ -4,6 +4,7 @@ import Accessibility as Html exposing (..)
 import Accessibility.Aria as Aria exposing (..)
 import Browser
 import Browser.Events
+import Html exposing (..)
 import Html.Attributes exposing (..)
 
 
@@ -19,6 +20,7 @@ latestAlbumTitle =
 latestAlbumLink : String
 latestAlbumLink =
     "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/363304199&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+
 
 
 -- STREAMING OUTLETS
@@ -228,7 +230,7 @@ brand =
         [ class "flex flex-row justify-center w-full mt-0 md:mt-2"
         , Aria.label "brand logo"
         ]
-        [ img "Aner Andros Logo" [ src "https://placekitten.com/400/400", alt "Aner Andros" ]
+        [ img [ src "https://placekitten.com/400/400", alt "Aner Andros" ] []
         ]
 
 
