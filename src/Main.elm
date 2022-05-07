@@ -277,11 +277,11 @@ outlets =
         [ ul
             [ class "inline-flex py-2 justify-center text-lg lg:text-xl"
             ]
-            [ socialIcon soundCloudLink "bx-fw bx bxl-soundcloud" "soundcloud"
-            , socialIcon spotifyLink "bx-fw bx bxl-spotify" "spotify"
-            , socialIcon appleMusicLink "bx-fw bx bxl-apple" "apple"
-            , socialIcon youtubeLink "bx-fw bx bxl-youtube" "youtube"
-            , socialIcon deezerLink "bx-fw bx bxl-deezer" "deezer"
+            [ socialIcon anerSoundCloud "bx-fw bx bxl-soundcloud" "soundcloud"
+            , socialIcon anerSpotify "bx-fw bx bxl-spotify" "spotify"
+            , socialIcon anerAppleMusic "bx-fw bx bxl-apple" "apple"
+            , socialIcon anerYoutube "bx-fw bx bxl-youtube" "youtube"
+            , socialIcon anerDeezer "bx-fw bx bxl-deezer" "deezer"
             ]
         ]
 
