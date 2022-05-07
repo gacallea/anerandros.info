@@ -107,18 +107,18 @@ anerSongKick =
 allReleases : Dict Int ReleaseData
 allReleases =
     {-
-       1XX = albums
-       2XX = eps
-       3XX = remixes
-       4XX = collages
+       4XX = albums
+       3XX = eps
+       2XX = remixes
+       1XX = collages
     -}
     Dict.fromList
-        [ ( 100, remapEthosStream )
-        , ( 101, liminalTales )
-        , ( 200, eosVolOne )
-        , ( 201, artefactsASb )
-        , ( 300, enkefalina )
-        , ( 400, ispirazione )
+        [ ( 400, remapEthosStream )
+        , ( 401, liminalTales )
+        , ( 300, eosVolOne )
+        , ( 301, artefactsASb )
+        , ( 200, enkefalina )
+        , ( 100, ispirazione )
         ]
 
 
