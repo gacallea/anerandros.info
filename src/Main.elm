@@ -363,32 +363,27 @@ navbar =
             [ navLink "#top" "home"
             , navLink "#music" "music"
             , navLink "#about" "about"
-            , extLink anerSongKick "live"
+            , navLink anerSongKick "live"
             ]
         ]
 
 
 navLink : String -> String -> Html Msg
 navLink link name =
+    let
+        target_ =
+            if String.startsWith "http" link then
+                "_blank"
+
+            else
+                "_self"
+    in
     li
         [ Aria.label "main menu link" ]
         [ a
             [ class "p-2 hover:underline hover:underline-offset-4 hover:bg-slate-100"
             , href <| link
-            ]
-            [ text <| name
-            ]
-        ]
-
-
-extLink : String -> String -> Html Msg
-extLink link name =
-    li
-        [ Aria.label "main menu link" ]
-        [ a
-            [ class "p-2 hover:underline hover:underline-offset-4 hover:bg-slate-100"
-            , href <| link
-            , target "_blank"
+            , target target_
             , rel "noopener noreferrer"
             ]
             [ text <| name
@@ -456,38 +451,48 @@ latestAlbum =
         ]
 
 
-socialIcon : String -> String -> String -> Html msg
-socialIcon link icon socialname =
-    li
-        [ class "pl-0 px-5"
-        , Aria.label socialname
-        ]
-        [ a
-            [ href <| link
-            , target "_blank"
-            , rel "noopener noreferrer"
-            ]
-            [ i
-                [ class <| icon
-                ]
-                []
-            ]
-        ]
-
-
 outlets : Html Msg
 outlets =
     div [ Aria.label "music outlets social links" ]
         [ ul
             [ class "inline-flex py-2 justify-center text-lg lg:text-xl"
             ]
-            [ socialIcon anerSoundCloud "bx-fw bx bxl-soundcloud" "soundcloud"
-            , socialIcon anerSpotify "bx-fw bx bxl-spotify" "spotify"
-            , socialIcon anerAppleMusic "bx-fw bx bxl-apple" "apple"
-            , socialIcon anerYoutube "bx-fw bx bxl-youtube" "youtube"
-            , socialIcon anerDeezer "bx-fw bx bxl-deezer" "deezer"
-            ]
+          <|
+            socialIcons streamingServices
         ]
+
+
+streamingServices : List ( String, String )
+streamingServices =
+    [ ( anerSoundCloud, "soundcloud" )
+    , ( anerSpotify, "spotify" )
+    , ( anerAppleMusic, "apple" )
+    , ( anerYoutube, "youtube" )
+    , ( anerDeezer, "deezer" )
+    ]
+
+
+socialIcons : List ( String, String ) -> List (Html msg)
+socialIcons list =
+    List.map
+        (\soc ->
+            li
+                [ class "pl-0 px-5"
+                , Aria.label (Tuple.second soc)
+                ]
+                [ a
+                    [ href <| Tuple.first soc
+                    , target "_blank"
+                    , rel "noopener noreferrer"
+                    ]
+                    [ i
+                        [ class <| String.append "bx-fw bx bxl-" (Tuple.second soc)
+                        ]
+                        []
+                    ]
+                ]
+        )
+        list
 
 
 
