@@ -103,25 +103,24 @@ anerSongKick =
 
 -- RELEASES
 {-
-   releases (albums, eps) are progressively numbered:
-
-   3xx - releases
-   2xx - collages
-   1xx - remixes
+   releases are progressively numbered from oldest to newest
 
    foldl orders them in descending order
+   foldr orders them in ascending order
+
+   pick your fav in the showReleases function
 -}
 
 
 allReleases : Dict Int ReleaseData
 allReleases =
     Dict.fromList
-        [ ( 300, remapEthosStream )
-        , ( 301, eosVolOne )
-        , ( 302, liminalTales )
-        , ( 303, artefactsASb )
-        , ( 200, ispirazione )
-        , ( 100, enkefalina )
+        [ ( 100, remapEthosStream )
+        , ( 101, eosVolOne )
+        , ( 102, liminalTales )
+        , ( 103, artefactsASb )
+        , ( 104, ispirazione )
+        , ( 105, enkefalina )
         ]
 
 
@@ -587,6 +586,12 @@ discog model =
 
 showReleases : Dict Int ReleaseData -> List ReleaseData
 showReleases =
+    {-
+       to order them in descending order:
+        - Dict.foldl listTheseReleases []
+       to order them in ascending order:
+        - Dict.foldr listTheseReleases []
+    -}
     Dict.foldl listTheseReleases []
 
 
