@@ -562,7 +562,7 @@ releaseSelector list =
 discog : Model -> Html Msg
 discog model =
     ul
-        [ class "flex flex-row justify-between p-2 m-2"
+        [ class "flex flex-row justify-between"
         , Aria.label "all published releases"
         ]
     <|
@@ -593,7 +593,7 @@ release : List ReleaseData -> List (Html msg)
 release data =
     List.map
         (\i ->
-            li []
+            li [ class "p-2" ]
                 [ img
                     [ src i.cover
                     , alt i.name
