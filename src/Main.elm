@@ -516,7 +516,7 @@ socialIcons list =
 music : Model -> Html Msg
 music model =
     section
-        [ id "music", class "mx-0 md:mx-6", Aria.label "discography section" ]
+        [ id "music", class "mt-2 mx-0 md:mx-2", Aria.label "discography section" ]
         [ div
             [ class "text-md lg:text-base border-t border-slate-300 text-center" ]
             [ h2 [ class "sm:font-semibold pt-4 mb-4 underline" ]
