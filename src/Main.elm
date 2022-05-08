@@ -102,23 +102,26 @@ anerSongKick =
 
 
 -- RELEASES
+{-
+   releases (albums, eps) are progressively numbered:
+
+   3xx - releases
+   2xx - collages
+   1xx - remixes
+
+   foldl orders them in descending order
+-}
 
 
 allReleases : Dict Int ReleaseData
 allReleases =
-    {-
-       4XX = albums
-       3XX = eps
-       2XX = remixes
-       1XX = collages
-    -}
     Dict.fromList
-        [ ( 400, remapEthosStream )
-        , ( 401, liminalTales )
-        , ( 300, eosVolOne )
-        , ( 301, artefactsASb )
-        , ( 200, enkefalina )
-        , ( 100, ispirazione )
+        [ ( 300, remapEthosStream )
+        , ( 301, eosVolOne )
+        , ( 302, liminalTales )
+        , ( 303, artefactsASb )
+        , ( 200, ispirazione )
+        , ( 100, enkefalina )
         ]
 
 
