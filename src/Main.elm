@@ -1,6 +1,6 @@
-module Main exposing (Flags, Model, Msg(..), main)
+module Main exposing (Flags, Model, Msg(..), ReleaseKind, main)
 
-import Accessibility.Aria as Aria exposing (..)
+import Accessibility.Aria as Aria
 import Browser
 import Browser.Events
 import Dict exposing (Dict)
@@ -380,6 +380,7 @@ links =
 navLink : List ( String, String ) -> List (Html msg)
 navLink list =
     let
+        target_ : ( String, b ) -> String
         target_ link =
             if String.startsWith "http" (Tuple.first link) then
                 "_blank"
