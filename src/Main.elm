@@ -5,7 +5,7 @@ import Browser
 import Browser.Events
 import Dict exposing (Dict)
 import Html exposing (..)
-import Html.Attributes exposing (..)
+import Html.Attributes as Attr
 import Html.Events exposing (onClick)
 
 
@@ -313,7 +313,7 @@ init flags =
 view : Model -> Html Msg
 view model =
     main_
-        [ class "container mx-auto max-w-7xl"
+        [ Attr.class "container mx-auto max-w-7xl"
         , Aria.label "main content"
         ]
         [ header_
@@ -331,7 +331,7 @@ view model =
 header_ : Html Msg
 header_ =
     header
-        [ class "flex flex-row justify-center sm:justify-between sticky top-0 bg-white md:mb-4 md:py-2 border-b border-slate-300"
+        [ Attr.class "flex flex-row justify-center sm:justify-between sticky top-0 bg-white md:mb-4 md:py-2 border-b border-slate-300"
         , Aria.label "main header"
         ]
         [ logo
@@ -342,14 +342,14 @@ header_ =
 logo : Html Msg
 logo =
     div
-        [ class "text-md md:text-base my-2 sm:ml-4 xl:ml-0 hidden sm:inline-flex font-normal sm:font-medium"
+        [ Attr.class "text-md md:text-base my-2 sm:ml-4 xl:ml-0 hidden sm:inline-flex font-normal sm:font-medium"
         , Aria.label "brand name"
         ]
         [ ul
-            [ class "inline-flex text-md md:text-base"
+            [ Attr.class "inline-flex text-md md:text-base"
             ]
             [ li
-                [ class "pl-2"
+                [ Attr.class "pl-2"
                 ]
                 [ text "aner andros"
                 ]
@@ -361,7 +361,7 @@ navbar : Html Msg
 navbar =
     nav [ Aria.label "main menu" ]
         [ ul
-            [ class "inline-flex text-md md:text-base my-2 sm:mr-4 xl:mr-0"
+            [ Attr.class "inline-flex text-md md:text-base my-2 sm:mr-4 xl:mr-0"
             ]
           <|
             navLink links
@@ -393,10 +393,10 @@ navLink list =
             li
                 [ Aria.label "main menu link" ]
                 [ a
-                    [ class "p-2 hover:underline hover:underline-offset-4"
-                    , href <| Tuple.first lnk
-                    , target (target_ lnk)
-                    , rel "noopener noreferrer"
+                    [ Attr.class "p-2 hover:underline hover:underline-offset-4"
+                    , Attr.href <| Tuple.first lnk
+                    , Attr.target (target_ lnk)
+                    , Attr.rel "noopener noreferrer"
                     ]
                     [ text <| Tuple.second lnk
                     ]
@@ -412,24 +412,24 @@ navLink list =
 hero : Html Msg
 hero =
     section
-        [ id "hero", class "mx-0 sm:mx-2 lg:m-8", Aria.label "hero section" ]
+        [ Attr.id "hero", Attr.class "mx-0 sm:mx-2 lg:m-8", Aria.label "hero section" ]
         [ div
-            [ class "flex flex-col sm:flex-row sm:justify-between text-center"
+            [ Attr.class "flex flex-col sm:flex-row sm:justify-between text-center"
             ]
             [ h2
-                [ class "sm:font-bold py-2 block underline md:hidden landscape:hidden" ]
+                [ Attr.class "sm:font-bold py-2 block underline md:hidden landscape:hidden" ]
                 [ text "aner andros"
                 ]
             , div
-                [ class "text-sm lg:text-base"
+                [ Attr.class "text-sm lg:text-base"
                 ]
                 [ brand
-                , h1 [ class "sm:font-semibold py-4 overline" ]
+                , h1 [ Attr.class "sm:font-semibold py-4 overline" ]
                     [ text "musician. sound designer. creative coder. sound artist."
                     ]
                 ]
             , div
-                [ class "sm:self-end text-md lg:text-base content-end" ]
+                [ Attr.class "sm:self-end text-md lg:text-base content-end" ]
                 [ latestAlbum
                 , outlets
                 ]
@@ -440,26 +440,26 @@ hero =
 brand : Html Msg
 brand =
     div
-        [ class "flex flex-row justify-center w-full"
+        [ Attr.class "flex flex-row justify-center w-full"
         , Aria.label "brand logo"
         ]
-        [ img [ class "rounded-none md:rounded-full", src "https://placekitten.com/480", alt "Aner Andros" ] []
+        [ img [ Attr.class "rounded-none md:rounded-full", Attr.src "https://placekitten.com/480", Attr.alt "Aner Andros" ] []
         ]
 
 
 latestAlbum : Html Msg
 latestAlbum =
     div
-        [ class "flex flex-col justify-center border-t md:border-0 border-slate-300"
+        [ Attr.class "flex flex-col justify-center border-t md:border-0 border-slate-300"
         , Aria.label "latest album player"
         ]
-        [ h2 [ class "sm:font-semibold py-4 md:p-0 underline block md:hidden landscape:hidden" ]
+        [ h2 [ Attr.class "sm:font-semibold py-4 md:p-0 underline block md:hidden landscape:hidden" ]
             [ text "latest release"
             ]
         , iframe
-            [ class "w-full h-96"
-            , src latestAlbumLink
-            , title latestAlbumTitle
+            [ Attr.class "w-full h-96"
+            , Attr.src latestAlbumLink
+            , Attr.title latestAlbumTitle
             ]
             []
         ]
@@ -469,7 +469,7 @@ outlets : Html Msg
 outlets =
     div [ Aria.label "music outlets social links" ]
         [ ul
-            [ class "inline-flex my-2 py-2 justify-center text-lg lg:text-xl"
+            [ Attr.class "inline-flex my-2 py-2 justify-center text-lg lg:text-xl"
             ]
           <|
             socialIcons streamingServices
@@ -491,16 +491,16 @@ socialIcons list =
     List.map
         (\soc ->
             li
-                [ class "pl-0 px-5"
+                [ Attr.class "pl-0 px-5"
                 , Aria.label (Tuple.second soc)
                 ]
                 [ a
-                    [ href <| Tuple.first soc
-                    , target "_blank"
-                    , rel "noopener noreferrer"
+                    [ Attr.href <| Tuple.first soc
+                    , Attr.target "_blank"
+                    , Attr.rel "noopener noreferrer"
                     ]
                     [ i
-                        [ class <| String.append "bx-fw bx bxl-" (Tuple.second soc)
+                        [ Attr.class <| String.append "bx-fw bx bxl-" (Tuple.second soc)
                         ]
                         []
                     ]
@@ -516,15 +516,15 @@ socialIcons list =
 music : Model -> Html Msg
 music model =
     section
-        [ id "music", class "mt-2 mx-0 md:mx-2", Aria.label "discography section" ]
+        [ Attr.id "music", Attr.class "mt-2 mx-0 md:mx-2", Aria.label "discography section" ]
         [ div
-            [ class "text-md lg:text-base border-t border-slate-300 text-center" ]
-            [ h2 [ class "sm:font-semibold pt-4 mb-4 underline" ]
+            [ Attr.class "text-md lg:text-base border-t border-slate-300 text-center" ]
+            [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 underline" ]
                 [ text "music"
                 ]
             , discog model
             , ul
-                [ class "hidden sm:flex flex-row justify-center text-sm lg:text-base my-4 sm:mr-4"
+                [ Attr.class "hidden sm:flex flex-row justify-center text-sm lg:text-base my-4 sm:mr-4"
                 ]
               <|
                 releaseSelector selectors
@@ -547,12 +547,12 @@ releaseSelector list =
     List.map
         (\sel ->
             li
-                [ class "px-2 hover:underline hover:underline-offset-4"
+                [ Attr.class "px-2 hover:underline hover:underline-offset-4"
                 , Aria.label "kind of release selectors"
                 , onClick (ChooseRelease (Tuple.second sel))
                 ]
                 [ a
-                    [ href <| String.append "#" (Tuple.first sel)
+                    [ Attr.href <| String.append "#" (Tuple.first sel)
                     ]
                     [ text <| Tuple.first sel ]
                 ]
@@ -563,7 +563,7 @@ releaseSelector list =
 discog : Model -> Html Msg
 discog model =
     ul
-        [ class "flex sm:space-x-2 overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-x"
+        [ Attr.class "flex sm:space-x-2 overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-x"
         , Aria.label "all published releases"
         ]
     <|
@@ -599,12 +599,12 @@ renderReleases : List ReleaseData -> List (Html msg)
 renderReleases data =
     List.map
         (\i ->
-            li [ class "snap-always snap-center min-w-fit object-cover basis-full" ]
+            li [ Attr.class "snap-always snap-center min-w-fit object-cover basis-full" ]
                 [ img
-                    [ class "max-w-full"
-                    , src i.cover
-                    , alt i.name
-                    , title i.name
+                    [ Attr.class "max-w-full"
+                    , Attr.src i.cover
+                    , Attr.alt i.name
+                    , Attr.title i.name
                     ]
                     []
                 ]
@@ -620,42 +620,42 @@ about : Html Msg
 about =
     -- about (resp. paragraph)
     section
-        [ id "about", class "mt-2 mx-0 md:mx-2", Aria.label "about section" ]
-        [ div [ class "text-md lg:text-base border-t border-slate-300" ]
-            [ h2 [ class "sm:font-semibold pt-4 mb-4 underline text-center" ]
+        [ Attr.id "about", Attr.class "mt-2 mx-0 md:mx-2", Aria.label "about section" ]
+        [ div [ Attr.class "text-md lg:text-base border-t border-slate-300" ]
+            [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 underline text-center" ]
                 [ text "about"
                 ]
-            , div [ class "bg-gray-100 p-4 mb-4 md:p-6 md:mb-8 text-center md:text-left" ]
-                [ p [ class "p-2" ]
+            , div [ Attr.class "bg-gray-100 p-4 mb-4 md:p-6 md:mb-8 text-center md:text-left" ]
+                [ p [ Attr.class "p-2" ]
                     [ text "Eclectic producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors when drawing oneiric soundscapes in the making of musical voyages. "
                     , a
-                        [ href "https://vfs.edu/programs/sound-design"
-                        , target "_blank"
-                        , rel "noopener noreferrer"
+                        [ Attr.href "https://vfs.edu/programs/sound-design"
+                        , Attr.target "_blank"
+                        , Attr.rel "noopener noreferrer"
                         ]
                         [ text "VFS Alumnus and Sound Design for Visual Media graduate." ]
                     ]
-                , p [ class "p-2" ] [ text "Member of Mi.S.Fu and Sleep Collective. The former: a multifunctional, versatile cross-media laboratory dedicated to mapping, music, 3D, arts. The latter: a collective consisting of talents that had given rise to various Sleep Concert in different Italian locations and with different line-ups." ]
-                , p [ class "p-2" ]
+                , p [ Attr.class "p-2" ] [ text "Member of Mi.S.Fu and Sleep Collective. The former: a multifunctional, versatile cross-media laboratory dedicated to mapping, music, 3D, arts. The latter: a collective consisting of talents that had given rise to various Sleep Concert in different Italian locations and with different line-ups." ]
+                , p [ Attr.class "p-2" ]
                     [ text "Formerly based in Bristol, UK, Aner Andros has performed at the "
                     , a
-                        [ href "https://cubecinema.com/"
-                        , target "_blank"
-                        , rel "noopener noreferrer"
+                        [ Attr.href "https://cubecinema.com/"
+                        , Attr.target "_blank"
+                        , Attr.rel "noopener noreferrer"
                         ]
                         [ text "Cube Cinema Plex" ]
                     , text " and has collaborated with "
                     , a
-                        [ href "https://parallelmadness.com/"
-                        , target "_blank"
-                        , rel "noopener noreferrer"
+                        [ Attr.href "https://parallelmadness.com/"
+                        , Attr.target "_blank"
+                        , Attr.rel "noopener noreferrer"
                         ]
                         [ text "Parallel Madness" ]
                     , text ". Other noteworthy shows include "
                     , a
-                        [ href "https://crux-events.org/"
-                        , target "_blank"
-                        , rel "noopener noreferrer"
+                        [ Attr.href "https://crux-events.org/"
+                        , Attr.target "_blank"
+                        , Attr.rel "noopener noreferrer"
                         ]
                         [ text "Crux Events in London" ]
                     , text " and the Cronosfera Festival in Italy."
@@ -671,23 +671,23 @@ about =
    live : Html Msg
    live =
        -- live (resp. sort of calendar)
-       section [ id "live", Aria.label "live shows section" ] [ text "live" ]
+       section [ Attr.id "live", Aria.label "live shows section" ] [ text "live" ]
 -}
 -- FOOTER
 
 
 footer_ : Html Msg
 footer_ =
-    footer [ id "footer", class "mt-2", Aria.label "footer" ]
-        [ div [ class "text-sm md:text-sm border-t border-slate-300 py-4 text-center" ]
+    footer [ Attr.id "footer", Attr.class "mt-2", Aria.label "footer" ]
+        [ div [ Attr.class "text-sm md:text-sm border-t border-slate-300 py-4 text-center" ]
             [ p []
                 [ text "© Copyright Aner Andros. All Rights Reserved." ]
             , p []
                 [ text "Made with love and "
                 , a
-                    [ href "https://elm-lang.org/"
-                    , target "_blank"
-                    , rel "noopener noreferrer"
+                    [ Attr.href "https://elm-lang.org/"
+                    , Attr.target "_blank"
+                    , Attr.rel "noopener noreferrer"
                     ]
                     [ text "Elm." ]
                 ]
