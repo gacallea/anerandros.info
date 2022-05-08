@@ -331,7 +331,7 @@ view model =
 header_ : Html Msg
 header_ =
     header
-        [ class "flex flex-row justify-center sm:justify-between sticky top-0 bg-white md:mb-4 md:py-2 border-0 md:border-b border-slate-300"
+        [ class "flex flex-row justify-center sm:justify-between sticky top-0 bg-white md:mb-4 md:py-2 border-b border-slate-300"
         , Aria.label "main header"
         ]
         [ logo
@@ -413,7 +413,7 @@ hero =
     section
         [ id "hero", class "sm:mx-2 lg:m-8", Aria.label "hero section" ]
         [ div
-            [ class "flex flex-col sm:flex-row sm:justify-around mb-2 mt-0 md:mt-2 mx-2 border-t md:border-0 border-slate-300 text-center"
+            [ class "flex flex-col sm:flex-row sm:justify-between mx-2 text-center"
             ]
             [ h2
                 [ class "sm:font-bold py-2 block underline md:hidden landscape:hidden" ]
