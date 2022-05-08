@@ -411,9 +411,9 @@ navLink list =
 hero : Html Msg
 hero =
     section
-        [ id "hero", class "sm:mx-2 lg:m-8", Aria.label "hero section" ]
+        [ id "hero", class "mx-0 sm:mx-2 lg:m-8", Aria.label "hero section" ]
         [ div
-            [ class "flex flex-col sm:flex-row sm:justify-between mx-2 text-center"
+            [ class "flex flex-col sm:flex-row sm:justify-between text-center"
             ]
             [ h2
                 [ class "sm:font-bold py-2 block underline md:hidden landscape:hidden" ]
@@ -439,7 +439,7 @@ hero =
 brand : Html Msg
 brand =
     div
-        [ class "flex flex-row justify-center w-full mt-0 md:mt-2"
+        [ class "flex flex-row justify-center w-full"
         , Aria.label "brand logo"
         ]
         [ img [ class "rounded-none md:rounded-full", src "https://placekitten.com/480", alt "Aner Andros" ] []
@@ -449,14 +449,14 @@ brand =
 latestAlbum : Html Msg
 latestAlbum =
     div
-        [ class "flex flex-col justify-center mb-2 mt-0 md:mt-2 mx-2 border-t md:border-0 border-slate-300"
+        [ class "flex flex-col justify-center border-t md:border-0 border-slate-300"
         , Aria.label "latest album player"
         ]
         [ h2 [ class "sm:font-semibold py-4 md:p-0 underline block md:hidden landscape:hidden" ]
             [ text "latest release"
             ]
         , iframe
-            [ class "w-full h-80"
+            [ class "w-full h-96"
             , src latestAlbumLink
             , title latestAlbumTitle
             ]
@@ -468,7 +468,7 @@ outlets : Html Msg
 outlets =
     div [ Aria.label "music outlets social links" ]
         [ ul
-            [ class "inline-flex py-2 justify-center text-lg lg:text-xl"
+            [ class "inline-flex my-2 py-2 justify-center text-lg lg:text-xl"
             ]
           <|
             socialIcons streamingServices
@@ -515,7 +515,7 @@ socialIcons list =
 music : Model -> Html Msg
 music model =
     section
-        [ id "music", class "mt-2 mx-1 md:mx-2", Aria.label "discography section" ]
+        [ id "music", class "mx-0 md:mx-6", Aria.label "discography section" ]
         [ div
             [ class "text-md lg:text-base border-t border-slate-300 text-center" ]
             [ h2 [ class "sm:font-semibold pt-4 mb-4 underline" ]
@@ -613,13 +613,13 @@ about : Html Msg
 about =
     -- about (resp. paragraph)
     section
-        [ id "about", class "mt-2 mx-1 md:mx-2", Aria.label "about section" ]
+        [ id "about", class "mt-2 mx-0 md:mx-2", Aria.label "about section" ]
         [ div [ class "text-md lg:text-base border-t border-slate-300" ]
             [ h2 [ class "sm:font-semibold pt-4 mb-4 underline text-center" ]
                 [ text "about"
                 ]
-            , div [ class "bg-gray-50 p-8 mb-4 md:mb-8" ]
-                [ p [ class "p-1" ]
+            , div [ class "bg-gray-100 p-4 mb-4 md:p-6 md:mb-8 text-center md:text-left" ]
+                [ p [ class "p-2" ]
                     [ text "Eclectic producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors when drawing oneiric soundscapes in the making of musical voyages. "
                     , a
                         [ href "https://vfs.edu/programs/sound-design"
@@ -628,8 +628,8 @@ about =
                         ]
                         [ text "VFS Alumnus and Sound Design for Visual Media graduate." ]
                     ]
-                , p [ class "p-1" ] [ text "Member of Mi.S.Fu and Sleep Collective. The former: a multifunctional, versatile cross-media laboratory dedicated to mapping, music, 3D, arts. The latter: a collective consisting of talents that had given rise to various Sleep Concert in different Italian locations and with different line-ups." ]
-                , p [ class "p-1" ]
+                , p [ class "p-2" ] [ text "Member of Mi.S.Fu and Sleep Collective. The former: a multifunctional, versatile cross-media laboratory dedicated to mapping, music, 3D, arts. The latter: a collective consisting of talents that had given rise to various Sleep Concert in different Italian locations and with different line-ups." ]
+                , p [ class "p-2" ]
                     [ text "Formerly based in Bristol, UK, Aner Andros has performed at the "
                     , a
                         [ href "https://cubecinema.com/"
