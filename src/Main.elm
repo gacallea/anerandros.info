@@ -517,7 +517,7 @@ music model =
     section
         [ id "music", class "mt-2 mx-1 md:mx-2", Aria.label "discography section" ]
         [ div
-            [ class "flex flex-col text-md lg:text-base border-t border-slate-300 text-center" ]
+            [ class "text-md lg:text-base border-t border-slate-300 text-center" ]
             [ h2 [ class "sm:font-semibold pt-4 mb-4 underline" ]
                 [ text "music"
                 ]
@@ -614,7 +614,7 @@ about =
     -- about (resp. paragraph)
     section
         [ id "about", class "mt-2 mx-1 md:mx-2", Aria.label "about section" ]
-        [ div [ class "flex flex-col text-md lg:text-base border-t border-slate-300" ]
+        [ div [ class "text-md lg:text-base border-t border-slate-300" ]
             [ h2 [ class "sm:font-semibold pt-4 mb-4 underline text-center" ]
                 [ text "about"
                 ]
@@ -672,7 +672,7 @@ about =
 footer_ : Html Msg
 footer_ =
     footer [ id "footer", class "mt-2", Aria.label "footer" ]
-        [ div [ class "flex flex-col justify-center text-sm md:text-sm border-t border-slate-300 py-4 text-center" ]
+        [ div [ class "text-sm md:text-sm border-t border-slate-300 py-4 text-center" ]
             [ p []
                 [ text "© Copyright Aner Andros. All Rights Reserved." ]
             , p []
