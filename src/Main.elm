@@ -420,7 +420,7 @@ hero =
                 [ text "aner andros"
                 ]
             , div
-                [ class "text-sm lg:text-base lg:text-justify"
+                [ class "text-sm lg:text-base"
                 ]
                 [ brand
                 , h1 [ class "sm:font-semibold py-4 overline" ]
