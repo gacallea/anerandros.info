@@ -523,7 +523,7 @@ music model =
                 ]
             , discog model
             , ul
-                [ class "flex flex-row justify-center text-sm lg:text-base my-4 sm:mr-4"
+                [ class "hidden sm:flex flex-row justify-center text-sm lg:text-base my-4 sm:mr-4"
                 ]
               <|
                 releaseSelector selectors
