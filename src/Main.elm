@@ -563,7 +563,7 @@ releaseSelector list =
 discog : Model -> Html Msg
 discog model =
     ul
-        [ class "flex flex-row overflow-contain overflow-x-scroll snap-mandatory snap-x"
+        [ class "flex sm:space-x-2 overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-x"
         , Aria.label "all published releases"
         ]
     <|
@@ -599,9 +599,9 @@ renderReleases : List ReleaseData -> List (Html msg)
 renderReleases data =
     List.map
         (\i ->
-            li [ class "pl-0 p-2 snap-always snap-center" ]
+            li [ class "snap-always snap-center min-w-fit object-cover basis-full" ]
                 [ img
-                    [ class "max-w-lg"
+                    [ class "max-w-full"
                     , src i.cover
                     , alt i.name
                     , title i.name
