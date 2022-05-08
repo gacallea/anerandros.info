@@ -566,31 +566,36 @@ discog model =
         , Aria.label "all published releases"
         ]
     <|
-        release <|
+        renderReleases <|
             case model.showRelease of
                 All ->
-                    Dict.foldl showReleases [] allReleases
+                    showReleases allReleases
 
                 Albums ->
-                    Dict.foldl showReleases [] allAlbums
+                    showReleases allAlbums
 
                 Eps ->
-                    Dict.foldl showReleases [] allEps
+                    showReleases allEps
 
                 Remixes ->
-                    Dict.foldl showReleases [] allRemixes
+                    showReleases allRemixes
 
                 Collages ->
-                    Dict.foldl showReleases [] allCollages
+                    showReleases allCollages
 
 
-showReleases : Int -> ReleaseData -> List ReleaseData -> List ReleaseData
-showReleases _ rel releases =
+showReleases : Dict Int ReleaseData -> List ReleaseData
+showReleases =
+    Dict.foldl listTheseReleases []
+
+
+listTheseReleases : Int -> ReleaseData -> List ReleaseData -> List ReleaseData
+listTheseReleases _ rel releases =
     rel :: releases
 
 
-release : List ReleaseData -> List (Html msg)
-release data =
+renderReleases : List ReleaseData -> List (Html msg)
+renderReleases data =
     List.map
         (\i ->
             li [ class "p-2" ]
