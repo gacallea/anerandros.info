@@ -428,7 +428,7 @@ hero =
                     ]
                 ]
             , div
-                [ class "text-md lg:text-base content-end" ]
+                [ class "sm:self-end text-md lg:text-base content-end" ]
                 [ latestAlbum
                 , outlets
                 ]
@@ -442,7 +442,7 @@ brand =
         [ class "flex flex-row justify-center w-full mt-0 md:mt-2"
         , Aria.label "brand logo"
         ]
-        [ img [ src "https://placekitten.com/480", alt "Aner Andros" ] []
+        [ img [ class "rounded-none md:rounded-full", src "https://placekitten.com/480", alt "Aner Andros" ] []
         ]
 
 
