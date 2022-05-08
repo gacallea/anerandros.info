@@ -363,35 +363,45 @@ navbar =
         [ ul
             [ class "inline-flex text-md md:text-base my-2 sm:mr-4 xl:mr-0"
             ]
-            [ navLink "#top" "home"
-            , navLink "#music" "music"
-            , navLink "#about" "about"
-            , navLink anerSongKick "live"
-            ]
+          <|
+            navLink links
         ]
 
 
-navLink : String -> String -> Html Msg
-navLink link name =
+links : List ( String, String )
+links =
+    [ ( "#top", "home" )
+    , ( "#music", "music" )
+    , ( "#about", "about" )
+    , ( anerSongKick, "live" )
+    ]
+
+
+navLink : List ( String, String ) -> List (Html msg)
+navLink list =
     let
-        target_ =
-            if String.startsWith "http" link then
+        target_ link =
+            if String.startsWith "http" (Tuple.first link) then
                 "_blank"
 
             else
                 "_self"
     in
-    li
-        [ Aria.label "main menu link" ]
-        [ a
-            [ class "p-2 hover:underline hover:underline-offset-4"
-            , href <| link
-            , target target_
-            , rel "noopener noreferrer"
-            ]
-            [ text <| name
-            ]
-        ]
+    List.map
+        (\lnk ->
+            li
+                [ Aria.label "main menu link" ]
+                [ a
+                    [ class "p-2 hover:underline hover:underline-offset-4"
+                    , href <| Tuple.first lnk
+                    , target (target_ lnk)
+                    , rel "noopener noreferrer"
+                    ]
+                    [ text <| Tuple.second lnk
+                    ]
+                ]
+        )
+        list
 
 
 
