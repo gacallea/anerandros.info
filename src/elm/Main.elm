@@ -661,7 +661,7 @@ about =
             [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 underline text-center" ]
                 [ text "about"
                 ]
-            , div [ Attr.class "bg-gray-100 p-4 mb-4 md:p-6 md:mb-8 text-center md:text-left" ]
+            , div [ Attr.class "bg-gray-100 md:bg-inherit p-4 mb-4 md:px-8 lg:px-14 md:mb-8 text-center md:text-left" ]
                 [ p [ Attr.class "p-2" ]
                     [ text "Eclectic producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors when drawing oneiric soundscapes in the making of musical voyages. "
                     , a
