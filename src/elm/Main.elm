@@ -413,7 +413,7 @@ hero =
     section
         [ Attr.id "hero", Attr.class "mx-0 sm:mx-2 lg:m-8", Aria.label "hero section" ]
         [ div
-            [ Attr.class "flex flex-col sm:flex-row sm:justify-between text-center"
+            [ Attr.class "flex flex-col sm:flex-row sm:justify-between text-center px-2 lg:px-8"
             ]
             [ h2
                 [ Attr.class "sm:font-bold py-2 block underline md:hidden landscape:hidden" ]
