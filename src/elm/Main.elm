@@ -518,7 +518,7 @@ music model =
         [ Attr.id "music", Attr.class "mt-2 mx-0 md:mx-2", Aria.label "discography section" ]
         [ div
             [ Attr.class "text-md lg:text-base border-t border-slate-300 text-center md:px-14" ]
-            [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 underline" ]
+            [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 md:mb-6 underline" ]
                 [ text "music"
                 ]
             , discog model
@@ -658,7 +658,7 @@ about =
     section
         [ Attr.id "about", Attr.class "mt-2 mx-0 md:mx-2", Aria.label "about section" ]
         [ div [ Attr.class "text-md lg:text-base border-t border-slate-300" ]
-            [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 underline text-center" ]
+            [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 md:mb-0 underline text-center" ]
                 [ text "about"
                 ]
             , div [ Attr.class "bg-gray-100 md:bg-inherit p-4 mb-4 md:px-8 lg:px-14 md:mb-8 text-center md:text-left" ]
