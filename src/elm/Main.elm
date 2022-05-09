@@ -624,7 +624,7 @@ renderReleases data =
                 --         []
                 --     ]
                 , div
-                    [ Attr.class "absolute bottom-0 bg-zinc-600 bg-opacity-50 group-hover:bg-zinc-900 group-hover:bg-opacity-60 w-full h-1/3 py-4 md:py-8 text-neutral-400 group-hover:text-gray-100 text-center text-xs md:text-sm font-light"
+                    [ Attr.class "absolute bottom-0 bg-zinc-200 bg-opacity-50 group-hover:bg-zinc-900 group-hover:bg-opacity-60 w-full h-1/3 py-4 md:py-8 text-neutral-900 group-hover:text-gray-100 text-center text-xs md:text-sm font-light"
                     ]
                     [ text i.name ]
                 ]
