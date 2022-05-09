@@ -4,9 +4,31 @@ import Accessibility.Aria as Aria
 import Browser
 import Browser.Events
 import Dict exposing (Dict)
-import Html exposing (..)
+import Html
+    exposing
+        ( Html
+        , a
+        , div
+        , footer
+        , h1
+        , h2
+        , h3
+        , header
+        , i
+        , img
+        , li
+        , main_
+        , nav
+        , p
+        , section
+        , span
+        , text
+        , ul
+        )
 import Html.Attributes as Attr
 import Html.Events exposing (onClick)
+import Svg as Svg exposing (svg)
+import Svg.Attributes as SvgAttr
 
 
 
