@@ -597,6 +597,32 @@ renderReleases data =
                     , Attr.title i.name
                     ]
                     []
+
+                -- this is how I would do it in parceljs if sharp worked
+                --   node "picture"
+                --     []
+                --     [ source
+                --         [ Attr.attribute "srcset" <| String.append i.cover "as=avif&?width=800"
+                --         , Attr.type_ "image/avif"
+                --         ]
+                --         []
+                --     , source
+                --         [ Attr.attribute "srcset" <| String.append i.cover "?as=webp&width=800"
+                --         , Attr.type_ "image/webp"
+                --         ]
+                --         []
+                --     , source
+                --         [ Attr.attribute "srcset" <| String.append i.cover "?width=800"
+                --         , Attr.type_ "image/jpeg"
+                --         ]
+                --         []
+                --     , img
+                --         [ Attr.src <| String.append i.cover "?width=200"
+                --         , Attr.alt i.name
+                --         , Attr.title i.name
+                --         ]
+                --         []
+                --     ]
                 , div
                     [ Attr.class "absolute bottom-0 bg-zinc-600 bg-opacity-50 group-hover:bg-zinc-900 group-hover:bg-opacity-60 w-full h-1/3 py-4 md:py-8 text-gray-100 text-center text-xs md:text-sm font-light"
                     ]
