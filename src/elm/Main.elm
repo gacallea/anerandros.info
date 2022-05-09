@@ -517,7 +517,7 @@ music model =
     section
         [ Attr.id "music", Attr.class "mt-2 mx-0 md:mx-2", Aria.label "discography section" ]
         [ div
-            [ Attr.class "text-md lg:text-base border-t border-slate-300 text-center" ]
+            [ Attr.class "text-md lg:text-base border-t border-slate-300 text-center md:px-14" ]
             [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 underline" ]
                 [ text "music"
                 ]
