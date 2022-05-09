@@ -598,7 +598,7 @@ renderReleases data =
                     ]
                     []
                 , div
-                    [ Attr.class "absolute bottom-0 bg-gray-50 bg-opacity-60 w-full h-1/3 py-4 md:py-8 text-center text-slate-900 text-xs md:text-sm font-light"
+                    [ Attr.class "absolute bottom-0 bg-zinc-600 bg-opacity-50 w-full h-1/3 py-4 md:py-8 text-gray-100 text-center text-xs md:text-sm font-light"
                     ]
                     [ text i.name ]
                 ]
