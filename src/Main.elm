@@ -159,7 +159,7 @@ liminalTales =
     , catalog = Just "GWR0002"
     , year = "2016"
     , name = "Liminal Tales"
-    , cover = "https://placekitten.com/420"
+    , cover = "https://placekitten.com/240"
     , coverArtist = "https://www.flickr.com/photos/ramocchia/"
     , apple = Just "https://music.apple.com/album/liminal-tales/1091282352"
     , amazon = Just "https://www.amazon.co.uk/Liminal-Tales-Aner-Andros/dp/B01CQHFGNU"
@@ -178,7 +178,7 @@ remapEthosStream =
     , catalog = Just "GWR0000"
     , year = "2015"
     , name = "Remap Ethos Stream"
-    , cover = "https://placekitten.com/420"
+    , cover = "https://placekitten.com/240"
     , coverArtist = "http://www.riccardoarena.org/"
     , apple = Just "https://music.apple.com/it/album/remap-ethos-stream/1034283468"
     , amazon = Just "https://www.amazon.co.uk/Remap-Ethos-Stream-Aner-Andros/dp/B014MFIF28"
@@ -197,7 +197,7 @@ artefactsASb =
     , catalog = Just "GWR0003"
     , year = "2017"
     , name = "Artefacts and Sonic Brushstrokes"
-    , cover = "https://placekitten.com/420"
+    , cover = "https://placekitten.com/240"
     , coverArtist = "http://trashriotart.tumblr.com/"
     , apple = Just "https://music.apple.com/album/artefacts-and-sonic-brushstrokes-ep/1281231021"
     , amazon = Just "https://www.amazon.com/Artefacts-Sonic-Brushstrokes-Aner-Andros/dp/B075M7SFZL"
@@ -216,7 +216,7 @@ eosVolOne =
     , catalog = Just "GWR0001"
     , year = "2015"
     , name = "Embroidering on Silence Vol. I"
-    , cover = "https://placekitten.com/420"
+    , cover = "https://placekitten.com/240"
     , coverArtist = "https://carolrollo.it/"
     , apple = Just "https://music.apple.com/ca/album/embroidering-on-silence-vol-i/1242232285"
     , amazon = Just "https://www.amazon.com/Embroidering-Silence-Vol-Aner-Andros/dp/B072634MT3/143-8572494-9262537"
@@ -235,7 +235,7 @@ enkefalina =
     , catalog = Nothing
     , year = "2017"
     , name = "Enkefalina (Aner Andros Remix)"
-    , cover = "https://placekitten.com/420"
+    , cover = "https://placekitten.com/240"
     , coverArtist = "https://carolrollo.it/"
     , apple = Nothing
     , amazon = Nothing
@@ -254,7 +254,7 @@ ispirazione =
     , catalog = Nothing
     , year = "2016"
     , name = "ISPIRAZIONE"
-    , cover = "https://placekitten.com/420"
+    , cover = "https://placekitten.com/240"
     , coverArtist = "https://carolrollo.it/"
     , apple = Nothing
     , amazon = Nothing
@@ -561,8 +561,8 @@ releaseSelector list =
 
 discog : Model -> Html Msg
 discog model =
-    ul
-        [ Attr.class "flex sm:space-x-2 overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-x"
+    div
+        [ Attr.class "grid grid-flow-col gap-2 auto-cols-max overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-x"
         , Aria.label "all published releases"
         ]
     <|
@@ -584,6 +584,28 @@ discog model =
                     showReleases allCollages
 
 
+renderReleases : List ReleaseData -> List (Html msg)
+renderReleases data =
+    List.map
+        (\i ->
+            div
+                [ Attr.class "relative snap-always snap-center min-w-fit object-cover cursor-pointer" ]
+                [ img
+                    [ Attr.class "max-w-xs lg:max-w-sm 2xl:max-w-full h-auto"
+                    , Attr.src i.cover
+                    , Attr.alt i.name
+                    , Attr.title i.name
+                    ]
+                    []
+                , div
+                    [ Attr.class "absolute bottom-0 bg-gray-50 bg-opacity-60 w-full py-4 md:py-8 text-center align-text-bottom text-slate-900 text-xs md:text-sm font-light"
+                    ]
+                    [ text i.name ]
+                ]
+        )
+        data
+
+
 showReleases : Dict Int ReleaseData -> List ReleaseData
 showReleases =
     {-
@@ -598,23 +620,6 @@ showReleases =
 listTheseReleases : Int -> ReleaseData -> List ReleaseData -> List ReleaseData
 listTheseReleases _ rel releases =
     rel :: releases
-
-
-renderReleases : List ReleaseData -> List (Html msg)
-renderReleases data =
-    List.map
-        (\i ->
-            li [ Attr.class "snap-always snap-center min-w-fit object-cover basis-full" ]
-                [ img
-                    [ Attr.class "max-w-full"
-                    , Attr.src i.cover
-                    , Attr.alt i.name
-                    , Attr.title i.name
-                    ]
-                    []
-                ]
-        )
-        data
 
 
 
