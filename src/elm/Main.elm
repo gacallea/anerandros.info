@@ -372,7 +372,7 @@ logo =
             [ li
                 [ Attr.class "pl-2"
                 ]
-                [ text "aner andros"
+                [ Html.text "aner andros"
                 ]
             ]
         ]
@@ -419,7 +419,7 @@ navLink list =
                     , Attr.target (target_ lnk)
                     , Attr.rel "noopener noreferrer"
                     ]
-                    [ text <| Tuple.second lnk
+                    [ Html.text <| Tuple.second lnk
                     ]
                 ]
         )
@@ -439,14 +439,14 @@ hero =
             ]
             [ h2
                 [ Attr.class "sm:font-bold py-2 block underline md:hidden landscape:hidden" ]
-                [ text "aner andros"
+                [ Html.text "aner andros"
                 ]
             , div
                 [ Attr.class "text-sm lg:text-base"
                 ]
                 [ brand
                 , h1 [ Attr.class "sm:font-semibold py-4 overline" ]
-                    [ text "musician. sound designer. creative coder. sound artist."
+                    [ Html.text "musician. sound designer. creative coder. sound artist."
                     ]
                 ]
             , div
@@ -475,8 +475,7 @@ latestAlbum =
         , Aria.label "latest album player"
         ]
         [ h2 [ Attr.class "sm:font-semibold py-4 md:p-0 underline block md:hidden landscape:hidden" ]
-            [ text "latest release"
-            ]
+            [ Html.text "latest release"
         , iframe
             [ Attr.class "w-full h-96"
             , Attr.src latestAlbumLink
@@ -541,7 +540,7 @@ music model =
         [ div
             [ Attr.class "text-md lg:text-base border-t border-slate-300 text-center md:px-14" ]
             [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 md:mb-6 underline" ]
-                [ text "music"
+                [ Html.text "music"
                 ]
             , discog model
             , ul
@@ -575,7 +574,7 @@ releaseSelector list =
                 [ a
                     [ Attr.href <| String.append "#" (Tuple.first sel)
                     ]
-                    [ text <| Tuple.first sel ]
+                    [ Html.text <| Tuple.first sel ]
                 ]
         )
         list
@@ -648,7 +647,7 @@ renderReleases data =
                 , div
                     [ Attr.class "absolute bottom-0 bg-zinc-200 bg-opacity-50 group-hover:bg-zinc-900 group-hover:bg-opacity-60 w-full h-1/3 py-4 md:py-8 text-neutral-900 group-hover:text-gray-100 text-center text-xs md:text-sm font-light"
                     ]
-                    [ text i.name ]
+                    [ Html.text i.name ]
                 ]
         )
         data
@@ -681,42 +680,42 @@ about =
         [ Attr.id "about", Attr.class "mt-2 mx-0 md:mx-2", Aria.label "about section" ]
         [ div [ Attr.class "text-md lg:text-base border-t border-slate-300" ]
             [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 md:mb-0 underline text-center" ]
-                [ text "about"
+                [ Html.text "about"
                 ]
             , div [ Attr.class "bg-gray-100 md:bg-inherit p-4 mb-4 md:px-8 lg:px-14 md:mb-8 text-center md:text-left" ]
                 [ p [ Attr.class "p-2" ]
-                    [ text "Eclectic producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors when drawing oneiric soundscapes in the making of musical voyages. "
+                    [ Html.text "Eclectic producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors when drawing oneiric soundscapes in the making of musical voyages. "
                     , a
                         [ Attr.href "https://vfs.edu/programs/sound-design"
                         , Attr.target "_blank"
                         , Attr.rel "noopener noreferrer"
                         ]
-                        [ text "VFS Alumnus and Sound Design for Visual Media graduate." ]
+                        [ Html.text "VFS Alumnus and Sound Design for Visual Media graduate." ]
                     ]
-                , p [ Attr.class "p-2" ] [ text "Member of Mi.S.Fu and Sleep Collective. The former: a multifunctional, versatile cross-media laboratory dedicated to mapping, music, 3D, arts. The latter: a collective consisting of talents that had given rise to various Sleep Concert in different Italian locations and with different line-ups." ]
+                , p [ Attr.class "p-2" ] [ Html.text "Member of Mi.S.Fu and Sleep Collective. The former: a multifunctional, versatile cross-media laboratory dedicated to mapping, music, 3D, arts. The latter: a collective consisting of talents that had given rise to various Sleep Concert in different Italian locations and with different line-ups." ]
                 , p [ Attr.class "p-2" ]
-                    [ text "Formerly based in Bristol, UK, Aner Andros has performed at the "
+                    [ Html.text "Formerly based in Bristol, UK, Aner Andros has performed at the "
                     , a
                         [ Attr.href "https://cubecinema.com/"
                         , Attr.target "_blank"
                         , Attr.rel "noopener noreferrer"
                         ]
-                        [ text "Cube Cinema Plex" ]
-                    , text " and has collaborated with "
+                        [ Html.text "Cube Cinema Plex" ]
+                    , Html.text " and has collaborated with "
                     , a
                         [ Attr.href "https://parallelmadness.com/"
                         , Attr.target "_blank"
                         , Attr.rel "noopener noreferrer"
                         ]
-                        [ text "Parallel Madness" ]
-                    , text ". Other noteworthy shows include "
+                        [ Html.text "Parallel Madness" ]
+                    , Html.text ". Other noteworthy shows include "
                     , a
                         [ Attr.href "https://crux-events.org/"
                         , Attr.target "_blank"
                         , Attr.rel "noopener noreferrer"
                         ]
-                        [ text "Crux Events in London" ]
-                    , text " and the Cronosfera Festival in Italy."
+                        [ Html.text "Crux Events in London" ]
+                    , Html.text " and the Cronosfera Festival in Italy."
                     ]
                 ]
             ]
@@ -729,7 +728,7 @@ about =
    live : Html Msg
    live =
        -- live (resp. sort of calendar)
-       section [ Attr.id "live", Aria.label "live shows section" ] [ text "live" ]
+       section [ Attr.id "live", Aria.label "live shows section" ] [ Html.text "live" ]
 -}
 -- FOOTER
 
@@ -739,15 +738,15 @@ footer_ =
     footer [ Attr.id "footer", Attr.class "mt-2", Aria.label "footer" ]
         [ div [ Attr.class "text-sm md:text-sm border-t border-slate-300 py-4 text-center" ]
             [ p []
-                [ text "© Copyright Aner Andros. All Rights Reserved." ]
+                [ Html.text "© Copyright Aner Andros. All Rights Reserved." ]
             , p []
-                [ text "Made with love and "
+                [ Html.text "Made with love and "
                 , a
                     [ Attr.href "https://elm-lang.org/"
                     , Attr.target "_blank"
                     , Attr.rel "noopener noreferrer"
                     ]
-                    [ text "Elm." ]
+                    [ Html.text "Elm." ]
                 ]
             ]
         ]
