@@ -27,6 +27,7 @@ import Html.Attributes as Attr
 import Html.Events exposing (onClick)
 import Svg exposing (svg)
 import Svg.Attributes as SvgAttr
+import VitePluginHelper
 
 
 
@@ -87,9 +88,43 @@ gentleWashHome =
     "https://gentlewashrecords.com/"
 
 
+
+-- IMAGES
+
+
 brandImage : String
 brandImage =
-    "[VITE_PLUGIN_ELM_ASSET:../img/aner_andros.jpg]"
+    VitePluginHelper.asset "../img/aner_andros.jpg"
+
+
+liminalCover : String
+liminalCover =
+    VitePluginHelper.asset "../img/covers/liminal.jpg"
+
+
+remapCover : String
+remapCover =
+    VitePluginHelper.asset "../img/covers/res.jpg"
+
+
+aasbCover : String
+aasbCover =
+    VitePluginHelper.asset "../img/covers/aasb.jpg"
+
+
+eosVolOneCover : String
+eosVolOneCover =
+    VitePluginHelper.asset "../img/covers/eos1.jpg"
+
+
+enkefalinaCover : String
+enkefalinaCover =
+    VitePluginHelper.asset "../img/covers/enkefalina.jpeg"
+
+
+ispirazioneCover : String
+ispirazioneCover =
+    VitePluginHelper.asset "../img/covers/collage.jpg"
 
 
 
@@ -189,7 +224,7 @@ liminalTales =
     , catalog = Just "GWR0002"
     , year = "2016"
     , name = "Liminal Tales"
-    , cover = "[VITE_PLUGIN_ELM_ASSET:../img/covers/liminal.jpg]"
+    , cover = liminalCover
     , coverArtist = "https://www.flickr.com/photos/ramocchia/"
     , apple = Just "https://music.apple.com/album/liminal-tales/1091282352"
     , amazon = Just "https://www.amazon.co.uk/Liminal-Tales-Aner-Andros/dp/B01CQHFGNU"
@@ -208,7 +243,7 @@ remapEthosStream =
     , catalog = Just "GWR0000"
     , year = "2015"
     , name = "Remap Ethos Stream"
-    , cover = "[VITE_PLUGIN_ELM_ASSET:../img/covers/res.jpg]"
+    , cover = remapCover
     , coverArtist = "http://www.riccardoarena.org/"
     , apple = Just "https://music.apple.com/it/album/remap-ethos-stream/1034283468"
     , amazon = Just "https://www.amazon.co.uk/Remap-Ethos-Stream-Aner-Andros/dp/B014MFIF28"
@@ -227,7 +262,7 @@ artefactsASb =
     , catalog = Just "GWR0003"
     , year = "2017"
     , name = "Artefacts and Sonic Brushstrokes"
-    , cover = "[VITE_PLUGIN_ELM_ASSET:../img/covers/aasb.jpg]"
+    , cover = aasbCover
     , coverArtist = "http://trashriotart.tumblr.com/"
     , apple = Just "https://music.apple.com/album/artefacts-and-sonic-brushstrokes-ep/1281231021"
     , amazon = Just "https://www.amazon.com/Artefacts-Sonic-Brushstrokes-Aner-Andros/dp/B075M7SFZL"
@@ -246,7 +281,7 @@ eosVolOne =
     , catalog = Just "GWR0001"
     , year = "2015"
     , name = "Embroidering on Silence Vol. I"
-    , cover = "[VITE_PLUGIN_ELM_ASSET:../img/covers/eos1.jpg]"
+    , cover = eosVolOneCover
     , coverArtist = "https://carolrollo.it/"
     , apple = Just "https://music.apple.com/ca/album/embroidering-on-silence-vol-i/1242232285"
     , amazon = Just "https://www.amazon.com/Embroidering-Silence-Vol-Aner-Andros/dp/B072634MT3/143-8572494-9262537"
@@ -265,7 +300,7 @@ enkefalina =
     , catalog = Nothing
     , year = "2017"
     , name = "Enkefalina (Aner Andros Remix)"
-    , cover = "[VITE_PLUGIN_ELM_ASSET:../img/covers/enkefalina.jpeg]"
+    , cover = enkefalinaCover
     , coverArtist = "https://carolrollo.it/"
     , apple = Nothing
     , amazon = Nothing
@@ -284,7 +319,7 @@ ispirazione =
     , catalog = Nothing
     , year = "2016"
     , name = "ISPIRAZIONE"
-    , cover = "[VITE_PLUGIN_ELM_ASSET:../img/covers/collage.jpg]"
+    , cover = ispirazioneCover
     , coverArtist = "https://carolrollo.it/"
     , apple = Nothing
     , amazon = Nothing
