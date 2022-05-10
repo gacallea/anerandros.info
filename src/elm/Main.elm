@@ -788,7 +788,7 @@ renderReleases data =
     List.map
         (\i ->
             div
-                [ Attr.class "relative snap-always snap-center min-w-fit object-cover cursor-pointer group" ]
+                [ Attr.class "relative snap-always snap-center min-w-fit object-cover cursor-pointer group hover:bg-slate-900" ]
                 [ img
                     [ Attr.class "max-w-xs lg:max-w-sm 2xl:max-w-full h-auto group-hover:opacity-70"
                     , Attr.src i.cover
@@ -823,7 +823,7 @@ renderReleases data =
                 --         []
                 --     ]
                 , div
-                    [ Attr.class "absolute bottom-0 bg-zinc-200 bg-opacity-50 group-hover:bg-zinc-900 group-hover:bg-opacity-60 w-full h-1/3 py-4 md:py-8 text-neutral-900 group-hover:text-gray-100 text-center text-xs md:text-sm font-light"
+                    [ Attr.class "absolute top-1/2 w-full invisible group-hover:visible text-center group-hover:text-white group-hover:text-md group-hover:lg:text-lg font-light"
                     ]
                     [ Html.text i.name ]
                 ]
