@@ -3,9 +3,12 @@ import elmPlugin from 'vite-plugin-elm'
 import { ViteFaviconsPlugin } from 'vite-plugin-favicon'
 import compress from 'vite-plugin-compress'
 
+import { ViteWebfontDownload } from 'vite-plugin-webfont-dl'
+
 export default defineConfig({
   plugins: [
     elmPlugin(),
+    ViteWebfontDownload(),
     ViteFaviconsPlugin({
       logo: './src/img/aner_andros-big.jpg', // svg works too!
       favicons: {
