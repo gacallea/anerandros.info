@@ -6,7 +6,6 @@ import compress from 'vite-plugin-compress'
 export default defineConfig({
   plugins: [
     elmPlugin(),
-    compress(),
     ViteFaviconsPlugin({
       logo: './src/img/aner_andros-big.jpg', // svg works too!
       favicons: {
@@ -21,6 +20,7 @@ export default defineConfig({
         }
       }
     })
+    // compress() // bug: https://github.com/alloc/vite-plugin-compress/issues/10
   ],
   build: {
     outDir: 'public'
