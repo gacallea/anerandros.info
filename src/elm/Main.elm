@@ -82,6 +82,11 @@ latestAlbumLink =
     "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/363304199&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
 
 
+gentleWashHome : String
+gentleWashHome =
+    "https://gentlewashrecords.com/"
+
+
 
 -- STREAMING OUTLETS
 
@@ -818,70 +823,27 @@ about =
             , div [ Attr.class "bg-lime-200 md:bg-inherit rounded-lg m-2 lg:m-0 p-4 mb-4 md:px-8 lg:px-14 md:mb-8 text-center md:text-left" ]
                 [ p [ Attr.class "p-2" ]
                     [ Html.text "Eclectic producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors when drawing oneiric soundscapes in the making of musical voyages. "
-                    , a
-                        [ Attr.href "https://vfs.edu/programs/sound-design"
-                        , Attr.target "_blank"
-                        , Attr.rel "noopener noreferrer"
-                        ]
-                        [ Html.text "VFS Alumnus and Sound Design for Visual Media graduate." ]
+                    , a [ Attr.href "https://vfs.edu/programs/sound-design", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "VFS Alumnus and Sound Design for Visual Media graduate." ]
                     ]
                 , p [ Attr.class "p-2" ] [ Html.text "Member of Mi.S.Fu and Sleep Collective. The former: a multifunctional, versatile cross-media laboratory dedicated to mapping, music, 3D, arts. The latter: a collective consisting of talents that had given rise to various Sleep Concert in different Italian locations and with different line-ups." ]
                 , p [ Attr.class "p-2" ]
                     [ Html.text "Formerly based in Bristol, UK, Aner Andros has performed at the "
-                    , a
-                        [ Attr.href "https://cubecinema.com/"
-                        , Attr.target "_blank"
-                        , Attr.rel "noopener noreferrer"
-                        ]
-                        [ Html.text "Cube Cinema Plex" ]
+                    , a [ Attr.href "https://cubecinema.com/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Cube Cinema Plex" ]
                     , Html.text " and has collaborated with "
-                    , a
-                        [ Attr.href "https://parallelmadness.com/"
-                        , Attr.target "_blank"
-                        , Attr.rel "noopener noreferrer"
-                        ]
-                        [ Html.text "Parallel Madness" ]
+                    , a [ Attr.href "https://parallelmadness.com/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Parallel Madness" ]
                     , Html.text ". Other noteworthy shows include "
-                    , a
-                        [ Attr.href "https://crux-events.org/"
-                        , Attr.target "_blank"
-                        , Attr.rel "noopener noreferrer"
-                        ]
-                        [ Html.text "Crux Events in London" ]
+                    , a [ Attr.href "https://crux-events.org/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Crux Events in London" ]
                     , Html.text " and the Cronosfera Festival in Italy."
                     ]
                 , p [ Attr.class "p-2" ]
-                    [ Html.text "Aner Andros music is released on his own vanity record label, Gentle Wash Records, and it is available on the majority of digital streaming outlets including, but not limited to, "
-                    , a
-                        [ Attr.href anerSpotify
-                        , Attr.target "_blank"
-                        , Attr.rel "noopener noreferrer"
-                        ]
-                        [ Html.text "Spotify, " ]
-                    , a
-                        [ Attr.href anerAppleMusic
-                        , Attr.target "_blank"
-                        , Attr.rel "noopener noreferrer"
-                        ]
-                        [ Html.text "Apple Music, " ]
-                    , a
-                        [ Attr.href anerDeezer
-                        , Attr.target "_blank"
-                        , Attr.rel "noopener noreferrer"
-                        ]
-                        [ Html.text "Deezer, " ]
-                    , a
-                        [ Attr.href anerSoundCloud
-                        , Attr.target "_blank"
-                        , Attr.rel "noopener noreferrer"
-                        ]
-                        [ Html.text "SoundCloud Go, " ]
-                    , a
-                        [ Attr.href anerYoutube
-                        , Attr.target "_blank"
-                        , Attr.rel "noopener noreferrer"
-                        ]
-                        [ Html.text "and YouTube Music." ]
+                    [ Html.text "Aner Andros music is released on his own vanity record label, "
+                    , a [ Attr.href gentleWashHome, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Gentle Wash Records, " ]
+                    , Html.text " and it is available on the majority of digital streaming outlets including, but not limited to, "
+                    , a [ Attr.href anerSpotify, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Spotify, " ]
+                    , a [ Attr.href anerAppleMusic, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Apple Music, " ]
+                    , a [ Attr.href anerDeezer, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Deezer, " ]
+                    , a [ Attr.href anerSoundCloud, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "SoundCloud Go, " ]
+                    , a [ Attr.href anerYoutube, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "and YouTube Music." ]
                     ]
                 ]
             ]
