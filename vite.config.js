@@ -21,8 +21,5 @@ export default defineConfig({
       }
     })
     // compress() // bug: https://github.com/alloc/vite-plugin-compress/issues/10
-  ],
-  build: {
-    outDir: 'public'
-  }
+  ]
 })
