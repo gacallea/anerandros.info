@@ -850,6 +850,39 @@ about =
                         [ Html.text "Crux Events in London" ]
                     , Html.text " and the Cronosfera Festival in Italy."
                     ]
+                , p [ Attr.class "p-2" ]
+                    [ Html.text "Aner Andros music is released on his own vanity record label, Gentle Wash Records, and it is available on the majority of digital streaming outlets including, but not limited to, "
+                    , a
+                        [ Attr.href anerSpotify
+                        , Attr.target "_blank"
+                        , Attr.rel "noopener noreferrer"
+                        ]
+                        [ Html.text "Spotify, " ]
+                    , a
+                        [ Attr.href anerAppleMusic
+                        , Attr.target "_blank"
+                        , Attr.rel "noopener noreferrer"
+                        ]
+                        [ Html.text "Apple Music, " ]
+                    , a
+                        [ Attr.href anerDeezer
+                        , Attr.target "_blank"
+                        , Attr.rel "noopener noreferrer"
+                        ]
+                        [ Html.text "Deezer, " ]
+                    , a
+                        [ Attr.href anerSoundCloud
+                        , Attr.target "_blank"
+                        , Attr.rel "noopener noreferrer"
+                        ]
+                        [ Html.text "SoundCloud Go, " ]
+                    , a
+                        [ Attr.href anerYoutube
+                        , Attr.target "_blank"
+                        , Attr.rel "noopener noreferrer"
+                        ]
+                        [ Html.text "and YouTube Music." ]
+                    ]
                 ]
             ]
         ]
