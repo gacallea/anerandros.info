@@ -8,6 +8,7 @@
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.7",
     "elm-review": "^2.7.2",
+    "elm-test": "^0.19.1-revision7",
     "elm-tooling": "^1.8.0",
     "postcss": "^8.4.13",
     "prettier": "^2.6.2",
@@ -16,7 +17,9 @@
     "stylelint": "^14.8.2",
     "tailwindcss": "^3.0.24",
     "vite": "^2.9.7",
-    "vite-plugin-elm": "^2.6.1"
+    "vite-plugin-compress": "^2.1.1",
+    "vite-plugin-elm": "^2.6.1",
+    "vite-plugin-favicon": "^1.0.8"
   },
   "scripts": {
     "postinstall": "elm-tooling install",
@@ -34,5 +37,8 @@
       "dist",
       "tmp.js"
     ]
+  },
+  "dependencies": {
+    "sharp": "^0.30.4"
   }
 }
