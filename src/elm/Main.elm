@@ -4,25 +4,15 @@ import Accessibility.Aria as Aria
 import Browser
 import Browser.Events
 import Dict exposing (Dict)
-import Html
-    exposing
-        ( Html
-        , a
-        , div
-        , footer
-        , h1
-        , h2
-        , h3
-        , header
-        , i
-        , img
-        , li
-        , main_
-        , nav
-        , p
-        , section
-        , ul
-        )
+import FontAwesome.Attributes as Icon
+import FontAwesome.Brands as Icon
+import FontAwesome.Icon as Icon exposing (Icon)
+import FontAwesome.Layering as Icon
+import FontAwesome.Solid as Icon
+import FontAwesome.Styles as Icon
+import FontAwesome.Svg as SvgIcon
+import FontAwesome.Transforms as Icon
+import Html exposing (Html, a, div, footer, h1, h2, h3, header, i, img, li, main_, nav, p, section, ul)
 import Html.Attributes as Attr
 import Html.Events exposing (onClick)
 import Svg exposing (svg)
@@ -356,12 +346,12 @@ latestAlbum =
                         [ Attr.class ""
                         ]
                         [ div []
-                            [ h3
+                            [ h1
                                 [ Attr.class "text-2xl text-gray-900 font-medium"
                                 ]
                                 [ Html.text "00h" ]
                             , p
-                                [ Attr.class "text-sm text-gray-500 mt-1"
+                                [ Attr.class "text-sm text-gray-700 mt-1"
                                 ]
                                 [ Html.text latestAlbumTitle ]
                             ]
