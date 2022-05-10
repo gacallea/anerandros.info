@@ -86,9 +86,6 @@ latestAlbumTitle =
     "Artefacts and Sonic Brushstrokes"
 
 
-latestAlbumLink : String
-latestAlbumLink =
-    "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/363304199&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
 
 -- latestAlbumLink : String
 -- latestAlbumLink =
@@ -314,7 +311,7 @@ hero =
 brand : Html Msg
 brand =
     div
-        [ Attr.class "flex flex-row justify-center w-full"
+        [ Attr.class "flex flex-row justify-center w-full p-2 lg:p-0"
         , Aria.label "brand logo"
         ]
         [ img [ Attr.class "rounded-full border-slate-300 border border-dashed", Attr.src brandImage, Attr.alt "Aner Andros" ] []
@@ -324,7 +321,7 @@ brand =
 latestAlbum : Html Msg
 latestAlbum =
     div
-        [ Attr.class "flex flex-col justify-center border-t md:border-0 border-slate-300"
+        [ Attr.class "flex flex-col justify-center border-t sm:border-0 border-slate-300 p-2 lg:p-0"
         , Aria.label "latest album player"
         ]
         [ h2 [ Attr.class "sm:font-semibold py-4 md:p-0 underline block md:hidden landscape:hidden" ]
@@ -571,7 +568,7 @@ releaseSelector list =
 discog : Model -> Html Msg
 discog model =
     div
-        [ Attr.class "grid grid-flow-col gap-2 auto-cols-max overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-start"
+        [ Attr.class "grid grid-flow-col gap-2 auto-cols-max overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-x"
         , Aria.label "all published releases"
         ]
     <|
@@ -600,7 +597,7 @@ renderReleases data =
             div
                 [ Attr.class "relative snap-always snap-center min-w-fit object-cover cursor-pointer group hover:bg-slate-900" ]
                 [ img
-                    [ Attr.class "max-w-xs lg:max-w-sm 2xl:max-w-full h-auto group-hover:opacity-70"
+                    [ Attr.class "max-w-xs h-auto group-hover:opacity-70"
                     , Attr.src i.cover
                     , Attr.alt i.name
                     , Attr.title i.name
@@ -633,7 +630,7 @@ renderReleases data =
                 --         []
                 --     ]
                 , div
-                    [ Attr.class "absolute top-1/2 w-full invisible group-hover:visible text-center group-hover:text-white group-hover:text-md group-hover:lg:text-lg font-light"
+                    [ Attr.class "absolute top-1/2 w-full invisible group-hover:visible text-center group-hover:text-white group-hover:text-sm group-hover:lg:text-md font-light"
                     ]
                     [ Html.text i.name ]
                 ]
