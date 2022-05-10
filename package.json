@@ -1,28 +1,32 @@
 {
   "name": "anerandros.info",
-  "packageManager": "yarn@3.2.0",
+  "author": "Andrea Callea",
+  "description": "Aner Andros home page",
+  "version": "1.0.0",
+  "private": true,
   "devDependencies": {
-    "@parcel/compressor-brotli": "^2.5.0",
-    "@parcel/config-default": "^2.5.0",
-    "@parcel/transformer-elm": "2.5.0",
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.7",
-    "elm": "^0.19.1-5",
-    "elm-format": "^0.8.5",
     "elm-review": "^2.7.2",
-    "elm-test": "^0.19.1-revision7",
-    "parcel": "^2.5.0",
+    "elm-tooling": "^1.8.0",
     "postcss": "^8.4.13",
+    "prettier": "^2.6.2",
     "standard": "^17.0.0",
     "standard-markdown": "^7.1.0",
     "stylelint": "^14.8.2",
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.0.24",
+    "vite": "^2.9.7",
+    "vite-plugin-elm": "^2.6.1"
   },
-  "source": "src/index.html",
   "scripts": {
+    "postinstall": "elm-tooling install",
+    "dev": "vite",
+    "prebuild": "elm-tooling install",
+    "build": "vite build",
+    "preview": "vite preview",
     "standard": "standard --fix \"src/**/*.js\"",
-    "start": "parcel",
-    "build": "parcel build"
+    "lint": "elm-review",
+    "test": "elm-test-rs"
   },
   "standard": {
     "ignore": [
@@ -30,11 +34,5 @@
       "dist",
       "tmp.js"
     ]
-  },
-  "browserslist": "> 0.5%, last 2 versions, not dead",
-  "targets": {
-    "default": {
-      "distDir": "public"
-    }
   }
 }

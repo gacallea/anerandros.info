@@ -1,15 +1,14 @@
 module.exports = {
   content: [
-    './src/**/*.elm',
-    './src/js/index.js',
-    './src/index.html',
+    './src/elm/*.elm',
+    './src/js/main.js',
+    './index.html',
     './src/css/styles.css'
   ],
   theme: {
     extend: {},
     fontFamily: {
-      sans: ['Lexend Deca', 'Helvetica', 'Arial', 'sans-serif'],
-      display: ['Righteous']
+      sans: ['Lexend Deca', 'Helvetica', 'Arial', 'sans-serif']
     }
   },
   plugins: [require('@tailwindcss/typography')]

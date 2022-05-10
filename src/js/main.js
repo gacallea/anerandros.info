@@ -1,3 +1,5 @@
+import '../css/fonts.css'
+import '../css/styles.css'
 import { Elm } from '../elm/Main.elm'
 
 const app = Elm.Main.init({
