@@ -34,8 +34,9 @@
     "prebuild": "elm-tooling install",
     "build": "vite build",
     "preview": "vite preview",
-    "standard": "standard --fix \"src/**/*.js\"",
-    "lint": "elm-review",
+    "standard": "standard --fix src/**/*.js",
+    "markdown": "standard-markdown --fix src/**/*.md",
+    "review": "elm-review",
     "test": "elm-test-rs"
   },
   "standard": {

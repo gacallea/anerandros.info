@@ -12,7 +12,24 @@ import FontAwesome.Solid as Icon
 import FontAwesome.Styles as Icon
 import FontAwesome.Svg as SvgIcon
 import FontAwesome.Transforms as Icon
-import Html exposing (Html, a, div, footer, h1, h2, h3, header, i, img, li, main_, nav, p, section, ul)
+import Html
+    exposing
+        ( Html
+        , a
+        , div
+        , footer
+        , h1
+        , h2
+        , header
+        , i
+        , img
+        , li
+        , main_
+        , nav
+        , p
+        , section
+        , ul
+        )
 import Html.Attributes as Attr
 import Html.Events exposing (onClick)
 import Svg exposing (svg)
@@ -594,7 +611,6 @@ renderReleases data =
                     ]
                     []
 
-                -- this is how I would do it in parceljs if sharp worked
                 --   node "picture"
                 --     []
                 --     [ source
