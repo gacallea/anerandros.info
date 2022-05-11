@@ -20,6 +20,7 @@ import Catalogue
         , anerYoutube
         , brandImage
         , gentleWashHome
+        , latestAlbumTitle
         , showReleases
         )
 import Html
@@ -49,19 +50,6 @@ import Svg.Attributes as SvgAttr
 
 
 -- TYPES
--- CONSTANTS
-
-
-latestAlbumTitle : String
-latestAlbumTitle =
-    "Artefacts and Sonic Brushstrokes"
-
-
-
--- latestAlbumLink : String
--- latestAlbumLink =
--- not used just yet, need to finish the player UI first
---     "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/363304199&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
 -- MODEL
 
 
