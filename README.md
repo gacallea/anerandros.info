@@ -15,6 +15,7 @@ This repository/code is very opinionated. The following tools and provided confi
 
 ### Others
 
+- [NodeJS is managed with NVM](https://github.com/nvm-sh/nvm)
 - [Vite](https://vitejs.dev/) (setup inspired by [Lindsay K Wardell](https://github.com/lindsaykwardell/vite-elm-template))
 - [Tailwind CSS](https://tailwindcss.com/)
 - [PostCSS](https://postcss.org/)
