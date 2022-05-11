@@ -26,7 +26,7 @@ This repo provides recommended workspace extensions and settings. VS Code will p
 #### Linters and Formatting
 
 - [Standard JS](https://standardjs.com/)
-- [Stylelint](https://stylelint.io/) (needs more love)
+- [Stylelint](https://stylelint.io/)
 - [Prettier](https://prettier.io/)
 
 ## Development
