@@ -184,7 +184,7 @@ liminalTales =
     , catalog = Just "GWR0002"
     , year = "2016"
     , name = "Liminal Tales"
-    , cover = "https://placekitten.com/240"
+    , cover = "../img/covers/liminal.jpg"
     , coverArtist = "https://www.flickr.com/photos/ramocchia/"
     , apple = Just "https://music.apple.com/album/liminal-tales/1091282352"
     , amazon = Just "https://www.amazon.co.uk/Liminal-Tales-Aner-Andros/dp/B01CQHFGNU"
@@ -203,7 +203,7 @@ remapEthosStream =
     , catalog = Just "GWR0000"
     , year = "2015"
     , name = "Remap Ethos Stream"
-    , cover = "https://placekitten.com/240"
+    , cover = "../img/covers/res.jpg"
     , coverArtist = "http://www.riccardoarena.org/"
     , apple = Just "https://music.apple.com/it/album/remap-ethos-stream/1034283468"
     , amazon = Just "https://www.amazon.co.uk/Remap-Ethos-Stream-Aner-Andros/dp/B014MFIF28"
@@ -222,7 +222,7 @@ artefactsASb =
     , catalog = Just "GWR0003"
     , year = "2017"
     , name = "Artefacts and Sonic Brushstrokes"
-    , cover = "https://placekitten.com/240"
+    , cover = "../img/covers/aasb.jpg"
     , coverArtist = "http://trashriotart.tumblr.com/"
     , apple = Just "https://music.apple.com/album/artefacts-and-sonic-brushstrokes-ep/1281231021"
     , amazon = Just "https://www.amazon.com/Artefacts-Sonic-Brushstrokes-Aner-Andros/dp/B075M7SFZL"
@@ -241,7 +241,7 @@ eosVolOne =
     , catalog = Just "GWR0001"
     , year = "2015"
     , name = "Embroidering on Silence Vol. I"
-    , cover = "https://placekitten.com/240"
+    , cover = "../img/covers/eos1.jpg"
     , coverArtist = "https://carolrollo.it/"
     , apple = Just "https://music.apple.com/ca/album/embroidering-on-silence-vol-i/1242232285"
     , amazon = Just "https://www.amazon.com/Embroidering-Silence-Vol-Aner-Andros/dp/B072634MT3/143-8572494-9262537"
@@ -260,7 +260,7 @@ enkefalina =
     , catalog = Nothing
     , year = "2017"
     , name = "Enkefalina (Aner Andros Remix)"
-    , cover = "https://placekitten.com/240"
+    , cover = "../img/covers/enkefalina.jpeg"
     , coverArtist = "https://carolrollo.it/"
     , apple = Nothing
     , amazon = Nothing
@@ -279,7 +279,7 @@ ispirazione =
     , catalog = Nothing
     , year = "2016"
     , name = "ISPIRAZIONE"
-    , cover = "https://placekitten.com/240"
+    , cover = "../img/covers/collage.jpg"
     , coverArtist = "https://carolrollo.it/"
     , apple = Nothing
     , amazon = Nothing
@@ -467,7 +467,7 @@ brand =
         [ Attr.class "flex flex-row justify-center w-full"
         , Aria.label "brand logo"
         ]
-        [ img [ Attr.class "rounded-none md:rounded-full", Attr.src "https://placekitten.com/480", Attr.alt "Aner Andros" ] []
+        [ img [ Attr.class "rounded-none md:rounded-full", Attr.src "../img/aner_andros.jpg", Attr.alt "Aner Andros" ] []
         ]
 
 
