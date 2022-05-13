@@ -1,0 +1,33 @@
+{-
+   responsivePreloadImages : String -> String -> Html msg
+   responsivePreloadImages name cover =
+       -- https://web.dev/preload-responsive-images/
+       let
+           multiplier : List (List String)
+           multiplier =
+               [ [ ", " ], [ " 2x," ], [ " 4x," ], [ " 8x" ] ]
+
+           sourceset : String -> String
+           sourceset img =
+               multiplier
+                   |> List.concatMap (\mult -> List.append [ img ] mult)
+                   |> String.concat
+       in
+       node "picture"
+           []
+           [ source
+               [ Attr.attribute "srcset" <| sourceset cover
+               , Attr.type_ "image/jpg"
+               ]
+               []
+           , img
+               [ Attr.class "max-w-xs h-auto group-hover:opacity-70"
+               , Attr.src cover
+               , Attr.alt name
+               , Attr.title name
+               ]
+               []
+           ]
+-}
+
+-- , responsivePreloadImages item.name item.cover
