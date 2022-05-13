@@ -1,11 +1,19 @@
-image: alpine:latest
-
+image: node:16.5.0
 pages:
   stage: deploy
+  cache:
+    key:
+      files:
+        - package-lock.json
+      prefix: npm
+    paths:
+      - node_modules/
   script:
-    - echo 'Nothing to do...'
+    - npm install
+    - npm run build
+    - cp -a dist/. public/
   artifacts:
     paths:
       - public
-  only:
-    - main
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
