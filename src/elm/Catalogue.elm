@@ -266,37 +266,37 @@ ispirazione =
 
 brandImage : String
 brandImage =
-    VitePluginHelper.asset "../img/aner_andros.jpg"
+    VitePluginHelper.asset "../img/aa.svg"
 
 
 liminalCover : String
 liminalCover =
-    VitePluginHelper.asset "../img/covers/liminal.jpg"
+    VitePluginHelper.asset "../img/covers/liminal.svg"
 
 
 remapCover : String
 remapCover =
-    VitePluginHelper.asset "../img/covers/res.jpg"
+    VitePluginHelper.asset "../img/covers/res.svg"
 
 
 aasbCover : String
 aasbCover =
-    VitePluginHelper.asset "../img/covers/aasb.jpg"
+    VitePluginHelper.asset "../img/covers/aasb.svg"
 
 
 eosVolOneCover : String
 eosVolOneCover =
-    VitePluginHelper.asset "../img/covers/eos1.jpg"
+    VitePluginHelper.asset "../img/covers/eos1.svg"
 
 
 enkefalinaCover : String
 enkefalinaCover =
-    VitePluginHelper.asset "../img/covers/enkefalina.jpeg"
+    VitePluginHelper.asset "../img/covers/enkefalina.svg"
 
 
 ispirazioneCover : String
 ispirazioneCover =
-    VitePluginHelper.asset "../img/covers/collage.jpg"
+    VitePluginHelper.asset "../img/covers/collage.svg"
 
 
 

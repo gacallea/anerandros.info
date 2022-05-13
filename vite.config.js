@@ -10,7 +10,7 @@ export default defineConfig({
     elmPlugin(),
     ViteWebfontDownload(),
     ViteFaviconsPlugin({
-      logo: './src/img/aner_andros-big.jpg', // svg works too!
+      logo: './src/img/aa.svg', // svg works too!
       favicons: {
         appName: 'aner_andros',
         appDescription: 'Aner Andros home page',
