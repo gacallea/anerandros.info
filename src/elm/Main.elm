@@ -37,10 +37,8 @@ import Html
         , li
         , main_
         , nav
-        , node
         , p
         , section
-        , source
         , ul
         )
 import Html.Attributes as Attr
@@ -512,9 +510,6 @@ renderReleases data =
                     , Attr.title i.name
                     ]
                     []
-
-                -- ,
-                -- responsivePreloadImages i.name i.cover
                 , div
                     [ Attr.class "absolute top-1/2 w-full invisible group-hover:visible text-center group-hover:text-white group-hover:text-sm group-hover:lg:text-md font-light"
                     ]
@@ -522,38 +517,6 @@ renderReleases data =
                 ]
         )
         data
-
-
-responsivePreloadImages : String -> String -> Html msg
-responsivePreloadImages name cover =
-    -- https://web.dev/preload-responsive-images/
-    -- https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#summary
-    let
-        multiplier : List (List String)
-        multiplier =
-            [ [ ", " ], [ " 2x," ], [ " 4x," ], [ " 8x" ] ]
-
-        sourceset : String -> String
-        sourceset img =
-            multiplier
-                |> List.concatMap (\mult -> List.append [ img ] mult)
-                |> String.concat
-    in
-    node "picture"
-        []
-        [ source
-            [ Attr.attribute "srcset" <| sourceset cover
-            , Attr.type_ "image/svg"
-            ]
-            []
-        , img
-            [ Attr.class "max-w-xs h-auto group-hover:opacity-70"
-            , Attr.src cover
-            , Attr.alt name
-            , Attr.title name
-            ]
-            []
-        ]
 
 
 
