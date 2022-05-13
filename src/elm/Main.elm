@@ -505,7 +505,7 @@ renderReleases data =
                 [ Attr.class "relative snap-always snap-center min-w-fit object-cover cursor-pointer group hover:bg-slate-900" ]
                 [ img
                     [ Attr.class "max-w-xs h-auto group-hover:opacity-70"
-                    , Attr.src <| String.append i.cover "?width=300;500;700&format=webp;avif;jpg"
+                    , Attr.src <| i.cover
                     , Attr.alt i.name
                     , Attr.title i.name
                     ]
