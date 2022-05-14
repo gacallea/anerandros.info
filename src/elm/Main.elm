@@ -475,7 +475,7 @@ releaseSelector list =
 discog : Model -> Html Msg
 discog model =
     div
-        [ Attr.class "grid grid-flow-col gap-2 auto-cols-max overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-x"
+        [ Attr.class "grid grid-flow-col auto-cols-max gap-2 overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-x"
         , Aria.label "all published releases"
         ]
     <|
