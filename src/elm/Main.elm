@@ -26,11 +26,8 @@ import Catalogue
 import FontAwesome.Attributes as Icon
 import FontAwesome.Brands as Icon
 import FontAwesome.Icon as Icon exposing (Icon)
-import FontAwesome.Layering as Icon
 import FontAwesome.Solid as Icon
 import FontAwesome.Styles as Icon
-import FontAwesome.Svg as SvgIcon
-import FontAwesome.Transforms as Icon
 import Html
     exposing
         ( Html
@@ -40,7 +37,6 @@ import Html
         , h1
         , h2
         , header
-        , i
         , img
         , li
         , main_
@@ -122,7 +118,7 @@ view model =
 header_ : Html Msg
 header_ =
     header
-        [ Attr.class "flex flex-row justify-center sm:justify-between sticky top-0 bg-white md:mb-4 md:py-2 border-b border-slate-300"
+        [ Attr.class "flex flex-row justify-center sm:justify-between sticky top-0 bg-white border-b border-slate-300"
         , Aria.label "main header"
         ]
         [ logo
@@ -203,12 +199,12 @@ navLink list =
 hero : Html Msg
 hero =
     section
-        [ Attr.id "hero", Attr.class "mx-0 sm:mx-2 lg:m-8", Aria.label "hero section" ]
+        [ Attr.id "hero", Attr.class "mx-0 md:mx-2", Aria.label "hero section" ]
         [ div
-            [ Attr.class "flex flex-col sm:flex-row sm:justify-between text-center lg:mx-8"
+            [ Attr.class "mx-0 md:mx-14 flex flex-col sm:flex-row sm:justify-between text-center"
             ]
             [ div
-                [ Attr.class "text-sm lg:text-base bg-red-200 md:bg-inherit"
+                [ Attr.class "text-sm lg:text-base"
                 ]
                 [ brand
                 , h1 [ Attr.class "sm:font-semibold py-4 overline" ]
@@ -216,7 +212,7 @@ hero =
                     ]
                 ]
             , div
-                [ Attr.class "bg-emerald-200 md:bg-inherit sm:self-end text-md lg:text-base content-end md:w-4/12" ]
+                [ Attr.class "sm:self-end text-md lg:text-base content-end md:w-4/12" ]
                 [ latestAlbum
                 , outlets
                 ]
@@ -231,7 +227,7 @@ brand =
         , Aria.label "brand logo"
         ]
         [ img
-            [ Attr.class "bg-lime-200 mt-3 md:mt-0 md:bg-inherit rounded-full border-slate-300 border border-dashed"
+            [ Attr.class "mt-2 md:mt-4 rounded-full border-slate-300 border border-dashed"
             , Attr.src brandImage
             , Attr.alt "Aner Andros"
             ]
@@ -461,7 +457,7 @@ returnicon str =
 music : Model -> Html Msg
 music model =
     section
-        [ Attr.id "music", Attr.class "mt-0 md:mt-2 mx-0 md:mx-2", Aria.label "discography section" ]
+        [ Attr.id "music", Attr.class "mx-0 md:mx-2", Aria.label "discography section" ]
         [ div
             [ Attr.class "text-md lg:text-base border-t border-slate-300 text-center md:px-14" ]
             [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 md:mb-6 underline" ]
@@ -469,7 +465,7 @@ music model =
                 ]
             , discog model
             , ul
-                [ Attr.class "hidden sm:flex flex-row justify-center text-sm lg:text-base my-4 sm:mr-4"
+                [ Attr.class "hidden sm:flex flex-row justify-center text-sm lg:text-base mt-2 py-2"
                 ]
               <|
                 releaseSelector selectors
@@ -492,7 +488,7 @@ releaseSelector list =
     List.map
         (\sel ->
             li
-                [ Attr.class "px-2 hover:underline hover:underline-offset-4"
+                [ Attr.class "m-2 mt-0 hover:underline hover:underline-offset-4"
                 , Aria.label "kind of release selectors"
                 , onClick (ChooseRelease (Tuple.second sel))
                 ]
@@ -560,13 +556,13 @@ about : Html Msg
 about =
     -- about (resp. paragraph)
     section
-        [ Attr.id "about", Attr.class "mt-0 md:mt-2 mx-0 sm:mx-2", Aria.label "about section" ]
+        [ Attr.id "about", Attr.class "mx-0 sm:mx-2", Aria.label "about section" ]
         [ div [ Attr.class "text-md lg:text-base border-t border-slate-300" ]
             [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 md:mb-0 underline text-center" ]
                 [ Html.text "about"
                 ]
-            , div [ Attr.class "bg-lime-200 md:bg-inherit p-6 md:px-4 lg:px-14 text-center md:text-left" ]
-                [ p [ Attr.class "p-2" ]
+            , div [ Attr.class "p-0 md:p-4 md:px-4 lg:px-14 text-center md:text-left" ]
+                [ p [ Attr.class "p-2 pt-0" ]
                     [ Html.text "Eclectic producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors when drawing oneiric soundscapes in the making of musical voyages. "
                     , a [ Attr.href "https://vfs.edu/programs/sound-design", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "VFS Alumnus and Sound Design for Visual Media graduate." ]
                     ]
@@ -580,7 +576,7 @@ about =
                     , a [ Attr.href "https://crux-events.org/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Crux Events in London" ]
                     , Html.text " and the Cronosfera Festival in Italy."
                     ]
-                , p [ Attr.class "p-2" ]
+                , p [ Attr.class "p-2 pb-4" ]
                     [ Html.text "Aner Andros music is released on his own vanity record label, "
                     , a [ Attr.href gentleWashHome, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Gentle Wash Records, " ]
                     , Html.text " and it is available on the majority of digital streaming outlets including, but not limited to, "
@@ -608,7 +604,7 @@ about =
 
 footer_ : Html Msg
 footer_ =
-    footer [ Attr.id "footer", Attr.class "mt-0 md:mt-2", Aria.label "footer" ]
+    footer [ Attr.id "footer", Aria.label "footer" ]
         [ div [ Attr.class "text-sm md:text-sm border-t border-slate-300 py-4 text-center" ]
             [ p []
                 [ Html.text "© Copyright Aner Andros. All Rights Reserved." ]
