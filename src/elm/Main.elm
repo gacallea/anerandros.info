@@ -407,13 +407,14 @@ socialIcons list =
     List.map
         (\soc ->
             li
-                [ Attr.class "pl-0 px-5"
+                [ Attr.class "pl-0 px-5 text-xl md:text-2xl"
                 , Aria.label (Tuple.second soc)
                 ]
                 [ a
                     [ Attr.href <| Tuple.first soc
                     , Attr.target "_blank"
                     , Attr.rel "noopener noreferrer"
+                    , Icon.fw
                     ]
                     [ Icon.viewIcon <| returnicon (Tuple.second soc) ]
                 ]
