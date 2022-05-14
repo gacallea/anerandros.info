@@ -222,7 +222,7 @@ brand =
         , Aria.label "brand logo"
         ]
         [ img
-            [ Attr.class "bg-lime-200 md:bg-inherit rounded-full border-slate-300 border border-dashed"
+            [ Attr.class "bg-lime-200 mt-3 md:mt-0 md:bg-inherit rounded-full border-slate-300 border border-dashed"
             , Attr.src brandImage
             , Attr.alt "Aner Andros"
             ]
