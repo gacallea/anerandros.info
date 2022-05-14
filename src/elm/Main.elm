@@ -428,7 +428,7 @@ socialIcons list =
 music : Model -> Html Msg
 music model =
     section
-        [ Attr.id "music", Attr.class "mt-2 mx-0 md:mx-2", Aria.label "discography section" ]
+        [ Attr.id "music", Attr.class "mt-0 md:mt-2 mx-0 md:mx-2", Aria.label "discography section" ]
         [ div
             [ Attr.class "text-md lg:text-base border-t border-slate-300 text-center md:px-14" ]
             [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 md:mb-6 underline" ]
@@ -527,7 +527,7 @@ about : Html Msg
 about =
     -- about (resp. paragraph)
     section
-        [ Attr.id "about", Attr.class "mt-2 mx-0 sm:mx-2", Aria.label "about section" ]
+        [ Attr.id "about", Attr.class "mt-0 md:mt-2 mx-0 sm:mx-2", Aria.label "about section" ]
         [ div [ Attr.class "text-md lg:text-base border-t border-slate-300" ]
             [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 md:mb-0 underline text-center" ]
                 [ Html.text "about"
