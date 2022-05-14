@@ -504,7 +504,7 @@ renderReleases data =
             div
                 [ Attr.class "relative snap-always snap-center min-w-fit object-cover cursor-pointer group hover:bg-slate-900" ]
                 [ img
-                    [ Attr.class "max-w-xs h-auto group-hover:opacity-70"
+                    [ Attr.class "w-full h-auto max-w-xs lg:max-w-md group-hover:opacity-70"
                     , Attr.src <| i.cover
                     , Attr.alt i.name
                     , Attr.title i.name
