@@ -23,6 +23,14 @@ import Catalogue
         , latestAlbumTitle
         , showReleases
         )
+import FontAwesome.Attributes as Icon
+import FontAwesome.Brands as Icon
+import FontAwesome.Icon as Icon exposing (Icon)
+import FontAwesome.Layering as Icon
+import FontAwesome.Solid as Icon
+import FontAwesome.Styles as Icon
+import FontAwesome.Svg as SvgIcon
+import FontAwesome.Transforms as Icon
 import Html
     exposing
         ( Html
@@ -98,7 +106,8 @@ view model =
         [ Attr.class "container mx-auto max-w-7xl"
         , Aria.label "main content"
         ]
-        [ header_
+        [ Icon.css
+        , header_
         , hero
         , music model
         , about
@@ -393,16 +402,6 @@ outlets =
         ]
 
 
-streamingServices : List ( String, String )
-streamingServices =
-    [ ( anerSoundCloud, "soundcloud" )
-    , ( anerSpotify, "spotify" )
-    , ( anerAppleMusic, "apple" )
-    , ( anerYoutube, "youtube" )
-    , ( anerDeezer, "deezer" )
-    ]
-
-
 socialIcons : List ( String, String ) -> List (Html msg)
 socialIcons list =
     List.map
@@ -416,14 +415,42 @@ socialIcons list =
                     , Attr.target "_blank"
                     , Attr.rel "noopener noreferrer"
                     ]
-                    [ i
-                        [ Attr.class <| String.append "bx-fw bx bxl-" (Tuple.second soc)
-                        ]
-                        []
-                    ]
+                    [ Icon.viewIcon <| returnicon (Tuple.second soc) ]
                 ]
         )
         list
+
+
+streamingServices : List ( String, String )
+streamingServices =
+    [ ( anerSoundCloud, "soundcloud" )
+    , ( anerSpotify, "spotify" )
+    , ( anerAppleMusic, "apple" )
+    , ( anerYoutube, "youtube" )
+    , ( anerDeezer, "deezer" )
+    ]
+
+
+returnicon : String -> Icon
+returnicon str =
+    case str of
+        "soundcloud" ->
+            Icon.soundcloud
+
+        "spotify" ->
+            Icon.spotify
+
+        "apple" ->
+            Icon.apple
+
+        "youtube" ->
+            Icon.youtube
+
+        "deezer" ->
+            Icon.deezer
+
+        _ ->
+            Icon.smile
 
 
 
