@@ -199,7 +199,7 @@ hero =
             [ Attr.class "flex flex-col sm:flex-row sm:justify-between text-center lg:mx-8"
             ]
             [ div
-                [ Attr.class "text-sm lg:text-base"
+                [ Attr.class "text-sm lg:text-base bg-red-200 md:bg-inherit"
                 ]
                 [ brand
                 , h1 [ Attr.class "sm:font-semibold py-4 overline" ]
@@ -207,7 +207,7 @@ hero =
                     ]
                 ]
             , div
-                [ Attr.class "sm:self-end text-md lg:text-base content-end md:w-4/12" ]
+                [ Attr.class "bg-emerald-200 md:bg-inherit sm:self-end text-md lg:text-base content-end md:w-4/12" ]
                 [ latestAlbum
                 , outlets
                 ]
@@ -221,7 +221,12 @@ brand =
         [ Attr.class "flex flex-row justify-center w-full p-2 lg:p-0"
         , Aria.label "brand logo"
         ]
-        [ img [ Attr.class "rounded-full border-slate-300 border border-dashed", Attr.src brandImage, Attr.alt "Aner Andros" ] []
+        [ img
+            [ Attr.class "bg-lime-200 md:bg-inherit rounded-full border-slate-300 border border-dashed"
+            , Attr.src brandImage
+            , Attr.alt "Aner Andros"
+            ]
+            []
         ]
 
 
