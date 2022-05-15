@@ -94,6 +94,47 @@ init flags =
 
 
 
+-- UPDATE
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        OnResize x y ->
+            ( { model | viewport = { width = x, height = y } }
+            , Cmd.none
+            )
+
+        ChooseRelease kind ->
+            ( { model | showRelease = kind }
+            , Cmd.none
+            )
+
+
+
+-- MAIN
+
+
+main : Program Flags Model Msg
+main =
+    Browser.element
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions _ =
+    Browser.Events.onResize OnResize
+
+
+
 -- VIEW
 
 
@@ -626,44 +667,3 @@ footer_ =
                 ]
             ]
         ]
-
-
-
--- UPDATE
-
-
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    case msg of
-        OnResize x y ->
-            ( { model | viewport = { width = x, height = y } }
-            , Cmd.none
-            )
-
-        ChooseRelease kind ->
-            ( { model | showRelease = kind }
-            , Cmd.none
-            )
-
-
-
--- MAIN
-
-
-main : Program Flags Model Msg
-main =
-    Browser.element
-        { init = init
-        , view = view
-        , update = update
-        , subscriptions = subscriptions
-        }
-
-
-
--- SUBSCRIPTIONS
-
-
-subscriptions : Model -> Sub Msg
-subscriptions _ =
-    Browser.Events.onResize OnResize
