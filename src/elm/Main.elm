@@ -20,7 +20,7 @@ import Catalogue
         , anerSpotify
         , anerYoutube
         , gentleWashHome
-        , latestAlbumTitle
+        , latestAlbum
         , showReleases
         )
 import FontAwesome.Attributes as Icon
@@ -255,7 +255,7 @@ hero =
                 ]
             , div
                 [ Attr.class "sm:self-end text-md lg:text-base content-end md:w-4/12" ]
-                [ latestAlbum
+                [ latestAlbumDada
                 , outlets "text-xl lg:text-2xl my-2 py-2"
                 ]
             ]
@@ -277,8 +277,8 @@ brand =
         ]
 
 
-latestAlbum : Html Msg
-latestAlbum =
+latestAlbumDada : Html Msg
+latestAlbumDada =
     div
         [ Attr.class "flex flex-col justify-center border-t sm:border-0 border-slate-300 p-2 lg:p-0"
         , Aria.label "latest album player"
@@ -322,7 +322,7 @@ latestAlbum =
                             , p
                                 [ Attr.class "text-sm text-gray-700 mt-1"
                                 ]
-                                [ Html.text latestAlbumTitle ]
+                                [ Html.text latestAlbum.name ]
                             ]
                         ]
                     , div

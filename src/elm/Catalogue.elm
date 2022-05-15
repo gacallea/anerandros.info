@@ -14,7 +14,7 @@ module Catalogue exposing
     , anerSpotify
     , anerYoutube
     , gentleWashHome
-    , latestAlbumTitle
+    , latestAlbum
     , showReleases
     )
 
@@ -56,14 +56,14 @@ type alias ReleaseData =
 -- CONSTANTS
 
 
-latestAlbumTitle : String
-latestAlbumTitle =
-    "Artefacts and Sonic Brushstrokes"
+latestAlbum : ReleaseData
+latestAlbum =
+    artefactsASb
 
 
 
--- latestAlbumLink : String
--- latestAlbumLink =
+-- souncloudPlayerAPI : String
+-- souncloudPlayerAPI =
 -- not used just yet, need to finish the player UI first
 --     "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/363304199&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
 -- RELEASES
