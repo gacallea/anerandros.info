@@ -1,19 +1,12 @@
 module Catalogue exposing
-    ( ReleaseData
+    , GwrData
     , ReleaseKind(..)
     , allAlbums
     , allCollages
     , allEps
     , allReleases
     , allRemixes
-    , anerAppleMusic
-    , anerDeezer
-    , anerLogo
-    , anerSongKick
-    , anerSoundCloud
-    , anerSpotify
-    , anerYoutube
-    , gentleWashHome
+    , gwrData
     , latestAlbum
     , showReleases
     )
@@ -51,8 +44,21 @@ type alias ReleaseData =
     }
 
 
+type alias GwrData =
+    { home : String
+    , logo : String
+    }
 
--- CONSTANTS
+-- GENTLE WASH
+
+
+gwrData : GwrData
+gwrData =
+    { home = "https://gentlewashrecords.com/"
+    , logo = ""
+    }
+
+
 
 
 latestAlbum : ReleaseData
@@ -130,15 +136,6 @@ showReleases =
 listTheseReleases : Int -> ReleaseData -> List ReleaseData -> List ReleaseData
 listTheseReleases _ rel releases =
     rel :: releases
-
-
-
--- GENTLE WASH, ANER AND ALBUMS DATA
-
-
-gentleWashHome : String
-gentleWashHome =
-    "https://gentlewashrecords.com/"
 
 
 
