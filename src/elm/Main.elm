@@ -12,14 +12,8 @@ import Catalogue
         , allEps
         , allReleases
         , allRemixes
-        , anerAppleMusic
-        , anerDeezer
-        , anerLogo
-        , anerSongKick
-        , anerSoundCloud
-        , anerSpotify
-        , anerYoutube
-        , gentleWashHome
+        , anerData
+        , gwrData
         , latestAlbum
         , showReleases
         )
@@ -202,7 +196,7 @@ links =
     [ ( "#top", "home" )
     , ( "#music", "music" )
     , ( "#about", "about" )
-    , ( anerSongKick, "live" )
+    , ( anerData.songkick, "live" )
     ]
 
 
@@ -270,7 +264,7 @@ brand =
         ]
         [ img
             [ Attr.class "mt-2 md:mt-4 rounded-full border-slate-300 border border-dashed"
-            , Attr.src anerLogo
+            , Attr.src anerData.logo
             , Attr.alt "Aner Andros"
             ]
             []
@@ -627,14 +621,7 @@ about =
                     , Html.text " and the Cronosfera Festival in Italy."
                     ]
                 , p [ Attr.class "p-2 pb-4" ]
-                    [ Html.text "Aner Andros music is released on his own vanity record label, "
-                    , a [ Attr.href gentleWashHome, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Gentle Wash Records, " ]
-                    , Html.text " and it is available on the majority of digital streaming outlets including, but not limited to, "
-                    , a [ Attr.href anerSpotify, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Spotify, " ]
-                    , a [ Attr.href anerAppleMusic, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Apple Music, " ]
-                    , a [ Attr.href anerDeezer, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Deezer, " ]
-                    , a [ Attr.href anerSoundCloud, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "SoundCloud Go, " ]
-                    , a [ Attr.href anerYoutube, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "and YouTube Music." ]
+                    [ Html.text "Aner Andros music is released on his own vanity record label, Gentle Wash Records, and it is available on the majority of digital streaming outlets including, but not limited to, Spotify, Apple Music, Deezer, SoundCloud Go, and YouTube Music."
                     ]
                 , outlets anerStreamingOutlets "text-center text-md lg:text-lg"
                 ]
