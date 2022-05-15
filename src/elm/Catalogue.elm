@@ -1,6 +1,7 @@
 module Catalogue exposing
     ( AnerData
     , GwrData
+    , ReleaseData
     , ReleaseKind(..)
     , allAlbums
     , allCollages
@@ -41,6 +42,7 @@ type alias ReleaseData =
     , soundcloud : Maybe String
     , spotify : Maybe String
     , youtube : Maybe String
+    , deezer : Maybe String
     , mixcloud : Maybe String
     , bandcamp : Maybe String
     }
@@ -93,6 +95,9 @@ anerData =
     , songkick = "https://www.songkick.com/artists/8738984-aner-andros"
     }
 
+
+
+-- LATEST ALBUM
 
 
 latestAlbum : ReleaseData
@@ -183,12 +188,13 @@ liminalTales =
     , catalog = Just "GWR0002"
     , year = "2016"
     , name = "Liminal Tales"
-    , cover = liminalCover
+    , cover = VitePluginHelper.asset "../img/covers/liminal.svg"
     , coverArtist = "https://www.flickr.com/photos/ramocchia/"
     , apple = Just "https://music.apple.com/album/liminal-tales/1091282352"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/liminal-tales"
     , spotify = Just "https://open.spotify.com/album/7lXlg36oOH20eHjw0ZJ4gG"
     , youtube = Just "https://www.youtube.com/watch?v=N-HR7dEHIT4&list=OLAK5uy_meDmf2_3kFZJK11JuoDQ0mLZQPPH7NDhc"
+    , deezer = Just "https://www.deezer.com/album/12583042"
     , mixcloud = Nothing
     , bandcamp = Nothing
     }
@@ -201,7 +207,7 @@ remapEthosStream =
     , catalog = Just "GWR0000"
     , year = "2015"
     , name = "Remap Ethos Stream"
-    , cover = remapCover
+    , cover = VitePluginHelper.asset "../img/covers/res.svg"
     , coverArtist = "http://www.riccardoarena.org/"
     , apple = Just "https://music.apple.com/it/album/remap-ethos-stream/1034283468"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/remap-ethos-stream"
@@ -209,6 +215,7 @@ remapEthosStream =
     , youtube = Just "https://www.youtube.com/watch?v=MpBklnNxaXs&list=PLXR_uSsXKC8lJWDk40IswaLbLzfn28y3j"
     , mixcloud = Nothing
     , bandcamp = Nothing
+    , deezer = Just "https://www.deezer.com/album/11098134"
     }
 
 
@@ -219,7 +226,7 @@ artefactsASb =
     , catalog = Just "GWR0003"
     , year = "2017"
     , name = "Artefacts and Sonic Brushstrokes"
-    , cover = aasbCover
+    , cover = VitePluginHelper.asset "../img/covers/aasb.svg"
     , coverArtist = "http://trashriotart.tumblr.com/"
     , apple = Just "https://music.apple.com/album/artefacts-and-sonic-brushstrokes-ep/1281231021"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/artefacts-and-sonic"
@@ -227,6 +234,7 @@ artefactsASb =
     , youtube = Just "https://www.youtube.com/watch?v=nsgzFFrYer8&list=PLXR_uSsXKC8llnnqiwCN6xMJlWohyU-tS"
     , mixcloud = Nothing
     , bandcamp = Nothing
+    , deezer = Just "https://www.deezer.com/album/47802142"
     }
 
 
@@ -237,7 +245,7 @@ eosVolOne =
     , catalog = Just "GWR0001"
     , year = "2015"
     , name = "Embroidering on Silence Vol. I"
-    , cover = eosVolOneCover
+    , cover = VitePluginHelper.asset "../img/covers/eos1.svg"
     , coverArtist = "https://carolrollo.it/"
     , apple = Just "https://music.apple.com/ca/album/embroidering-on-silence-vol-i/1242232285"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/embroidering-on-silence-vol-i"
@@ -245,6 +253,7 @@ eosVolOne =
     , youtube = Just "https://www.youtube.com/watch?v=CeIByiQU4HM"
     , mixcloud = Nothing
     , bandcamp = Nothing
+    , deezer = Just "https://www.deezer.com/album/42391771"
     }
 
 
@@ -255,7 +264,7 @@ enkefalina =
     , catalog = Nothing
     , year = "2017"
     , name = "Enkefalina (Aner Andros Remix)"
-    , cover = enkefalinaCover
+    , cover = VitePluginHelper.asset "../img/covers/enkefalina.svg"
     , coverArtist = "https://carolrollo.it/"
     , apple = Nothing
     , soundcloud = Nothing
@@ -263,6 +272,7 @@ enkefalina =
     , youtube = Nothing
     , mixcloud = Nothing
     , bandcamp = Just "https://olim.bandcamp.com/track/enkefalina-aner-andros-remix"
+    , deezer = Nothing
     }
 
 
@@ -273,7 +283,7 @@ ispirazione =
     , catalog = Nothing
     , year = "2016"
     , name = "ISPIRAZIONE"
-    , cover = ispirazioneCover
+    , cover = VitePluginHelper.asset "../img/covers/collage.svg"
     , coverArtist = "https://carolrollo.it/"
     , apple = Nothing
     , soundcloud = Nothing
@@ -281,81 +291,5 @@ ispirazione =
     , youtube = Nothing
     , mixcloud = Just "https://www.mixcloud.com/aasmixes/playlists/aas-collages/"
     , bandcamp = Nothing
+    , deezer = Nothing
     }
-
-
-
--- IMAGES
-
-
-anerLogo : String
-anerLogo =
-    VitePluginHelper.asset "../img/aa.svg"
-
-
-liminalCover : String
-liminalCover =
-    VitePluginHelper.asset "../img/covers/liminal.svg"
-
-
-remapCover : String
-remapCover =
-    VitePluginHelper.asset "../img/covers/res.svg"
-
-
-aasbCover : String
-aasbCover =
-    VitePluginHelper.asset "../img/covers/aasb.svg"
-
-
-eosVolOneCover : String
-eosVolOneCover =
-    VitePluginHelper.asset "../img/covers/eos1.svg"
-
-
-enkefalinaCover : String
-enkefalinaCover =
-    VitePluginHelper.asset "../img/covers/enkefalina.svg"
-
-
-ispirazioneCover : String
-ispirazioneCover =
-    VitePluginHelper.asset "../img/covers/collage.svg"
-
-
-
--- STREAMING OUTLETS
-
-
-anerSoundCloud : String
-anerSoundCloud =
-    "https://soundcloud.com/aascloud"
-
-
-anerSpotify : String
-anerSpotify =
-    "https://open.spotify.com/artist/00Cg2yZTaYr1EfRZDjStlh"
-
-
-anerAppleMusic : String
-anerAppleMusic =
-    "https://music.apple.com/us/artist/aner-andros/1034283469"
-
-
-anerYoutube : String
-anerYoutube =
-    "https://www.youtube.com/channel/UC2ZkNnT2pHj01jKuj56mJfg"
-
-
-anerDeezer : String
-anerDeezer =
-    "https://www.deezer.com/us/artist/8776748"
-
-
-
--- LIVE SHOWS
-
-
-anerSongKick : String
-anerSongKick =
-    "https://www.songkick.com/artists/8738984-aner-andros"
