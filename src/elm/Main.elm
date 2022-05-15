@@ -14,11 +14,11 @@ import Catalogue
         , allRemixes
         , anerAppleMusic
         , anerDeezer
+        , anerLogo
         , anerSongKick
         , anerSoundCloud
         , anerSpotify
         , anerYoutube
-        , brandImage
         , gentleWashHome
         , latestAlbumTitle
         , showReleases
@@ -270,7 +270,7 @@ brand =
         ]
         [ img
             [ Attr.class "mt-2 md:mt-4 rounded-full border-slate-300 border border-dashed"
-            , Attr.src brandImage
+            , Attr.src anerLogo
             , Attr.alt "Aner Andros"
             ]
             []

@@ -8,11 +8,11 @@ module Catalogue exposing
     , allRemixes
     , anerAppleMusic
     , anerDeezer
+    , anerLogo
     , anerSongKick
     , anerSoundCloud
     , anerSpotify
     , anerYoutube
-    , brandImage
     , gentleWashHome
     , latestAlbumTitle
     , showReleases
@@ -264,8 +264,8 @@ ispirazione =
 -- IMAGES
 
 
-brandImage : String
-brandImage =
+anerLogo : String
+anerLogo =
     VitePluginHelper.asset "../img/aa.svg"
 
 
