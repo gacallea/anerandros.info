@@ -1,6 +1,6 @@
 module Catalogue exposing
     ( AnerData
-    , GwrData
+    , GentleWash
     , ReleaseData
     , ReleaseKind(..)
     , allAlbums
@@ -9,7 +9,7 @@ module Catalogue exposing
     , allReleases
     , allRemixes
     , anerData
-    , gwrData
+    , gentlewash
     , latestAlbum
     , showReleases
     )
@@ -48,9 +48,10 @@ type alias ReleaseData =
     }
 
 
-type alias GwrData =
+type alias GentleWash =
     { home : String
     , logo : String
+    , name : String
     }
 
 
@@ -71,10 +72,11 @@ type alias AnerData =
 -- GENTLE WASH
 
 
-gwrData : GwrData
-gwrData =
-    { home = "https://gentlewashrecords.com/"
-    , logo = ""
+gentlewash : GentleWash
+gentlewash =
+    { name = "Gentle Wash Records"
+    , home = "https://gentlewashrecords.com/"
+    , logo = VitePluginHelper.asset "../img/gwr.svg"
     }
 
 
