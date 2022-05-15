@@ -394,28 +394,23 @@ outlets =
             [ Attr.class "inline-flex my-2 py-2 justify-center text-lg lg:text-xl"
             ]
           <|
-            socialIcons streamingServices
+            List.map
+                (\service ->
+                    li
+                        [ Attr.class "pl-0 px-5"
+                        , Aria.label (Tuple.second service)
+                        ]
+                        [ a
+                            [ Attr.href <| Tuple.first service
+                            , Attr.target "_blank"
+                            , Attr.rel "noopener noreferrer"
+                            , Icon.fw
+                            ]
+                            [ Icon.viewIcon <| returnicon (Tuple.second service) ]
+                        ]
+                )
+                streamingServices
         ]
-
-
-socialIcons : List ( String, String ) -> List (Html msg)
-socialIcons list =
-    List.map
-        (\soc ->
-            li
-                [ Attr.class "pl-0 px-5 text-xl md:text-2xl"
-                , Aria.label (Tuple.second soc)
-                ]
-                [ a
-                    [ Attr.href <| Tuple.first soc
-                    , Attr.target "_blank"
-                    , Attr.rel "noopener noreferrer"
-                    , Icon.fw
-                    ]
-                    [ Icon.viewIcon <| returnicon (Tuple.second soc) ]
-                ]
-        )
-        list
 
 
 streamingServices : List ( String, String )
