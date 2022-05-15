@@ -50,6 +50,7 @@ import Html.Events exposing (onClick)
 import Msg exposing (Msg(..))
 import Svg exposing (svg)
 import Svg.Attributes as SvgAttr
+import VitePluginHelper
 
 
 
@@ -603,11 +604,19 @@ about =
 footer_ : Html Msg
 footer_ =
     footer [ Attr.id "footer", Aria.label "footer" ]
-        [ div [ Attr.class "text-sm md:text-sm border-t border-slate-300 py-4 text-center" ]
-            [ p []
-                [ Html.text "© Copyright Aner Andros. All Rights Reserved." ]
-            , p []
-                [ Html.text "Made with love and "
+        [ div [ Attr.class "flex flex-col md:flex-row justify-between border-t border-slate-300 p-4 px-2" ]
+            [ p [ Attr.class "text-center text-sm md:text-md" ]
+                [ Html.text "© Copyright Aner Andros." ]
+            , outlets "text-center text-sm md:text-md"
+            , p [ Attr.class "text-center text-sm md:text-md" ]
+                [ Html.text "Made with "
+                , a
+                    [ Attr.href <| VitePluginHelper.asset "../img/love.gif"
+                    , Attr.target "_blank"
+                    , Attr.rel "noopener noreferrer"
+                    ]
+                    [ Html.text "Love " ]
+                , Html.text "and "
                 , a
                     [ Attr.href "https://elm-lang.org/"
                     , Attr.target "_blank"
