@@ -43,7 +43,6 @@ type alias ReleaseData =
     , cover : String
     , coverArtist : String
     , apple : Maybe String
-    , amazon : Maybe String
     , soundcloud : Maybe String
     , spotify : Maybe String
     , youtube : Maybe String
@@ -156,7 +155,6 @@ liminalTales =
     , cover = liminalCover
     , coverArtist = "https://www.flickr.com/photos/ramocchia/"
     , apple = Just "https://music.apple.com/album/liminal-tales/1091282352"
-    , amazon = Just "https://www.amazon.co.uk/Liminal-Tales-Aner-Andros/dp/B01CQHFGNU"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/liminal-tales"
     , spotify = Just "https://open.spotify.com/album/7lXlg36oOH20eHjw0ZJ4gG"
     , youtube = Just "https://www.youtube.com/watch?v=N-HR7dEHIT4&list=OLAK5uy_meDmf2_3kFZJK11JuoDQ0mLZQPPH7NDhc"
@@ -175,7 +173,6 @@ remapEthosStream =
     , cover = remapCover
     , coverArtist = "http://www.riccardoarena.org/"
     , apple = Just "https://music.apple.com/it/album/remap-ethos-stream/1034283468"
-    , amazon = Just "https://www.amazon.co.uk/Remap-Ethos-Stream-Aner-Andros/dp/B014MFIF28"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/remap-ethos-stream"
     , spotify = Just "https://open.spotify.com/album/6ezmJo8RpXfyJQNeT40kaJ"
     , youtube = Just "https://www.youtube.com/watch?v=MpBklnNxaXs&list=PLXR_uSsXKC8lJWDk40IswaLbLzfn28y3j"
@@ -194,7 +191,6 @@ artefactsASb =
     , cover = aasbCover
     , coverArtist = "http://trashriotart.tumblr.com/"
     , apple = Just "https://music.apple.com/album/artefacts-and-sonic-brushstrokes-ep/1281231021"
-    , amazon = Just "https://www.amazon.com/Artefacts-Sonic-Brushstrokes-Aner-Andros/dp/B075M7SFZL"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/artefacts-and-sonic"
     , spotify = Just "https://open.spotify.com/album/0UTE8yS5IBpV1ov6h08Jwx"
     , youtube = Just "https://www.youtube.com/watch?v=nsgzFFrYer8&list=PLXR_uSsXKC8llnnqiwCN6xMJlWohyU-tS"
@@ -213,7 +209,6 @@ eosVolOne =
     , cover = eosVolOneCover
     , coverArtist = "https://carolrollo.it/"
     , apple = Just "https://music.apple.com/ca/album/embroidering-on-silence-vol-i/1242232285"
-    , amazon = Just "https://www.amazon.com/Embroidering-Silence-Vol-Aner-Andros/dp/B072634MT3/143-8572494-9262537"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/embroidering-on-silence-vol-i"
     , spotify = Just "https://open.spotify.com/album/2zQ5hqT9Z2D140rywnebL2"
     , youtube = Just "https://www.youtube.com/watch?v=CeIByiQU4HM"
@@ -232,7 +227,6 @@ enkefalina =
     , cover = enkefalinaCover
     , coverArtist = "https://carolrollo.it/"
     , apple = Nothing
-    , amazon = Nothing
     , soundcloud = Nothing
     , spotify = Nothing
     , youtube = Nothing
@@ -251,7 +245,6 @@ ispirazione =
     , cover = ispirazioneCover
     , coverArtist = "https://carolrollo.it/"
     , apple = Nothing
-    , amazon = Nothing
     , soundcloud = Nothing
     , spotify = Nothing
     , youtube = Nothing
