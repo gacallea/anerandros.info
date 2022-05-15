@@ -625,7 +625,7 @@ about =
                     , a [ Attr.href gwrData.home, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Gentle Wash Records, " ]
                     , Html.text "and it is available on the majority of digital streaming outlets including, but not limited to, Spotify, Apple Music, Deezer, SoundCloud Go, and YouTube Music."
                     ]
-                , outlets anerStreamingOutlets "text-center text-md lg:text-lg"
+                , outlets anerStreamingOutlets "text-center text-md lg:text-lg mb-4 md:mb-0"
                 ]
             ]
         ]
