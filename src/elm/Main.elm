@@ -256,7 +256,7 @@ hero =
             , div
                 [ Attr.class "sm:self-end text-md lg:text-base content-end md:w-4/12" ]
                 [ latestAlbumDada
-                , outlets "text-xl lg:text-2xl my-2 py-2"
+                , outlets latestAlbumStreaming "text-xl lg:text-2xl my-2 py-2"
                 ]
             ]
         ]
@@ -429,8 +429,8 @@ latestAlbumDada =
         ]
 
 
-outlets : String -> Html Msg
-outlets addClassCss =
+outlets : List ( String, String ) -> String -> Html Msg
+outlets outletKind addClassCss =
     div
         [ Aria.label "music outlets social links"
         , Attr.class "flex justify-center justify-items-center"
@@ -454,17 +454,27 @@ outlets addClassCss =
                             [ Icon.viewIcon <| returnicon (Tuple.second service) ]
                         ]
                 )
-                streamingServices
+                outletKind
         ]
 
 
-streamingServices : List ( String, String )
-streamingServices =
-    [ ( anerSoundCloud, "soundcloud" )
-    , ( anerSpotify, "spotify" )
-    , ( anerAppleMusic, "apple" )
-    , ( anerYoutube, "youtube" )
-    , ( anerDeezer, "deezer" )
+latestAlbumStreaming : List ( String, String )
+latestAlbumStreaming =
+    [ ( Maybe.withDefault "" latestAlbum.soundcloud, "soundcloud" )
+    , ( Maybe.withDefault "" latestAlbum.spotify, "spotify" )
+    , ( Maybe.withDefault "" latestAlbum.apple, "apple" )
+    , ( Maybe.withDefault "" latestAlbum.youtube, "youtube" )
+    , ( Maybe.withDefault "" latestAlbum.deezer, "deezer" )
+    ]
+
+
+anerStreamingOutlets : List ( String, String )
+anerStreamingOutlets =
+    [ ( anerData.soundcloud, "soundcloud" )
+    , ( anerData.spotify, "spotify" )
+    , ( anerData.apple, "apple" )
+    , ( anerData.youtube, "youtube" )
+    , ( anerData.deezer, "deezer" )
     ]
 
 
@@ -626,7 +636,7 @@ about =
                     , a [ Attr.href anerSoundCloud, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "SoundCloud Go, " ]
                     , a [ Attr.href anerYoutube, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "and YouTube Music." ]
                     ]
-                , outlets "text-center text-md lg:text-lg"
+                , outlets anerStreamingOutlets "text-center text-md lg:text-lg"
                 ]
             ]
         ]
