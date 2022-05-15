@@ -214,7 +214,7 @@ hero =
             , div
                 [ Attr.class "sm:self-end text-md lg:text-base content-end md:w-4/12" ]
                 [ latestAlbum
-                , outlets
+                , outlets "text-xl lg:text-2xl my-2 py-2"
                 ]
             ]
         ]
@@ -387,11 +387,14 @@ latestAlbum =
         ]
 
 
-outlets : Html Msg
-outlets =
-    div [ Aria.label "music outlets social links" ]
+outlets : String -> Html Msg
+outlets addClassCss =
+    div
+        [ Aria.label "music outlets social links"
+        , Attr.class "flex justify-center justify-items-center"
+        ]
         [ ul
-            [ Attr.class "inline-flex my-2 py-2 justify-center text-lg lg:text-xl"
+            [ Attr.class <| String.append "inline-flex justify-center" addClassCss
             ]
           <|
             List.map
