@@ -1,4 +1,5 @@
 module Catalogue exposing
+    ( AnerData
     , GwrData
     , ReleaseKind(..)
     , allAlbums
@@ -6,6 +7,7 @@ module Catalogue exposing
     , allEps
     , allReleases
     , allRemixes
+    , anerData
     , gwrData
     , latestAlbum
     , showReleases
@@ -49,6 +51,21 @@ type alias GwrData =
     , logo : String
     }
 
+
+type alias AnerData =
+    { name : String
+    , logo : String
+    , apple : String
+    , soundcloud : String
+    , spotify : String
+    , youtube : String
+    , mixcloud : String
+    , deezer : String
+    , songkick : String
+    }
+
+
+
 -- GENTLE WASH
 
 
@@ -58,6 +75,23 @@ gwrData =
     , logo = ""
     }
 
+
+
+-- ANER
+
+
+anerData : AnerData
+anerData =
+    { name = "Aner Andros"
+    , logo = VitePluginHelper.asset "../img/aa.svg"
+    , apple = "https://music.apple.com/artist/aner-andros/1034283469"
+    , soundcloud = "https://soundcloud.com/aascloud"
+    , spotify = "https://open.spotify.com/artist/00Cg2yZTaYr1EfRZDjStlh"
+    , youtube = "https://www.youtube.com/channel/UC2ZkNnT2pHj01jKuj56mJfg"
+    , mixcloud = "https://www.mixcloud.com/aasmixes/"
+    , deezer = "https://www.deezer.com/artist/8776748"
+    , songkick = "https://www.songkick.com/artists/8738984-aner-andros"
+    }
 
 
 
