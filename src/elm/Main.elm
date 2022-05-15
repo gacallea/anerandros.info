@@ -645,11 +645,10 @@ about =
 footer_ : Html Msg
 footer_ =
     footer [ Attr.id "footer", Aria.label "footer" ]
-        [ div [ Attr.class "flex flex-col md:flex-row justify-between border-t border-slate-300 p-4 px-2" ]
-            [ p [ Attr.class "text-center text-sm md:text-md" ]
-                [ Html.text "© Copyright Aner Andros." ]
-            , outlets "text-center text-sm md:text-md"
-            , p [ Attr.class "text-center text-sm md:text-md" ]
+        [ div [ Attr.class "border-t border-slate-300 p-4 text-center text-sm md:text-md" ]
+            [ p []
+                [ Html.text "© Copyright Aner Andros. All rights reserved" ]
+            , p []
                 [ Html.text "Made with "
                 , a
                     [ Attr.href <| VitePluginHelper.asset "../img/love.gif"
