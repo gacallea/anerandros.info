@@ -442,7 +442,7 @@ outlets addClassCss =
             List.map
                 (\service ->
                     li
-                        [ Attr.class "pl-0 px-5"
+                        [ Attr.class "px-4"
                         , Aria.label (Tuple.second service)
                         ]
                         [ a
