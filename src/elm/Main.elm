@@ -621,7 +621,9 @@ about =
                     , Html.text " and the Cronosfera Festival in Italy."
                     ]
                 , p [ Attr.class "p-2 pb-4" ]
-                    [ Html.text "Aner Andros music is released on his own vanity record label, Gentle Wash Records, and it is available on the majority of digital streaming outlets including, but not limited to, Spotify, Apple Music, Deezer, SoundCloud Go, and YouTube Music."
+                    [ Html.text "Aner Andros music is released on his own vanity record label, "
+                    , a [ Attr.href gwrData.home, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Gentle Wash Records, " ]
+                    , Html.text "and it is available on the majority of digital streaming outlets including, but not limited to, Spotify, Apple Music, Deezer, SoundCloud Go, and YouTube Music."
                     ]
                 , outlets anerStreamingOutlets "text-center text-md lg:text-lg"
                 ]
