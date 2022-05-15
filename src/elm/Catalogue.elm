@@ -1,14 +1,14 @@
 module Catalogue exposing
-    ( AnerData
+    ( AnerAndros
     , GentleWash
-    , ReleaseData
+    , Release
     , ReleaseKind(..)
     , allAlbums
     , allCollages
     , allEps
     , allReleases
     , allRemixes
-    , anerData
+    , anerandros
     , gentlewash
     , latestAlbum
     , showReleases
@@ -30,14 +30,14 @@ type ReleaseKind
     | Collages
 
 
-type alias ReleaseData =
+type alias Release =
     { kind : ReleaseKind
-    , label : Maybe String
-    , catalog : Maybe String
     , year : String
     , name : String
     , cover : String
     , coverArtist : String
+    , label : Maybe String
+    , catalog : Maybe String
     , apple : Maybe String
     , soundcloud : Maybe String
     , spotify : Maybe String
@@ -55,7 +55,7 @@ type alias GentleWash =
     }
 
 
-type alias AnerData =
+type alias AnerAndros =
     { name : String
     , logo : String
     , apple : String
@@ -84,8 +84,8 @@ gentlewash =
 -- ANER
 
 
-anerData : AnerData
-anerData =
+anerandros : AnerAndros
+anerandros =
     { name = "Aner Andros"
     , logo = VitePluginHelper.asset "../img/aa.svg"
     , apple = "https://music.apple.com/artist/aner-andros/1034283469"
@@ -102,7 +102,7 @@ anerData =
 -- LATEST ALBUM
 
 
-latestAlbum : ReleaseData
+latestAlbum : Release
 latestAlbum =
     artefactsASb
 
@@ -123,7 +123,7 @@ latestAlbum =
 -}
 
 
-allReleases : Dict Int ReleaseData
+allReleases : Dict Int Release
 allReleases =
     Dict.fromList
         [ ( 100, remapEthosStream )
@@ -135,7 +135,7 @@ allReleases =
         ]
 
 
-derivateReleaseDict : ReleaseKind -> Dict Int ReleaseData
+derivateReleaseDict : ReleaseKind -> Dict Int Release
 derivateReleaseDict kind =
     Dict.values allReleases
         |> List.filter (\rel -> rel.kind == kind)
@@ -143,27 +143,27 @@ derivateReleaseDict kind =
         |> Dict.fromList
 
 
-allAlbums : Dict Int ReleaseData
+allAlbums : Dict Int Release
 allAlbums =
     derivateReleaseDict Albums
 
 
-allEps : Dict Int ReleaseData
+allEps : Dict Int Release
 allEps =
     derivateReleaseDict Eps
 
 
-allRemixes : Dict Int ReleaseData
+allRemixes : Dict Int Release
 allRemixes =
     derivateReleaseDict Remixes
 
 
-allCollages : Dict Int ReleaseData
+allCollages : Dict Int Release
 allCollages =
     derivateReleaseDict Collages
 
 
-showReleases : Dict Int ReleaseData -> List ReleaseData
+showReleases : Dict Int Release -> List Release
 showReleases =
     {-
        to order them in descending order:
@@ -174,7 +174,7 @@ showReleases =
     Dict.foldl listTheseReleases []
 
 
-listTheseReleases : Int -> ReleaseData -> List ReleaseData -> List ReleaseData
+listTheseReleases : Int -> Release -> List Release -> List Release
 listTheseReleases _ rel releases =
     rel :: releases
 
@@ -183,15 +183,15 @@ listTheseReleases _ rel releases =
 -- ALBUMS
 
 
-liminalTales : ReleaseData
+liminalTales : Release
 liminalTales =
     { kind = Albums
-    , label = Just "Gentle Wash Records"
-    , catalog = Just "GWR0002"
     , year = "2016"
     , name = "Liminal Tales"
     , cover = VitePluginHelper.asset "../img/covers/liminal.svg"
     , coverArtist = "https://www.flickr.com/photos/ramocchia/"
+    , label = Just "Gentle Wash Records"
+    , catalog = Just "GWR0002"
     , apple = Just "https://music.apple.com/album/liminal-tales/1091282352"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/liminal-tales"
     , spotify = Just "https://open.spotify.com/album/7lXlg36oOH20eHjw0ZJ4gG"
@@ -202,96 +202,96 @@ liminalTales =
     }
 
 
-remapEthosStream : ReleaseData
+remapEthosStream : Release
 remapEthosStream =
     { kind = Albums
-    , label = Just "Gentle Wash Records"
-    , catalog = Just "GWR0000"
     , year = "2015"
     , name = "Remap Ethos Stream"
     , cover = VitePluginHelper.asset "../img/covers/res.svg"
     , coverArtist = "http://www.riccardoarena.org/"
+    , label = Just "Gentle Wash Records"
+    , catalog = Just "GWR0000"
     , apple = Just "https://music.apple.com/it/album/remap-ethos-stream/1034283468"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/remap-ethos-stream"
     , spotify = Just "https://open.spotify.com/album/6ezmJo8RpXfyJQNeT40kaJ"
     , youtube = Just "https://www.youtube.com/watch?v=MpBklnNxaXs&list=PLXR_uSsXKC8lJWDk40IswaLbLzfn28y3j"
+    , deezer = Just "https://www.deezer.com/album/11098134"
     , mixcloud = Nothing
     , bandcamp = Nothing
-    , deezer = Just "https://www.deezer.com/album/11098134"
     }
 
 
-artefactsASb : ReleaseData
+artefactsASb : Release
 artefactsASb =
     { kind = Eps
-    , label = Just "Gentle Wash Records"
-    , catalog = Just "GWR0003"
     , year = "2017"
     , name = "Artefacts and Sonic Brushstrokes"
     , cover = VitePluginHelper.asset "../img/covers/aasb.svg"
     , coverArtist = "http://trashriotart.tumblr.com/"
+    , label = Just "Gentle Wash Records"
+    , catalog = Just "GWR0003"
     , apple = Just "https://music.apple.com/album/artefacts-and-sonic-brushstrokes-ep/1281231021"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/artefacts-and-sonic"
     , spotify = Just "https://open.spotify.com/album/0UTE8yS5IBpV1ov6h08Jwx"
     , youtube = Just "https://www.youtube.com/watch?v=nsgzFFrYer8&list=PLXR_uSsXKC8llnnqiwCN6xMJlWohyU-tS"
+    , deezer = Just "https://www.deezer.com/album/47802142"
     , mixcloud = Nothing
     , bandcamp = Nothing
-    , deezer = Just "https://www.deezer.com/album/47802142"
     }
 
 
-eosVolOne : ReleaseData
+eosVolOne : Release
 eosVolOne =
     { kind = Eps
-    , label = Just "Gentle Wash Records"
-    , catalog = Just "GWR0001"
     , year = "2015"
     , name = "Embroidering on Silence Vol. I"
     , cover = VitePluginHelper.asset "../img/covers/eos1.svg"
     , coverArtist = "https://carolrollo.it/"
+    , label = Just "Gentle Wash Records"
+    , catalog = Just "GWR0001"
     , apple = Just "https://music.apple.com/ca/album/embroidering-on-silence-vol-i/1242232285"
     , soundcloud = Just "https://soundcloud.com/aascloud/sets/embroidering-on-silence-vol-i"
     , spotify = Just "https://open.spotify.com/album/2zQ5hqT9Z2D140rywnebL2"
     , youtube = Just "https://www.youtube.com/watch?v=CeIByiQU4HM"
+    , deezer = Just "https://www.deezer.com/album/42391771"
     , mixcloud = Nothing
     , bandcamp = Nothing
-    , deezer = Just "https://www.deezer.com/album/42391771"
     }
 
 
-enkefalina : ReleaseData
+enkefalina : Release
 enkefalina =
     { kind = Remixes
-    , label = Just "Nomad Records"
-    , catalog = Nothing
     , year = "2017"
     , name = "Enkefalina (Aner Andros Remix)"
     , cover = VitePluginHelper.asset "../img/covers/enkefalina.svg"
     , coverArtist = "https://carolrollo.it/"
+    , label = Just "Nomad Records"
+    , bandcamp = Just "https://olim.bandcamp.com/track/enkefalina-aner-andros-remix"
+    , catalog = Nothing
     , apple = Nothing
     , soundcloud = Nothing
     , spotify = Nothing
     , youtube = Nothing
     , mixcloud = Nothing
-    , bandcamp = Just "https://olim.bandcamp.com/track/enkefalina-aner-andros-remix"
     , deezer = Nothing
     }
 
 
-ispirazione : ReleaseData
+ispirazione : Release
 ispirazione =
     { kind = Collages
-    , label = Nothing
-    , catalog = Nothing
     , year = "2016"
     , name = "ISPIRAZIONE"
     , cover = VitePluginHelper.asset "../img/covers/collage.svg"
     , coverArtist = "https://carolrollo.it/"
+    , mixcloud = Just "https://www.mixcloud.com/aasmixes/playlists/aas-collages/"
+    , label = Nothing
+    , catalog = Nothing
     , apple = Nothing
     , soundcloud = Nothing
     , spotify = Nothing
     , youtube = Nothing
-    , mixcloud = Just "https://www.mixcloud.com/aasmixes/playlists/aas-collages/"
     , bandcamp = Nothing
     , deezer = Nothing
     }

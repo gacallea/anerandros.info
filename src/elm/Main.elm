@@ -5,15 +5,15 @@ import Browser
 import Browser.Events
 import Catalogue
     exposing
-        ( ReleaseData
+        ( Release
         , ReleaseKind(..)
         , allAlbums
         , allCollages
         , allEps
         , allReleases
         , allRemixes
-        , anerData
-        , gwrData
+        , anerandros
+        , gentlewash
         , latestAlbum
         , showReleases
         )
@@ -196,7 +196,7 @@ links =
     [ ( "#top", "home" )
     , ( "#music", "music" )
     , ( "#about", "about" )
-    , ( anerData.songkick, "live" )
+    , ( anerandros.songkick, "live" )
     ]
 
 
@@ -249,8 +249,8 @@ hero =
                 ]
             , div
                 [ Attr.class "sm:self-end text-md lg:text-base content-end md:w-4/12" ]
-                [ latestAlbumDada
-                , outlets latestAlbumStreaming "text-xl lg:text-2xl my-2 py-2"
+                [ latestAlbumPlayer
+                , outlets latestAlbumOutlets "text-center text-md lg:text-lg my-2 py-2"
                 ]
             ]
         ]
@@ -264,15 +264,15 @@ brand =
         ]
         [ img
             [ Attr.class "mt-2 md:mt-4 rounded-full border-slate-300 border border-dashed"
-            , Attr.src anerData.logo
+            , Attr.src anerandros.logo
             , Attr.alt "Aner Andros"
             ]
             []
         ]
 
 
-latestAlbumDada : Html Msg
-latestAlbumDada =
+latestAlbumPlayer : Html Msg
+latestAlbumPlayer =
     div
         [ Attr.class "flex flex-col justify-center border-t sm:border-0 border-slate-300 p-2 lg:p-0"
         , Aria.label "latest album player"
@@ -452,8 +452,8 @@ outlets outletKind addClassCss =
         ]
 
 
-latestAlbumStreaming : List ( String, String )
-latestAlbumStreaming =
+latestAlbumOutlets : List ( String, String )
+latestAlbumOutlets =
     [ ( Maybe.withDefault "" latestAlbum.soundcloud, "soundcloud" )
     , ( Maybe.withDefault "" latestAlbum.spotify, "spotify" )
     , ( Maybe.withDefault "" latestAlbum.apple, "apple" )
@@ -462,13 +462,13 @@ latestAlbumStreaming =
     ]
 
 
-anerStreamingOutlets : List ( String, String )
-anerStreamingOutlets =
-    [ ( anerData.soundcloud, "soundcloud" )
-    , ( anerData.spotify, "spotify" )
-    , ( anerData.apple, "apple" )
-    , ( anerData.youtube, "youtube" )
-    , ( anerData.deezer, "deezer" )
+anerAndrosOutlets : List ( String, String )
+anerAndrosOutlets =
+    [ ( anerandros.soundcloud, "soundcloud" )
+    , ( anerandros.spotify, "spotify" )
+    , ( anerandros.apple, "apple" )
+    , ( anerandros.youtube, "youtube" )
+    , ( anerandros.deezer, "deezer" )
     ]
 
 
@@ -570,7 +570,7 @@ discog model =
                     showReleases allCollages
 
 
-renderReleases : List ReleaseData -> List (Html msg)
+renderReleases : List Release -> List (Html msg)
 renderReleases data =
     List.map
         (\i ->
