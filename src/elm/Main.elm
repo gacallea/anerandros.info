@@ -607,7 +607,7 @@ about =
                 ]
             , div [ Attr.class "p-0 md:p-4 md:px-4 lg:px-14 text-center md:text-left" ]
                 [ p [ Attr.class "p-2 pt-0" ]
-                    [ Html.text "Eclectic producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors when drawing oneiric soundscapes in the making of musical voyages. "
+                    [ Html.text "Eclectic non-musician and producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors when drawing oneiric soundscapes in the making of musical voyages. "
                     , a [ Attr.href "https://vfs.edu/programs/sound-design", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "VFS Alumnus and Sound Design for Visual Media graduate." ]
                     ]
                 , p [ Attr.class "p-2" ] [ Html.text "Member of Mi.S.Fu and Sleep Collective. The former: a multifunctional, versatile cross-media laboratory dedicated to mapping, music, 3D, arts. The latter: a collective consisting of talents that had given rise to various Sleep Concert in different Italian locations and with different line-ups." ]
@@ -615,17 +615,19 @@ about =
                     [ Html.text "Formerly based in Bristol, UK, Aner Andros has performed at the "
                     , a [ Attr.href "https://cubecinema.com/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Cube Cinema Plex" ]
                     , Html.text " and has collaborated with "
-                    , a [ Attr.href "https://parallelmadness.com/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Parallel Madness" ]
-                    , Html.text ". Other noteworthy shows include "
-                    , a [ Attr.href "https://crux-events.org/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Crux Events in London" ]
-                    , Html.text " and the Cronosfera Festival in Italy."
+                    , a [ Attr.href "https://parallelmadness.com/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Parallel Madness. " ]
+                    , Html.text "Notable shows include: "
+                    , a [ Attr.href "https://www.cubecinema.com/id/8295/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "'100 Years of DADA' " ]
+                    , Html.text "celebratory event at the Cube Cinema, a bespoke live at "
+                    , a [ Attr.href "https://crux-events.org/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Crux Events in London, " ]
+                    , Html.text "and the Cronosfera Festival in Italy."
                     ]
                 , p [ Attr.class "p-2 pb-4" ]
                     [ Html.text "Aner Andros music is released on his own vanity record label, "
-                    , a [ Attr.href gwrData.home, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Gentle Wash Records, " ]
-                    , Html.text "and it is available on the majority of digital streaming outlets including, but not limited to, Spotify, Apple Music, Deezer, SoundCloud Go, and YouTube Music."
+                    , a [ Attr.href gentlewash.home, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text <| String.append gentlewash.name ", " ]
+                    , Html.text "and it's available on the majority of digital streaming outlets including, but not limited to, Spotify, Apple Music, Deezer, SoundCloud Go, and YouTube Music."
                     ]
-                , outlets anerStreamingOutlets "text-center text-md lg:text-lg mb-4 md:mb-0"
+                , outlets anerAndrosOutlets "text-center text-md lg:text-lg mb-4 md:mb-0"
                 ]
             ]
         ]
