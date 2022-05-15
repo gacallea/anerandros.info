@@ -626,6 +626,7 @@ about =
                     , a [ Attr.href anerSoundCloud, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "SoundCloud Go, " ]
                     , a [ Attr.href anerYoutube, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "and YouTube Music." ]
                     ]
+                , outlets "text-center text-md lg:text-lg mb-4 md:mb-2"
                 ]
             ]
         ]
