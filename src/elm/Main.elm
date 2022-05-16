@@ -625,7 +625,7 @@ about =
                 , p [ Attr.class "p-2 pb-4" ]
                     [ Html.text "Aner Andros releases his music on his own vanity record label, "
                     , a [ Attr.href gentlewash.home, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text <| String.append gentlewash.name ". " ]
-                    , Html.text "His music is available on the majority of digital streaming outlets including, but not limited to, Spotify, Apple Music, Deezer, SoundCloud Go, and YouTube Music."
+                    , Html.text "His music is available on the majority of digital streaming outlets including, but not limited to, Spotify, Apple Music, Deezer, SoundCloud Go, Amazon Music, and YouTube Music."
                     ]
                 , outlets anerAndrosOutlets "text-center text-md lg:text-lg mb-4 md:mb-0"
                 ]
