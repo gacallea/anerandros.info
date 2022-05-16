@@ -607,7 +607,7 @@ about =
                 ]
             , div [ Attr.class "p-0 md:p-4 md:px-4 lg:px-14 text-center md:text-left" ]
                 [ p [ Attr.class "p-2 pt-0" ]
-                    [ Html.text "Eclectic non-musician and producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors when drawing oneiric soundscapes in the making of musical voyages. "
+                    [ Html.text "Eclectic non-musician and producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors, when drawing oneiric soundscapes into a story, in the making of musical voyages. "
                     , a [ Attr.href "https://vfs.edu/programs/sound-design", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "VFS Alumnus and Sound Design for Visual Media graduate." ]
                     ]
                 , p [ Attr.class "p-2" ] [ Html.text "Member of Mi.S.Fu and Sleep Collective. The former: a multifunctional, versatile cross-media laboratory dedicated to mapping, music, 3D, arts. The latter: a collective consisting of talents that had given rise to various Sleep Concert in different Italian locations and with different line-ups." ]
@@ -618,14 +618,14 @@ about =
                     , a [ Attr.href "https://parallelmadness.com/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Parallel Madness. " ]
                     , Html.text "Notable shows include: "
                     , a [ Attr.href "https://www.cubecinema.com/id/8295/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "'100 Years of DADA' " ]
-                    , Html.text "celebratory event at the Cube Cinema, a bespoke live at "
+                    , Html.text "celebratory event at the Cube Cinema, and bespoke lives at "
                     , a [ Attr.href "https://crux-events.org/", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "Crux Events in London, " ]
-                    , Html.text "and the Cronosfera Festival in Italy."
+                    , Html.text "and Cronosfera Festival in Italy."
                     ]
                 , p [ Attr.class "p-2 pb-4" ]
-                    [ Html.text "Aner Andros music is released on his own vanity record label, "
-                    , a [ Attr.href gentlewash.home, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text <| String.append gentlewash.name ", " ]
-                    , Html.text "and it's available on the majority of digital streaming outlets including, but not limited to, Spotify, Apple Music, Deezer, SoundCloud Go, and YouTube Music."
+                    [ Html.text "Aner Andros releases his music on his own vanity record label, "
+                    , a [ Attr.href gentlewash.home, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text <| String.append gentlewash.name ". " ]
+                    , Html.text "His music is available on the majority of digital streaming outlets including, but not limited to, Spotify, Apple Music, Deezer, SoundCloud Go, and YouTube Music."
                     ]
                 , outlets anerAndrosOutlets "text-center text-md lg:text-lg mb-4 md:mb-0"
                 ]
