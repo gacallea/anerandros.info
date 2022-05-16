@@ -250,7 +250,6 @@ hero =
             , div
                 [ Attr.class "sm:self-end text-md lg:text-base content-end md:w-4/12" ]
                 [ latestAlbumPlayer
-                , outlets latestAlbumOutlets "text-center text-md lg:text-lg my-2 py-2"
                 ]
             ]
         ]
@@ -274,148 +273,104 @@ brand =
 latestAlbumPlayer : Html Msg
 latestAlbumPlayer =
     div
-        [ Attr.class "flex flex-col justify-center border-t sm:border-0 border-slate-300 p-2 lg:p-0"
+        [ Attr.class "flex flex-col justify-center border-t sm:border-0 border-slate-300 p-2 pb-8 lg:px-0"
         , Aria.label "latest album player"
         ]
         [ h2 [ Attr.class "sm:font-semibold py-4 md:p-0 underline block md:hidden landscape:hidden" ]
             [ Html.text "latest release"
             ]
-
-        -- , iframe
-        --     [ Attr.class "w-full h-96"
-        --     , Attr.src latestAlbumLink
-        --     , Attr.title latestAlbumTitle
-        --     ]
-        --     []
         , div
             [ Attr.class "bg-amber-100 shadow-lg rounded-lg w-full h-auto text-left"
             ]
             [ div
-                [ Attr.class "flex"
+                [ Attr.class "max-w-md mx-auto rounded-lg shadow-md overflow-hidden md:max-w-lg"
                 ]
                 [ div
-                    [ Attr.class "w-full p-8"
-                    ]
-                    [ --  div []
-                      --     [ img
-                      --         [ Attr.class "w-1/2 h-auto rounded"
-                      --         , Attr.src "https://tailwindcss.com/img/card-top.jpg"
-                      --         , Attr.alt "Album Pic"
-                      --         ]
-                      --         []
-                      --     ]
-                      -- ,
-                      div
-                        [ Attr.class ""
-                        ]
-                        [ div []
-                            [ h1
-                                [ Attr.class "text-2xl text-gray-900 font-medium"
-                                ]
-                                [ Html.text "00h" ]
-                            , p
-                                [ Attr.class "text-sm text-gray-700 mt-1"
-                                ]
-                                [ Html.text latestAlbum.name ]
-                            ]
-                        ]
-                    , div
-                        [ Attr.class "flex justify-between items-center mt-8"
-                        ]
-                        [ div
-                            [ Attr.class "text-gray-700"
-                            ]
-                            [ svg
-                                [ SvgAttr.class "w-8 h-8"
-                                , SvgAttr.fill "currentColor"
-                                , SvgAttr.viewBox "0 0 20 20"
-                                ]
-                                [ Svg.path
-                                    [ SvgAttr.d "M6.59 12.83L4.4 15c-.58.58-1.59 1-2.4 1H0v-2h2c.29 0 .8-.2 1-.41l2.17-2.18 1.42 1.42zM16 4V1l4 4-4 4V6h-2c-.29 0-.8.2-1 .41l-2.17 2.18L9.4 7.17 11.6 5c.58-.58 1.59-1 2.41-1h2zm0 10v-3l4 4-4 4v-3h-2c-.82 0-1.83-.42-2.41-1l-8.6-8.59C2.8 6.21 2.3 6 2 6H0V4h2c.82 0 1.83.42 2.41 1l8.6 8.59c.2.2.7.41.99.41h2z"
-                                    ]
-                                    []
-                                ]
-                            ]
-                        , div
-                            [ Attr.class "text-gray-700"
-                            ]
-                            [ svg
-                                [ SvgAttr.class "w-8 h-8"
-                                , SvgAttr.fill "currentColor"
-                                , SvgAttr.viewBox "0 0 20 20"
-                                ]
-                                [ Svg.path
-                                    [ SvgAttr.d "M4 5h3v10H4V5zm12 0v10l-9-5 9-5z"
-                                    ]
-                                    []
-                                ]
-                            ]
-                        , div
-                            [ Attr.class "text-slate-100 p-8 rounded-full bg-red-500 shadow-lg"
-                            ]
-                            [ svg
-                                [ SvgAttr.class "w-8 h-8"
-                                , SvgAttr.fill "currentColor"
-                                , SvgAttr.viewBox "0 0 20 20"
-                                ]
-                                [ Svg.path
-                                    [ SvgAttr.d "M5 4h3v12H5V4zm7 0h3v12h-3V4z"
-                                    ]
-                                    []
-                                ]
-                            ]
-                        , div
-                            [ Attr.class "text-gray-700"
-                            ]
-                            [ svg
-                                [ SvgAttr.class "w-8 h-8"
-                                , SvgAttr.fill "currentColor"
-                                , SvgAttr.viewBox "0 0 20 20"
-                                ]
-                                [ Svg.path
-                                    [ SvgAttr.d "M13 5h3v10h-3V5zM4 5l9 5-9 5V5z"
-                                    ]
-                                    []
-                                ]
-                            ]
-                        , div
-                            [ Attr.class "text-gray-700"
-                            ]
-                            [ svg
-                                [ SvgAttr.class "w-8 h-8"
-                                , SvgAttr.fill "currentColor"
-                                , SvgAttr.viewBox "0 0 20 20"
-                                ]
-                                [ Svg.path
-                                    [ SvgAttr.d "M5 4a2 2 0 0 0-2 2v6H0l4 4 4-4H5V6h7l2-2H5zm10 4h-3l4-4 4 4h-3v6a2 2 0 0 1-2 2H6l2-2h7V8z"
-                                    ]
-                                    []
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            , div
-                [ Attr.class "mx-8 py-4"
-                ]
-                [ div
-                    [ Attr.class "flex justify-between text-sm text-gray-700"
-                    ]
-                    [ p []
-                        [ Html.text "0:40" ]
-                    , p []
-                        [ Html.text "4:20" ]
-                    ]
-                , div
-                    [ Attr.class "mt-1"
-                    ]
+                    []
                     [ div
-                        [ Attr.class "h-1 bg-gray-800 rounded-full"
-                        ]
-                        [ div
-                            [ Attr.class "w-1/5 h-1 bg-red-500 rounded-full relative"
+                        []
+                        [ img
+                            [ Attr.class "h-48 w-full object-cover"
+                            , Attr.src latestAlbum.cover
+                            , Attr.alt latestAlbum.name
+                            , Attr.title latestAlbum.name
                             ]
                             []
+                        ]
+                    , div
+                        [ Attr.class "w-full p-8"
+                        ]
+                        [ h1
+                            [ Attr.class "block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+                            ]
+                            [ Html.text "00h" ]
+                        , p
+                            [ Attr.class "text-sm text-gray-700 mt-1"
+                            ]
+                            [ Html.text latestAlbum.name ]
+                        , div
+                            [ Attr.class "flex justify-between items-center text-gray-700 text-2xl mt-4"
+                            ]
+                            [ div
+                                []
+                                [ svg
+                                    [ SvgAttr.class "w-5 h-5"
+                                    , SvgAttr.fill "currentColor"
+                                    , SvgAttr.viewBox "0 0 20 20"
+                                    ]
+                                    [ Svg.path
+                                        [ SvgAttr.d "M6.59 12.83L4.4 15c-.58.58-1.59 1-2.4 1H0v-2h2c.29 0 .8-.2 1-.41l2.17-2.18 1.42 1.42zM16 4V1l4 4-4 4V6h-2c-.29 0-.8.2-1 .41l-2.17 2.18L9.4 7.17 11.6 5c.58-.58 1.59-1 2.41-1h2zm0 10v-3l4 4-4 4v-3h-2c-.82 0-1.83-.42-2.41-1l-8.6-8.59C2.8 6.21 2.3 6 2 6H0V4h2c.82 0 1.83.42 2.41 1l8.6 8.59c.2.2.7.41.99.41h2z"
+                                        ]
+                                        []
+                                    ]
+                                ]
+                            , div
+                                []
+                                [ Icon.viewIcon Icon.backward
+                                ]
+                            , div
+                                [ Attr.class "text-6xl text-red-500" ]
+                                [ --Icon.viewIcon Icon.playCircle
+                                  Icon.viewIcon Icon.pauseCircle
+                                ]
+                            , div
+                                []
+                                [ Icon.viewIcon Icon.forward
+                                ]
+                            , div
+                                []
+                                [ svg
+                                    [ SvgAttr.class "w-6 h-6"
+                                    , SvgAttr.fill "currentColor"
+                                    , SvgAttr.viewBox "0 0 20 20"
+                                    ]
+                                    [ Svg.path
+                                        [ SvgAttr.d "M5 4a2 2 0 0 0-2 2v6H0l4 4 4-4H5V6h7l2-2H5zm10 4h-3l4-4 4 4h-3v6a2 2 0 0 1-2 2H6l2-2h7V8z"
+                                        ]
+                                        []
+                                    ]
+                                ]
+                            ]
+                        , div
+                            [ Attr.class "flex justify-between text-sm text-gray-700 mt-2"
+                            ]
+                            [ p []
+                                [ Html.text "0:42" ]
+                            , p []
+                                [ Html.text "4:20" ]
+                            ]
+                        , div
+                            []
+                            [ div
+                                [ Attr.class "h-1 bg-gray-800 rounded-full"
+                                ]
+                                [ div
+                                    [ Attr.class "w-1/5 h-1 bg-red-500 rounded-full relative"
+                                    ]
+                                    []
+                                ]
+                            ]
+                        , outlets latestAlbumOutlets "text-gray-700 text-xl mt-6"
                         ]
                     ]
                 ]
