@@ -457,7 +457,7 @@ music model =
                 ]
             , discog model
             , ul
-                [ Attr.class "hidden sm:flex flex-row justify-center text-sm lg:text-base mt-2 py-2"
+                [ Attr.class "flex flex-row justify-center mt-2 py-2"
                 ]
               <|
                 releaseSelector selectors
