@@ -1,8 +1,7 @@
-module Main exposing (Flags, Model, main)
+module Main exposing (Model, main)
 
 import Accessibility.Aria as Aria
 import Browser
-import Browser.Events
 import Catalogue
     exposing
         ( Release
@@ -53,21 +52,7 @@ import VitePluginHelper
 
 
 type alias Model =
-    { viewport :
-        { width : Int
-        , height : Int
-        }
-    , showRelease : ReleaseKind
-    }
-
-
-
--- FLAGS
-
-
-type alias Flags =
-    { win_width : Int
-    , win_height : Int
+    { showRelease : ReleaseKind
     }
 
 
@@ -75,13 +60,9 @@ type alias Flags =
 -- INIT
 
 
-init : Flags -> ( Model, Cmd Msg )
-init flags =
-    ( { viewport =
-            { width = flags.win_width
-            , height = flags.win_height
-            }
-      , showRelease = All
+init : ( Model, Cmd Msg )
+init =
+    ( { showRelease = All
       }
     , Cmd.none
     )
@@ -94,11 +75,6 @@ init flags =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        OnResize x y ->
-            ( { model | viewport = { width = x, height = y } }
-            , Cmd.none
-            )
-
         ChooseRelease kind ->
             ( { model | showRelease = kind }
             , Cmd.none
@@ -109,23 +85,14 @@ update msg model =
 -- MAIN
 
 
-main : Program Flags Model Msg
+main : Program () Model Msg
 main =
     Browser.element
-        { init = init
+        { init = \_ -> init
         , view = view
         , update = update
-        , subscriptions = subscriptions
+        , subscriptions = \_ -> Sub.none
         }
-
-
-
--- SUBSCRIPTIONS
-
-
-subscriptions : Model -> Sub Msg
-subscriptions _ =
-    Browser.Events.onResize OnResize
 
 
 

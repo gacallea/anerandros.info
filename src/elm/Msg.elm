@@ -8,5 +8,4 @@ import Catalogue exposing (ReleaseKind)
 
 
 type Msg
-    = OnResize Int Int
-    | ChooseRelease ReleaseKind
+    = ChooseRelease ReleaseKind
