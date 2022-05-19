@@ -226,7 +226,7 @@ brand =
         , Aria.label "brand logo"
         ]
         [ img
-            [ Attr.class "mt-2 md:mt-4 rounded-full border-slate-300 border border-dashed"
+            [ Attr.class "w-96 h-96 mt-2 md:mt-4 rounded-full border-slate-300 border border-dashed"
             , Attr.src anerandros.logo
             , Attr.alt "Aner Andros"
             ]
@@ -491,7 +491,7 @@ renderReleases data =
             div
                 [ Attr.class "relative snap-always snap-center min-w-fit object-cover cursor-pointer group hover:bg-slate-900" ]
                 [ img
-                    [ Attr.class "w-full h-auto max-w-xs lg:max-w-md group-hover:opacity-70"
+                    [ Attr.class "w-56 md:w-60 h-56 md:h-60 max-w-xs lg:max-w-md group-hover:opacity-70"
                     , Attr.src <| i.cover
                     , Attr.alt i.name
                     , Attr.title i.name
