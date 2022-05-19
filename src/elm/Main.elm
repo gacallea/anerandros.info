@@ -513,14 +513,13 @@ renderReleases data =
 
 about : Html Msg
 about =
-    -- about (resp. paragraph)
     section
-        [ Attr.id "about", Attr.class "mx-0 sm:mx-2", Aria.label "about section" ]
-        [ div [ Attr.class "text-md lg:text-base border-t border-slate-300" ]
-            [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 md:mb-0 underline text-center" ]
+        [ Attr.id "about", Attr.class "mx-0 md:mx-2", Aria.label "about section" ]
+        [ div [ Attr.class "border-t border-slate-300 md:px-14" ]
+            [ h2 [ Attr.class "sm:font-semibold pt-4 mb-4 md:mb-0 underline text-center text-base" ]
                 [ Html.text "about"
                 ]
-            , div [ Attr.class "p-0 md:p-4 md:px-4 lg:px-14 text-center md:text-left" ]
+            , div [ Attr.class "p-0 px-4 md:py-4 md:px-0 text-center sm:text-left text-base" ]
                 [ p [ Attr.class "p-2 pt-0" ]
                     [ Html.text "Eclectic non-musician and producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the studio as an instrument and of meticulously prepared live shows. While preserving empathy and intuition as key factors, when drawing oneiric soundscapes into a story, in the making of musical voyages. "
                     , a [ Attr.href "https://vfs.edu/programs/sound-design", Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text "VFS Alumnus and Sound Design for Visual Media graduate." ]
@@ -542,7 +541,7 @@ about =
                     , a [ Attr.href gentlewash.home, Attr.target "_blank", Attr.rel "noopener noreferrer" ] [ Html.text <| String.append gentlewash.name ". " ]
                     , Html.text "His music is available on the majority of digital streaming outlets including, but not limited to, Spotify, Apple Music, Deezer, SoundCloud Go, Amazon Music, and YouTube Music."
                     ]
-                , outlets anerAndrosOutlets "text-center text-md lg:text-lg mb-4 md:mb-0"
+                , outlets anerAndrosOutlets "text-center text-md lg:text-lg mb-4 md:mb-0" "px-2"
                 ]
             ]
         ]
