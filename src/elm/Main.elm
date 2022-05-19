@@ -561,7 +561,7 @@ about =
 footer_ : Html Msg
 footer_ =
     footer [ Attr.id "footer", Aria.label "footer" ]
-        [ div [ Attr.class "border-t border-slate-300 p-4 text-center text-sm md:text-md" ]
+        [ div [ Attr.class "border-t border-slate-300 p-4 text-center text-xs lg:text-sm" ]
             [ p []
                 [ Html.text "© Copyright Aner Andros. All Rights Reserved" ]
             , p []
