@@ -204,10 +204,10 @@ hero =
     section
         [ Attr.id "hero", Attr.class "mx-0 md:mx-2", Aria.label "hero section" ]
         [ div
-            [ Attr.class "mx-0 md:mx-14 flex flex-col sm:flex-row sm:justify-between text-center"
+            [ Attr.class "mx-0 md:mx-14 flex flex-col sm:justify-between text-center"
             ]
             [ div
-                [ Attr.class "text-sm lg:text-base"
+                [ Attr.class "text-sm lg:text-base bg-emerald-100"
                 ]
                 [ brand
                 , h1 [ Attr.class "sm:font-semibold py-4 overline" ]
@@ -237,100 +237,105 @@ brand =
 latestAlbumPlayer : Html Msg
 latestAlbumPlayer =
     div
-        [ Attr.class "flex flex-col justify-center border-t sm:border-0 border-slate-300 pb-8 sm:self-end text-base content-end md:w-3/12"
+        [ Attr.class "flex flex-col justify-center border-t sm:border-0 border-slate-300 pb-8 pt-0 md:pt-8 sm:self-end text-base content-end md:w-full bg-amber-100"
         , Aria.label "latest album player"
         ]
         [ h2 [ Attr.class "sm:font-semibold py-4 md:p-0 underline block md:hidden landscape:hidden" ]
             [ Html.text "latest release"
             ]
         , div
-            [ Attr.class "rounded-lg shadow-xl overflow-hidden mx-8 md:mx-0 h-auto text-left"
+            [ Attr.class "mx-8 md:mx-0 h-auto text-left max-w-md md:max-w-full bg-white rounded-xl md:rounded-none shadow-md overflow-hidden"
             ]
             [ div
-                [ Attr.class "block md:hidden landscape:hidden" ]
-                [ img
-                    [ Attr.class "h-56 w-full object-cover"
-                    , Attr.src latestAlbum.cover
-                    , Attr.alt latestAlbum.name
-                    , Attr.title latestAlbum.name
-                    ]
-                    []
+                [ Attr.class "md:flex"
                 ]
-            , div
-                [ Attr.class "w-4/5 m-auto py-4"
-                ]
-                [ h1
-                    [ Attr.class "block text-lg leading-tight font-medium text-gray-900"
+                [ div
+                    [ Attr.class "md:shrink-0"
                     ]
-                    [ Html.text "00h" ]
-                , p
-                    [ Attr.class "text-sm text-gray-700 my-2"
-                    ]
-                    [ Html.text latestAlbum.name ]
-                , div []
-                    [ div
-                        [ Attr.class "flex justify-between items-center text-gray-700 text-xl mt-6"
+                    [ img
+                        [ Attr.class "h-56 w-full object-cover md:h-52 md:w-52"
+                        , Attr.src latestAlbum.cover
+                        , Attr.alt latestAlbum.name
+                        , Attr.title latestAlbum.name
                         ]
-                        [ div
-                            []
-                            [ svg
-                                [ SvgAttr.class "w-4 h-4"
-                                , SvgAttr.fill "currentColor"
-                                , SvgAttr.viewBox "0 0 20 20"
-                                ]
-                                [ Svg.path
-                                    [ SvgAttr.d "M6.59 12.83L4.4 15c-.58.58-1.59 1-2.4 1H0v-2h2c.29 0 .8-.2 1-.41l2.17-2.18 1.42 1.42zM16 4V1l4 4-4 4V6h-2c-.29 0-.8.2-1 .41l-2.17 2.18L9.4 7.17 11.6 5c.58-.58 1.59-1 2.41-1h2zm0 10v-3l4 4-4 4v-3h-2c-.82 0-1.83-.42-2.41-1l-8.6-8.59C2.8 6.21 2.3 6 2 6H0V4h2c.82 0 1.83.42 2.41 1l8.6 8.59c.2.2.7.41.99.41h2z"
-                                    ]
-                                    []
-                                ]
-                            ]
-                        , div
-                            []
-                            [ Icon.viewIcon Icon.backward
-                            ]
-                        , div
-                            [ Attr.class "text-5xl text-red-500" ]
-                            [ --Icon.viewIcon Icon.playCircle
-                              Icon.viewIcon Icon.pauseCircle
-                            ]
-                        , div
-                            []
-                            [ Icon.viewIcon Icon.forward
-                            ]
-                        , div
-                            []
-                            [ svg
-                                [ SvgAttr.class "w-5 h-5"
-                                , SvgAttr.fill "currentColor"
-                                , SvgAttr.viewBox "0 0 20 20"
-                                ]
-                                [ Svg.path
-                                    [ SvgAttr.d "M5 4a2 2 0 0 0-2 2v6H0l4 4 4-4H5V6h7l2-2H5zm10 4h-3l4-4 4 4h-3v6a2 2 0 0 1-2 2H6l2-2h7V8z"
-                                    ]
-                                    []
-                                ]
-                            ]
-                        ]
-                    , div
-                        [ Attr.class "flex justify-between text-sm text-gray-700"
-                        ]
-                        [ p []
-                            [ Html.text "0:42" ]
-                        , p []
-                            [ Html.text "4:20" ]
-                        ]
-                    , div
                         []
+                    ]
+                , div
+                    [ Attr.class "w-4/5 m-auto py-4 md:py-2 md:px-8"
+                    ]
+                    [ h1
+                        [ Attr.class "block text-lg md:text-xl leading-tight font-medium text-gray-900"
+                        ]
+                        [ Html.text "00h" ]
+                    , p
+                        [ Attr.class "text-sm md:text-base text-gray-700 my-2"
+                        ]
+                        [ Html.text latestAlbum.name ]
+                    , div []
                         [ div
-                            [ Attr.class "h-1 bg-gray-800 rounded-full"
+                            [ Attr.class "flex justify-between items-center text-gray-700 text-xl mt-6 md:mt-4 w-5/6 md:max-w-xs mx-auto"
                             ]
                             [ div
-                                [ Attr.class "w-1/5 h-1 bg-red-500 rounded-full relative"
-                                ]
                                 []
+                                [ svg
+                                    [ SvgAttr.class "w-4 h-4"
+                                    , SvgAttr.fill "currentColor"
+                                    , SvgAttr.viewBox "0 0 20 20"
+                                    ]
+                                    [ Svg.path
+                                        [ SvgAttr.d "M6.59 12.83L4.4 15c-.58.58-1.59 1-2.4 1H0v-2h2c.29 0 .8-.2 1-.41l2.17-2.18 1.42 1.42zM16 4V1l4 4-4 4V6h-2c-.29 0-.8.2-1 .41l-2.17 2.18L9.4 7.17 11.6 5c.58-.58 1.59-1 2.41-1h2zm0 10v-3l4 4-4 4v-3h-2c-.82 0-1.83-.42-2.41-1l-8.6-8.59C2.8 6.21 2.3 6 2 6H0V4h2c.82 0 1.83.42 2.41 1l8.6 8.59c.2.2.7.41.99.41h2z"
+                                        ]
+                                        []
+                                    ]
+                                ]
+                            , div
+                                []
+                                [ Icon.viewIcon Icon.backward
+                                ]
+                            , div
+                                [ Attr.class "text-5xl text-red-500" ]
+                                [ --Icon.viewIcon Icon.playCircle
+                                  Icon.viewIcon Icon.pauseCircle
+                                ]
+                            , div
+                                []
+                                [ Icon.viewIcon Icon.forward
+                                ]
+                            , div
+                                []
+                                [ svg
+                                    [ SvgAttr.class "w-5 h-5"
+                                    , SvgAttr.fill "currentColor"
+                                    , SvgAttr.viewBox "0 0 20 20"
+                                    ]
+                                    [ Svg.path
+                                        [ SvgAttr.d "M5 4a2 2 0 0 0-2 2v6H0l4 4 4-4H5V6h7l2-2H5zm10 4h-3l4-4 4 4h-3v6a2 2 0 0 1-2 2H6l2-2h7V8z"
+                                        ]
+                                        []
+                                    ]
+                                ]
                             ]
+                        , div
+                            [ Attr.class "flex justify-between text-sm text-gray-700"
+                            ]
+                            [ p []
+                                [ Html.text "0:42" ]
+                            , p []
+                                [ Html.text "4:20" ]
+                            ]
+                        , div
+                            []
+                            [ div
+                                [ Attr.class "h-1 bg-gray-800 rounded-full"
+                                ]
+                                [ div
+                                    [ Attr.class "w-1/5 h-1 bg-red-500 rounded-full relative"
+                                    ]
+                                    []
+                                ]
+                            ]
+                        , outlets latestAlbumOutlets "text-gray-700 text-lg md:text-base mt-4" "px-2"
                         ]
-                    , outlets latestAlbumOutlets "text-gray-700 text-lg md:text-base mt-4" "px-2"
                     ]
                 ]
             ]
