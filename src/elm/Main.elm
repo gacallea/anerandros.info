@@ -288,7 +288,7 @@ releaseSelector list =
 discog : Model -> Html Msg
 discog model =
     div
-        [ Attr.class "grid grid-flow-col auto-cols-max gap-2 overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-x"
+        [ Attr.class "grid grid-flow-col auto-cols-max gap-2 overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-x mx-0 sm:mx-2"
         , Aria.label "all published releases"
         ]
     <|
@@ -318,7 +318,7 @@ renderReleases data =
                 [ Attr.class "relative -z-10 snap-always snap-center min-w-fit object-cover cursor-pointer group hover:bg-slate-900" ]
                 [ img
                     [ -- Attr.class "aspect-square w-full h-auto max-w-xs lg:max-w-md group-hover:opacity-70"
-                      Attr.class "w-64 h-64 md:w-72 md:h-72 group-hover:opacity-70"
+                      Attr.class "w-72 h-72 sm:w-64 sm:h-64 group-hover:opacity-70"
                     , Attr.src <| i.cover
                     , Attr.alt i.name
                     , Attr.title i.name
@@ -407,14 +407,14 @@ returnicon str =
 latestAlbumPlayer : Html Msg
 latestAlbumPlayer =
     div
-        [ Attr.class "flex flex-col justify-center border-t border-slate-300 pb-8 sm:self-end text-base content-end sm:w-full"
+        [ Attr.class "flex flex-col justify-center border-t border-slate-300 pb-8 text-base"
         , Aria.label "latest album player"
         ]
         [ p [ Attr.class "font-semibold py-4 underline text-md" ]
             [ Html.text "latest release"
             ]
         , div
-            [ Attr.class "mx-8 sm:mx-0 h-auto text-left max-w-md sm:max-w-full bg-white rounded-xl sm:rounded-none shadow-md overflow-hidden"
+            [ Attr.class "mx-8 sm:mx-2 h-auto text-left max-w-md sm:max-w-full bg-white rounded-xl sm:rounded-none shadow-md overflow-hidden"
             ]
             [ div
                 [ Attr.class "sm:flex"
