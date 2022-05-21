@@ -315,17 +315,17 @@ renderReleases data =
     List.map
         (\i ->
             div
-                [ Attr.class "snap-always snap-center min-w-fit object-cover cursor-pointer group hover:bg-slate-900" ]
+                [ Attr.class "relative -z-10 snap-always snap-center min-w-fit object-cover cursor-pointer group hover:bg-slate-900" ]
                 [ img
-                    [ --Attr.class "aspect-square w-full h-auto max-w-xs lg:max-w-md group-hover:opacity-70"
-                      Attr.class "w-64 h-64 md:w-72 md:h-72 max-w-xs lg:max-w-md group-hover:opacity-70"
+                    [ -- Attr.class "aspect-square w-full h-auto max-w-xs lg:max-w-md group-hover:opacity-70"
+                      Attr.class "w-64 h-64 md:w-72 md:h-72 group-hover:opacity-70"
                     , Attr.src <| i.cover
                     , Attr.alt i.name
                     , Attr.title i.name
                     ]
                     []
                 , div
-                    [ Attr.class "absolute top-1/2 w-full invisible group-hover:visible text-center group-hover:text-white group-hover:text-sm group-hover:lg:text-md font-light"
+                    [ Attr.class "absolute -z-10 top-1/2 w-full invisible group-hover:visible text-center group-hover:text-white group-hover:text-sm group-hover:lg:text-md font-light"
                     ]
                     [ Html.text i.name ]
                 ]
