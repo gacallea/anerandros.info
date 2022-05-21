@@ -132,7 +132,7 @@ header_ =
 logo : Html Msg
 logo =
     div
-        [ Attr.class "text-md md:text-base my-2 sm:ml-4 xl:ml-0 hidden sm:inline-flex font-normal sm:font-medium"
+        [ Attr.class "text-md md:text-base my-2 sm:ml-4 xl:ml-0 hidden sm:inline-flex"
         , Aria.label "brand name"
         ]
         [ ul
