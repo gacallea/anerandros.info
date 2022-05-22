@@ -124,13 +124,13 @@ header_ =
         [ Attr.class "flex flex-row justify-center sm:justify-between sticky top-0 bg-white border-b border-slate-300"
         , Aria.label "main header"
         ]
-        [ logo
+        [ navLogo
         , navbar
         ]
 
 
-logo : Html Msg
-logo =
+navLogo : Html Msg
+navLogo =
     div
         [ Attr.class "text-md md:text-base my-2 sm:ml-4 xl:ml-0 hidden sm:inline-flex"
         , Aria.label "brand name"
@@ -209,28 +209,34 @@ hero =
             [ div
                 [ Attr.class "text-sm lg:text-base"
                 ]
-                [ brand
-                , h1 [ Attr.class "sm:font-semibold py-4 overline" ]
+                [ bigFaceLogo
+                , h1 [ Attr.class "sm:font-semibold pb-4 overline sm:hidden inline-flex" ]
                     [ Html.text "musician. sound designer. creative coder. sound artist."
                     ]
+                , tagsCloud
                 ]
             ]
         ]
 
 
-brand : Html Msg
-brand =
+bigFaceLogo : Html Msg
+bigFaceLogo =
     div
         [ Attr.class "flex flex-row justify-center w-full p-2 lg:p-0"
         , Aria.label "brand logo"
         ]
         [ img
-            [ Attr.class "aspect-square w-full md:w-1/2 h-auto mt-2 md:mt-4 rounded-full border-slate-300 border border-dashed"
+            [ Attr.class "aspect-square w-full md:w-1/2 h-auto my-2 md:my-4 rounded-full border-slate-300 border border-dashed"
             , Attr.src anerandros.logo
             , Attr.alt "Aner Andros"
             ]
             []
         ]
+
+
+tagsCloud : Html Msg
+tagsCloud =
+    p [ Attr.class "hidden" ] [ Html.text "dada" ]
 
 
 
