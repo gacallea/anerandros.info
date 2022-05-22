@@ -81,7 +81,7 @@ gentlewash =
 
 
 
--- ANER
+-- ANER ANDROS
 
 
 anerandros : AnerAndros
@@ -108,23 +108,16 @@ latestAlbum =
 
 
 
+-- not used just yet, 1) finish the player UI first, 2) the API seems not available anymore...
 -- souncloudPlayerAPI : String
 -- souncloudPlayerAPI =
--- not used just yet, need to finish the player UI first
 --     "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/363304199&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
 -- RELEASES
-{-
-   releases are progressively numbered from oldest to newest
-
-   foldl orders them in descending order
-   foldr orders them in ascending order
-
-   pick your fav in the showReleases function
--}
 
 
 allReleases : Dict Int Release
 allReleases =
+    -- releases are progressively numbered from oldest to newest
     Dict.fromList
         [ ( 100, remapEthosStream )
         , ( 101, eosVolOne )
@@ -166,10 +159,8 @@ allCollages =
 showReleases : Dict Int Release -> List Release
 showReleases =
     {-
-       to order them in descending order:
-        - Dict.foldl listTheseReleases []
-       to order them in ascending order:
-        - Dict.foldr listTheseReleases []
+       newest to oldest: Dict.foldl listTheseReleases []
+       oldest to newest: Dict.foldr listTheseReleases []
     -}
     Dict.foldl listTheseReleases []
 
@@ -259,6 +250,10 @@ eosVolOne =
     }
 
 
+
+-- REMIXES
+
+
 enkefalina : Release
 enkefalina =
     { kind = Remixes
@@ -276,6 +271,10 @@ enkefalina =
     , mixcloud = Nothing
     , deezer = Nothing
     }
+
+
+
+-- MIXTAPES, COLLAGES
 
 
 ispirazione : Release
