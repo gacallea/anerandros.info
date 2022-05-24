@@ -41,6 +41,7 @@ import Html
 import Html.Attributes as Attr
 import Html.Events exposing (onClick)
 import Msg exposing (Msg(..))
+import Random
 import Svg exposing (svg)
 import Svg.Attributes as SvgAttr
 import VitePluginHelper
@@ -191,8 +192,7 @@ main =
 view : Model -> Html Msg
 view model =
     main_
-        [ Attr.class "container mx-auto max-w-7xl"
-        , Aria.label "main content"
+        [ Aria.label "main content"
         ]
         [ Icon.css
         , header_
@@ -210,7 +210,14 @@ view model =
 header_ : Html Msg
 header_ =
     header
-        [ Attr.class "flex flex-row justify-center sm:justify-between sticky top-0 bg-white border-b border-slate-300"
+        [ Attr.class <|
+            String.append
+                """
+                    flex flex-row justify-center sm:justify-between sticky top-0 z-30
+                    text-white text-md md:text-lg
+                    shadow-md sm:shadow-inherit
+                """
+                bgGradient
         , Aria.label "main header"
         ]
         [ navLogo
@@ -221,11 +228,11 @@ header_ =
 navLogo : Html Msg
 navLogo =
     div
-        [ Attr.class "text-md md:text-base my-2 sm:ml-4 xl:ml-0 hidden sm:inline-flex"
+        [ Attr.class "hidden sm:inline-flex sm:p-4"
         , Aria.label "brand name"
         ]
         [ ul
-            [ Attr.class "inline-flex text-md md:text-base"
+            [ Attr.class "inline-flex"
             ]
             [ li
                 [ Attr.class "pl-2"
@@ -240,7 +247,7 @@ navbar : Html Msg
 navbar =
     nav [ Aria.label "main menu" ]
         [ ul
-            [ Attr.class "inline-flex text-md md:text-base my-2 sm:mr-4 xl:mr-0"
+            [ Attr.class "inline-flex my-2 sm:my-0 sm:p-4"
             ]
           <|
             navLink navLinks
@@ -282,18 +289,18 @@ navLink list =
 hero : Html Msg
 hero =
     section
-        [ Attr.id "hero", Attr.class "mx-0 md:mx-2", Aria.label "hero section" ]
+        [ Attr.id "hero", Attr.class <| String.append "" bgGradient, Aria.label "hero section" ]
         [ div
             [ Attr.class "mx-0 md:mx-14 flex flex-col sm:justify-between text-center"
             ]
             [ div
-                [ Attr.class "text-sm lg:text-base"
+                [ Attr.class "text-sm lg:text-base relative"
                 ]
                 [ bigFaceLogo
-                , h1 [ Attr.class "sm:font-semibold pb-4 overline sm:hidden inline-flex" ]
+                , h1 [ Attr.class "sm:font-medium pb-4 overline sm:hidden inline-flex text-white" ]
                     [ Html.text "musician. sound designer. creative coder. sound artist."
                     ]
-                , tagsCloud
+                , wordsCloud heroCloudWords
                 ]
             ]
         ]
@@ -302,11 +309,11 @@ hero =
 bigFaceLogo : Html Msg
 bigFaceLogo =
     div
-        [ Attr.class "flex flex-row justify-center w-full p-2 lg:p-0"
+        [ Attr.class "flex flex-row justify-center w-full p-2 sm:pb-10 md:pt-0"
         , Aria.label "brand logo"
         ]
         [ img
-            [ Attr.class "aspect-square w-full md:w-1/2 h-auto my-2 md:my-4 rounded-full border-slate-300 border border-dashed"
+            [ Attr.class "aspect-square w-full sm:w-1/3 h-auto my-2 md:my-4 rounded-full border-slate-300 border border-dashed bg-indigo-100 opacity-90 z-20"
             , Attr.src anerandros.logo
             , Attr.alt "Aner Andros"
             ]
@@ -314,9 +321,46 @@ bigFaceLogo =
         ]
 
 
-tagsCloud : Html Msg
-tagsCloud =
-    p [ Attr.class "hidden" ] [ Html.text "dada" ]
+wordsSize : Int -> String
+wordsSize num =
+    case num of
+        1 ->
+            "text-3xl"
+
+        2 ->
+            "text-4xl"
+
+        3 ->
+            "text-5xl"
+
+        _ ->
+            "text-2xl"
+
+
+wordWeight : Random.Generator String
+wordWeight =
+    Random.map wordsSize (Random.int 0 3)
+
+
+wordsCloud : List String -> Html Msg
+wordsCloud list =
+    div [ Attr.class "absolute top-8 clear-left w-full -z-10" ]
+        [ ul
+            [ Attr.class "sm:font-semibold pl-0 hidden sm:flex flex-wrap justify-around items-center leading-10"
+            , Aria.roleDescription "purely aestethic"
+            , Aria.label "words cloud"
+            ]
+          <|
+            List.map
+                (\word ->
+                    li
+                        -- [ Attr.class <| String.append "relative block px-2 py-1" wordWeight ]
+                        [ Attr.class "pt-1 pb-8 text-6xl text-neutral-100" ]
+                        [ Html.text <| word
+                        ]
+                )
+                list
+        ]
 
 
 
@@ -326,18 +370,15 @@ tagsCloud =
 music : Model -> Html Msg
 music model =
     section
-        [ Attr.id "music", Attr.class "mx-0 md:mx-2", Aria.label "discography section" ]
+        [ Attr.id "music", Attr.class "container mx-auto max-w-6xl", Aria.label "discography section" ]
         [ div
-            [ Attr.class "text-md lg:text-base border-t border-slate-300 text-center md:px-14" ]
-            [ h2 [ Attr.class "font-semibold pt-4 mb-4 md:mb-6 underline" ]
-                [ Html.text "music"
-                ]
-            , discog model
-            , ul
-                [ Attr.class "flex flex-row justify-center mt-2 py-2"
+            [ Attr.class "text-md lg:text-base text-center md:px-14" ]
+            [ ul
+                [ Attr.class "flex flex-row justify-center mt-2 py-2 font-semibold"
                 ]
               <|
                 releaseSelector selectors
+            , discog model
             , latestAlbumPlayer
             ]
         ]
@@ -364,7 +405,7 @@ releaseSelector list =
 discog : Model -> Html Msg
 discog model =
     div
-        [ Attr.class "grid grid-flow-col auto-cols-max gap-2 overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-x mx-0 sm:mx-2"
+        [ Attr.class "grid grid-flow-col auto-cols-max gap-1 overflow-contain overflow-x-scroll overflow-y-hidden snap-mandatory snap-x mx-0 sm:mx-2"
         , Aria.label "all published releases"
         ]
     <|
@@ -393,8 +434,7 @@ renderReleases data =
             div
                 [ Attr.class "relative -z-10 snap-always snap-center min-w-fit object-cover cursor-pointer group hover:bg-slate-900" ]
                 [ img
-                    [ -- Attr.class "aspect-square w-full h-auto max-w-xs lg:max-w-md group-hover:opacity-70"
-                      Attr.class "w-72 h-72 sm:w-64 sm:h-64 group-hover:opacity-70"
+                    [ Attr.class "w-64 h-64 sm:w-60 sm:h-60 group-hover:opacity-70"
                     , Attr.src <| i.cover
                     , Attr.alt i.name
                     , Attr.title i.name
@@ -553,9 +593,9 @@ latestAlbumPlayer =
 about : Html Msg
 about =
     section
-        [ Attr.id "about", Attr.class "mx-0 md:mx-2", Aria.label "about section" ]
-        [ div [ Attr.class "border-t border-slate-300 md:px-14" ]
-            [ h2 [ Attr.class "font-semibold pt-4 mb-4 md:mb-0 underline text-center text-base" ]
+        [ Attr.id "about", Attr.class "container mx-auto max-w-6xl", Aria.label "about section" ]
+        [ div [ Attr.class "border-t border-slate-300 md:border-0 md:px-14" ]
+            [ h2 [ Attr.class "font-semibold pt-4 mb-4 md:mb-0 md:pt-0 underline text-center text-base" ]
                 [ Html.text "about"
                 ]
             , div [ Attr.class "p-0 px-4 md:py-4 md:px-0 text-center sm:text-left text-base" ]
@@ -600,7 +640,7 @@ about =
 footer_ : Html Msg
 footer_ =
     footer [ Attr.id "footer", Aria.label "footer" ]
-        [ div [ Attr.class "border-t border-slate-300 p-4 text-center text-xs lg:text-sm" ]
+        [ div [ Attr.class "border-t border-slate-300 p-4 text-center text-sm" ]
             [ p []
                 [ Html.text "© Copyright Aner Andros. All Rights Reserved" ]
             , p []
