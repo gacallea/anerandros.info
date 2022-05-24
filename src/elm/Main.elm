@@ -47,7 +47,96 @@ import VitePluginHelper
 
 
 
--- TYPES
+-- CONSTANTS
+
+
+bgGradient : String
+bgGradient =
+    "bg-gradient-to-r from-indigo-500 to-purple-500"
+
+
+navLinks : List ( String, String )
+navLinks =
+    [ ( "#top", "home" )
+    , ( "#music", "music" )
+    , ( "#about", "about" )
+    , ( anerandros.songkick, "live" )
+    ]
+
+
+latestAlbumOutlets : List ( String, String )
+latestAlbumOutlets =
+    [ ( Maybe.withDefault "" latestAlbum.soundcloud, "soundcloud" )
+    , ( Maybe.withDefault "" latestAlbum.spotify, "spotify" )
+    , ( Maybe.withDefault "" latestAlbum.apple, "apple" )
+    , ( Maybe.withDefault "" latestAlbum.youtube, "youtube" )
+    , ( Maybe.withDefault "" latestAlbum.deezer, "deezer" )
+    ]
+
+
+anerAndrosOutlets : List ( String, String )
+anerAndrosOutlets =
+    [ ( anerandros.soundcloud, "soundcloud" )
+    , ( anerandros.spotify, "spotify" )
+    , ( anerandros.apple, "apple" )
+    , ( anerandros.youtube, "youtube" )
+    , ( anerandros.deezer, "deezer" )
+    ]
+
+
+heroCloudWords : List String
+heroCloudWords =
+    [ "Sound Artist"
+    , "non-Musician"
+    , "Producer"
+    , "Sound Design"
+    , "Creative Coding"
+    , "Collages"
+    , "Mixtapes"
+    , "Remixes"
+    , "Cinematic Ambient"
+    , "Avant-Garde"
+    , "Left-Field"
+    , "Softronica"
+    , "Soundscapes"
+    , "Oneiric"
+    , "Glitch"
+    ]
+
+
+selectors : List ( String, ReleaseKind )
+selectors =
+    [ ( "all", All )
+    , ( "albums", Albums )
+    , ( "eps", Eps )
+    , ( "remixes", Remixes )
+    , ( "collages", Collages )
+    ]
+
+
+returnicon : String -> Icon
+returnicon str =
+    case str of
+        "soundcloud" ->
+            Icon.soundcloud
+
+        "spotify" ->
+            Icon.spotify
+
+        "apple" ->
+            Icon.apple
+
+        "youtube" ->
+            Icon.youtube
+
+        "deezer" ->
+            Icon.deezer
+
+        _ ->
+            Icon.smile
+
+
+
 -- MODEL
 
 
@@ -154,17 +243,8 @@ navbar =
             [ Attr.class "inline-flex text-md md:text-base my-2 sm:mr-4 xl:mr-0"
             ]
           <|
-            navLink links
+            navLink navLinks
         ]
-
-
-links : List ( String, String )
-links =
-    [ ( "#top", "home" )
-    , ( "#music", "music" )
-    , ( "#about", "about" )
-    , ( anerandros.songkick, "live" )
-    ]
 
 
 navLink : List ( String, String ) -> List (Html msg)
@@ -263,16 +343,6 @@ music model =
         ]
 
 
-selectors : List ( String, ReleaseKind )
-selectors =
-    [ ( "all", All )
-    , ( "albums", Albums )
-    , ( "eps", Eps )
-    , ( "remixes", Remixes )
-    , ( "collages", Collages )
-    ]
-
-
 releaseSelector : List ( String, ReleaseKind ) -> List (Html Msg)
 releaseSelector list =
     List.map
@@ -366,48 +436,6 @@ outlets outletKind ulAdditionalCss liPadding =
                 )
                 outletKind
         ]
-
-
-latestAlbumOutlets : List ( String, String )
-latestAlbumOutlets =
-    [ ( Maybe.withDefault "" latestAlbum.soundcloud, "soundcloud" )
-    , ( Maybe.withDefault "" latestAlbum.spotify, "spotify" )
-    , ( Maybe.withDefault "" latestAlbum.apple, "apple" )
-    , ( Maybe.withDefault "" latestAlbum.youtube, "youtube" )
-    , ( Maybe.withDefault "" latestAlbum.deezer, "deezer" )
-    ]
-
-
-anerAndrosOutlets : List ( String, String )
-anerAndrosOutlets =
-    [ ( anerandros.soundcloud, "soundcloud" )
-    , ( anerandros.spotify, "spotify" )
-    , ( anerandros.apple, "apple" )
-    , ( anerandros.youtube, "youtube" )
-    , ( anerandros.deezer, "deezer" )
-    ]
-
-
-returnicon : String -> Icon
-returnicon str =
-    case str of
-        "soundcloud" ->
-            Icon.soundcloud
-
-        "spotify" ->
-            Icon.spotify
-
-        "apple" ->
-            Icon.apple
-
-        "youtube" ->
-            Icon.youtube
-
-        "deezer" ->
-            Icon.deezer
-
-        _ ->
-            Icon.smile
 
 
 latestAlbumPlayer : Html Msg
