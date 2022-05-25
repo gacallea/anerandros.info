@@ -642,7 +642,7 @@ footer_ =
     footer [ Attr.id "footer", Aria.label "footer" ]
         [ div [ Attr.class "border-t border-slate-300 p-4 text-center text-sm" ]
             [ p []
-                [ Html.text "© Copyright Aner Andros. All Rights Reserved" ]
+                [ Html.text "© Copyright Aner Andros. All Rights Reserved." ]
             , p []
                 [ Html.text "Made with "
                 , a
