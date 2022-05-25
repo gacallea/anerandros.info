@@ -33,6 +33,8 @@ export default defineConfig({
         nearLossless: 95
       }
     }),
-    viteCompression({ algorithm: 'brotliCompress' })
+    viteCompression({
+      algorithm: 'brotliCompress'
+    })
   ]
 })
