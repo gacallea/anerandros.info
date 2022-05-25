@@ -87,21 +87,21 @@ anerAndrosOutlets =
 
 heroCloudWords : List String
 heroCloudWords =
-    [ "Sound Artist"
-    , "non-Musician"
-    , "Producer"
-    , "Sound Design"
-    , "Creative Coding"
+    [ "Sound Design"
     , "Collages"
-    , "Mixtapes"
-    , "Remixes"
-    , "Cinematic Ambient"
-    , "Avant-Garde"
-    , "Left-Field"
     , "Softronica"
-    , "Soundscapes"
+    , "Mixtapes"
     , "Oneiric"
+    , "Story Telling"
+    , "Remixes"
+    , "Moon Musick"
+    , "Left-Field"
+    , "Cinematic Ambient"
+    , "Soundscapes"
+    , "Avant-Garde"
+    , "Creative Coding"
     , "Glitch"
+    , "Ambient Music"
     ]
 
 
@@ -291,13 +291,13 @@ hero =
     section
         [ Attr.id "hero", Attr.class <| String.append "" bgGradient, Aria.label "hero section" ]
         [ div
-            [ Attr.class "mx-0 md:mx-14 flex flex-col sm:justify-between text-center"
+            [ Attr.class "mx-0 md:mx-14 flex flex-col sm:justify-between text-center text-neutral-100"
             ]
             [ div
                 [ Attr.class "text-sm lg:text-base relative"
                 ]
                 [ bigFaceLogo
-                , h1 [ Attr.class "sm:font-medium pb-4 overline sm:hidden inline-flex text-white" ]
+                , h1 [ Attr.class "sm:font-medium pb-4 md:text-lg" ]
                     [ Html.text "musician. sound designer. creative coder. sound artist."
                     ]
                 , wordsCloud heroCloudWords
@@ -309,7 +309,7 @@ hero =
 bigFaceLogo : Html Msg
 bigFaceLogo =
     div
-        [ Attr.class "flex flex-row justify-center w-full p-2 sm:pb-10 md:pt-0"
+        [ Attr.class "flex flex-row justify-center w-full p-2 sm:pb-4 md:pt-0"
         , Aria.label "brand logo"
         ]
         [ img
@@ -346,7 +346,7 @@ wordsCloud : List String -> Html Msg
 wordsCloud list =
     div [ Attr.class "absolute top-8 clear-left w-full -z-10" ]
         [ ul
-            [ Attr.class "sm:font-semibold pl-0 hidden sm:flex flex-wrap justify-around items-center leading-10"
+            [ Attr.class "sm:font-medium pl-0 hidden sm:flex flex-wrap justify-around items-center leading-10"
             , Aria.roleDescription "purely aestethic"
             , Aria.label "words cloud"
             ]
@@ -355,7 +355,7 @@ wordsCloud list =
                 (\word ->
                     li
                         -- [ Attr.class <| String.append "relative block px-2 py-1" wordWeight ]
-                        [ Attr.class "pt-1 pb-8 text-6xl text-neutral-100" ]
+                        [ Attr.class "pt-1 pb-8 text-6xl" ]
                         [ Html.text <| word
                         ]
                 )
@@ -374,7 +374,7 @@ music model =
         [ div
             [ Attr.class "text-md lg:text-base text-center md:px-14" ]
             [ ul
-                [ Attr.class "flex flex-row justify-center mt-2 py-2 font-semibold"
+                [ Attr.class "flex flex-row justify-center mt-2 py-2 font-medium"
                 ]
               <|
                 releaseSelector selectors
@@ -432,7 +432,7 @@ renderReleases data =
     List.map
         (\i ->
             div
-                [ Attr.class "relative -z-10 snap-always snap-center min-w-fit object-cover cursor-pointer group hover:bg-slate-900" ]
+                [ Attr.class "relative snap-always snap-center min-w-fit object-cover cursor-pointer group hover:bg-slate-900" ]
                 [ img
                     [ Attr.class "w-64 h-64 sm:w-60 sm:h-60 group-hover:opacity-70"
                     , Attr.src <| i.cover
@@ -441,7 +441,7 @@ renderReleases data =
                     ]
                     []
                 , div
-                    [ Attr.class "absolute -z-10 top-1/2 w-full invisible group-hover:visible text-center group-hover:text-white group-hover:text-sm group-hover:lg:text-md font-light"
+                    [ Attr.class "absolute top-1/2 w-full invisible group-hover:visible text-center group-hover:text-white group-hover:text-sm group-hover:lg:text-md font-light"
                     ]
                     [ Html.text i.name ]
                 ]
@@ -481,10 +481,10 @@ outlets outletKind ulAdditionalCss liPadding =
 latestAlbumPlayer : Html Msg
 latestAlbumPlayer =
     div
-        [ Attr.class "flex flex-col justify-center border-t border-slate-300 pb-8 text-base"
+        [ Attr.class "flex flex-col justify-center pb-8 text-base"
         , Aria.label "latest album player"
         ]
-        [ p [ Attr.class "font-semibold py-4 underline text-md" ]
+        [ p [ Attr.class "font-medium py-4 underline text-md" ]
             [ Html.text "latest release"
             ]
         , div
@@ -595,7 +595,7 @@ about =
     section
         [ Attr.id "about", Attr.class "container mx-auto max-w-6xl", Aria.label "about section" ]
         [ div [ Attr.class "border-t border-slate-300 md:border-0 md:px-14" ]
-            [ h2 [ Attr.class "font-semibold pt-4 mb-4 md:mb-0 md:pt-0 underline text-center text-base" ]
+            [ h2 [ Attr.class "font-medium pt-4 mb-4 md:mb-0 md:pt-0 underline text-center text-base" ]
                 [ Html.text "about"
                 ]
             , div [ Attr.class "p-0 px-4 md:py-4 md:px-0 text-center sm:text-left text-base" ]
