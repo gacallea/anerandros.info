@@ -213,7 +213,8 @@ header_ =
         [ Attr.class <|
             String.append
                 """
-                    flex flex-row justify-center sm:justify-between sticky top-0 z-30
+                    flex flex-row justify-center sm:justify-between
+                    sticky top-0 z-30
                     text-white text-md md:text-lg
                     shadow-md sm:shadow-inherit
                 """
@@ -297,7 +298,7 @@ hero =
                 [ Attr.class "text-sm lg:text-base relative"
                 ]
                 [ bigFaceLogo
-                , h1 [ Attr.class "sm:font-medium pb-4 md:text-lg" ]
+                , h1 [ Attr.class "sm:font-medium pb-4 text-white text-md md:text-lg" ]
                     [ Html.text "musician. sound designer. creative coder. sound artist."
                     ]
                 , wordsCloud heroCloudWords
@@ -640,7 +641,7 @@ about =
 footer_ : Html Msg
 footer_ =
     footer [ Attr.id "footer", Aria.label "footer" ]
-        [ div [ Attr.class "border-t border-slate-300 p-4 text-center text-sm" ]
+        [ div [ Attr.class "border-t border-slate-300 p-4 text-center text-xs md:text-sm" ]
             [ p []
                 [ Html.text "© Copyright Aner Andros. All Rights Reserved." ]
             , p []
