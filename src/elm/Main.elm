@@ -41,7 +41,6 @@ import Html
 import Html.Attributes as Attr
 import Html.Events exposing (onClick)
 import Msg exposing (Msg(..))
-import Random
 import Svg exposing (svg)
 import Svg.Attributes as SvgAttr
 import VitePluginHelper
@@ -320,27 +319,6 @@ bigFaceLogo =
             ]
             []
         ]
-
-
-wordsSize : Int -> String
-wordsSize num =
-    case num of
-        1 ->
-            "text-3xl"
-
-        2 ->
-            "text-4xl"
-
-        3 ->
-            "text-5xl"
-
-        _ ->
-            "text-2xl"
-
-
-wordWeight : Random.Generator String
-wordWeight =
-    Random.map wordsSize (Random.int 0 3)
 
 
 wordsCloud : List String -> Html Msg
