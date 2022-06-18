@@ -174,25 +174,6 @@ listTheseReleases _ rel releases =
 -- ALBUMS
 
 
-liminalTales : Release
-liminalTales =
-    { kind = Albums
-    , year = "2016"
-    , name = "Liminal Tales"
-    , cover = VitePluginHelper.asset "../img/covers/liminal.svg"
-    , coverArtist = "https://www.flickr.com/photos/ramocchia/"
-    , label = Just "Gentle Wash Records"
-    , catalog = Just "GWR0002"
-    , apple = Just "https://music.apple.com/album/liminal-tales/1091282352"
-    , soundcloud = Just "https://soundcloud.com/aascloud/sets/liminal-tales"
-    , spotify = Just "https://open.spotify.com/album/7lXlg36oOH20eHjw0ZJ4gG"
-    , youtube = Just "https://www.youtube.com/watch?v=N-HR7dEHIT4&list=OLAK5uy_meDmf2_3kFZJK11JuoDQ0mLZQPPH7NDhc"
-    , deezer = Just "https://www.deezer.com/album/12583042"
-    , mixcloud = Nothing
-    , bandcamp = Nothing
-    }
-
-
 remapEthosStream : Release
 remapEthosStream =
     { kind = Albums
@@ -212,25 +193,6 @@ remapEthosStream =
     }
 
 
-artefactsASb : Release
-artefactsASb =
-    { kind = Eps
-    , year = "2017"
-    , name = "Artefacts and Sonic Brushstrokes"
-    , cover = VitePluginHelper.asset "../img/covers/aasb.svg"
-    , coverArtist = "http://trashriotart.tumblr.com/"
-    , label = Just "Gentle Wash Records"
-    , catalog = Just "GWR0003"
-    , apple = Just "https://music.apple.com/album/artefacts-and-sonic-brushstrokes-ep/1281231021"
-    , soundcloud = Just "https://soundcloud.com/aascloud/sets/artefacts-and-sonic"
-    , spotify = Just "https://open.spotify.com/album/0UTE8yS5IBpV1ov6h08Jwx"
-    , youtube = Just "https://www.youtube.com/watch?v=nsgzFFrYer8&list=PLXR_uSsXKC8llnnqiwCN6xMJlWohyU-tS"
-    , deezer = Just "https://www.deezer.com/album/47802142"
-    , mixcloud = Nothing
-    , bandcamp = Nothing
-    }
-
-
 eosVolOne : Release
 eosVolOne =
     { kind = Eps
@@ -245,6 +207,44 @@ eosVolOne =
     , spotify = Just "https://open.spotify.com/album/2zQ5hqT9Z2D140rywnebL2"
     , youtube = Just "https://www.youtube.com/watch?v=CeIByiQU4HM"
     , deezer = Just "https://www.deezer.com/album/42391771"
+    , mixcloud = Nothing
+    , bandcamp = Nothing
+    }
+
+
+liminalTales : Release
+liminalTales =
+    { kind = Albums
+    , year = "2016"
+    , name = "Liminal Tales"
+    , cover = VitePluginHelper.asset "../img/covers/liminal.svg"
+    , coverArtist = "https://www.flickr.com/photos/ramocchia/"
+    , label = Just "Gentle Wash Records"
+    , catalog = Just "GWR0002"
+    , apple = Just "https://music.apple.com/album/liminal-tales/1091282352"
+    , soundcloud = Just "https://soundcloud.com/aascloud/sets/liminal-tales"
+    , spotify = Just "https://open.spotify.com/album/7lXlg36oOH20eHjw0ZJ4gG"
+    , youtube = Just "https://www.youtube.com/watch?v=N-HR7dEHIT4&list=OLAK5uy_meDmf2_3kFZJK11JuoDQ0mLZQPPH7NDhc"
+    , deezer = Just "https://www.deezer.com/album/12583042"
+    , mixcloud = Nothing
+    , bandcamp = Nothing
+    }
+
+
+artefactsASb : Release
+artefactsASb =
+    { kind = Eps
+    , year = "2017"
+    , name = "Artefacts and Sonic Brushstrokes"
+    , cover = VitePluginHelper.asset "../img/covers/aasb.svg"
+    , coverArtist = "http://trashriotart.tumblr.com/"
+    , label = Just "Gentle Wash Records"
+    , catalog = Just "GWR0003"
+    , apple = Just "https://music.apple.com/album/artefacts-and-sonic-brushstrokes-ep/1281231021"
+    , soundcloud = Just "https://soundcloud.com/aascloud/sets/artefacts-and-sonic"
+    , spotify = Just "https://open.spotify.com/album/0UTE8yS5IBpV1ov6h08Jwx"
+    , youtube = Just "https://www.youtube.com/watch?v=nsgzFFrYer8&list=PLXR_uSsXKC8llnnqiwCN6xMJlWohyU-tS"
+    , deezer = Just "https://www.deezer.com/album/47802142"
     , mixcloud = Nothing
     , bandcamp = Nothing
     }
