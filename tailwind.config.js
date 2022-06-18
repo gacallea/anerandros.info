@@ -8,8 +8,20 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ['Lexend Deca', 'Helvetica', 'Arial', 'sans-serif']
+      sans: ['Lexend Deca', 'sans-serif']
     }
   },
-  plugins: [require('@tailwindcss/typography')]
+  // https://tailwindcss.com/docs/plugins#official-plugins
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/aspect-ratio'),
+    // https://daisyui.com/docs/install/
+    require('daisyui')
+  ],
+  // daisyUI config (optional)
+  daisyui: {
+    themes: ['light', 'dark']
+  }
 }
