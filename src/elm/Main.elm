@@ -16,9 +16,9 @@ import Catalogue
         , latestAlbum
         , showReleases
         )
+import FontAwesome as Icon exposing (Icon, WithoutId)
 import FontAwesome.Attributes as Icon
 import FontAwesome.Brands as Icon
-import FontAwesome.Icon as Icon exposing (Icon)
 import FontAwesome.Solid as Icon
 import FontAwesome.Styles as Icon
 import Html
@@ -41,8 +41,6 @@ import Html
 import Html.Attributes as Attr
 import Html.Events exposing (onClick)
 import Msg exposing (Msg(..))
-import Svg exposing (svg)
-import Svg.Attributes as SvgAttr
 import VitePluginHelper
 
 
@@ -114,7 +112,7 @@ selectors =
     ]
 
 
-returnicon : String -> Icon
+returnicon : String -> Icon WithoutId
 returnicon str =
     case str of
         "soundcloud" ->
@@ -450,7 +448,7 @@ outlets outletKind ulAdditionalCss liPadding =
                             , Attr.rel "noopener noreferrer"
                             , Icon.fw
                             ]
-                            [ Icon.viewIcon <| returnicon (Tuple.second service) ]
+                            [ Icon.view <| returnicon (Tuple.second service) ]
                         ]
                 )
                 outletKind
@@ -500,42 +498,24 @@ latestAlbumPlayer =
                             ]
                             [ div
                                 []
-                                [ svg
-                                    [ SvgAttr.class "w-4 h-4"
-                                    , SvgAttr.fill "currentColor"
-                                    , SvgAttr.viewBox "0 0 20 20"
-                                    ]
-                                    [ Svg.path
-                                        [ SvgAttr.d "M6.59 12.83L4.4 15c-.58.58-1.59 1-2.4 1H0v-2h2c.29 0 .8-.2 1-.41l2.17-2.18 1.42 1.42zM16 4V1l4 4-4 4V6h-2c-.29 0-.8.2-1 .41l-2.17 2.18L9.4 7.17 11.6 5c.58-.58 1.59-1 2.41-1h2zm0 10v-3l4 4-4 4v-3h-2c-.82 0-1.83-.42-2.41-1l-8.6-8.59C2.8 6.21 2.3 6 2 6H0V4h2c.82 0 1.83.42 2.41 1l8.6 8.59c.2.2.7.41.99.41h2z"
-                                        ]
-                                        []
-                                    ]
+                                [ Icon.view Icon.shuffle
                                 ]
                             , div
                                 []
-                                [ Icon.viewIcon Icon.backward
+                                [ Icon.view Icon.backward
                                 ]
                             , div
                                 [ Attr.class "text-5xl text-red-500" ]
-                                [ --Icon.viewIcon Icon.playCircle
-                                  Icon.viewIcon Icon.pauseCircle
+                                [ --Icon.view Icon.playCircle
+                                  Icon.view Icon.pauseCircle
                                 ]
                             , div
                                 []
-                                [ Icon.viewIcon Icon.forward
+                                [ Icon.view Icon.forward
                                 ]
                             , div
                                 []
-                                [ svg
-                                    [ SvgAttr.class "w-5 h-5"
-                                    , SvgAttr.fill "currentColor"
-                                    , SvgAttr.viewBox "0 0 20 20"
-                                    ]
-                                    [ Svg.path
-                                        [ SvgAttr.d "M5 4a2 2 0 0 0-2 2v6H0l4 4 4-4H5V6h7l2-2H5zm10 4h-3l4-4 4 4h-3v6a2 2 0 0 1-2 2H6l2-2h7V8z"
-                                        ]
-                                        []
-                                    ]
+                                [ Icon.view Icon.repeat
                                 ]
                             ]
                         , div
