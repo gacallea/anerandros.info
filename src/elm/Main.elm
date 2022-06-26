@@ -1,4 +1,4 @@
-module Main exposing (Model, main)
+module Main exposing (Model, Msg, main)
 
 import Accessibility.Aria as Aria
 import Browser
@@ -40,7 +40,6 @@ import Html
         )
 import Html.Attributes as Attr
 import Html.Events exposing (onClick)
-import Msg exposing (Msg(..))
 import VitePluginHelper
 
 
@@ -132,6 +131,14 @@ returnicon str =
 
         _ ->
             Icon.smile
+
+
+
+-- MESSAGES
+
+
+type Msg
+    = ChooseRelease ReleaseKind
 
 
 
