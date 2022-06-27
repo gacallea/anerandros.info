@@ -294,7 +294,7 @@ navLink list =
 hero : Html Msg
 hero =
     section
-        [ Attr.id "hero", Attr.class <| String.append "" bgGradient, Aria.label "hero section" ]
+        [ Attr.id "hero", Attr.class <| bgGradient, Aria.label "hero section" ]
         [ div
             [ Attr.class "mx-0 md:mx-14 flex flex-col sm:justify-between text-center text-neutral-100"
             ]
@@ -338,7 +338,6 @@ wordsCloud list =
             List.map
                 (\word ->
                     li
-                        -- [ Attr.class <| String.append "relative block px-2 py-1" wordWeight ]
                         [ Attr.class "pt-1 pb-8 text-6xl" ]
                         [ Html.text <| word
                         ]
@@ -440,7 +439,8 @@ outlets outletKind ulAdditionalCss liPadding =
         , Attr.class "flex justify-center justify-items-center"
         ]
         [ ul
-            [ Attr.class <| String.append "inline-flex justify-center" ulAdditionalCss
+            [ Attr.class "inline-flex justify-center"
+            , Attr.class ulAdditionalCss
             ]
           <|
             List.map
