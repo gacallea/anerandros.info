@@ -136,7 +136,9 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         ShowAbout bool ->
-            ( { model | aboutVisible = bool }, Cmd.none )
+            ( { model | aboutVisible = bool }
+            , Cmd.none
+            )
 
 
 
@@ -151,15 +153,29 @@ hero model =
         [ div
             [ Attr.class "hero-content flex-col lg:flex-row"
             ]
+            [ img
                 [ Attr.src anerandros.logo
                 , Attr.alt "Aner Andros Logo"
                 , Attr.title "Aner Andros Logo"
                 , Attr.class "w-full h-full max-w-md rounded-2xl shadow-2xl bg-base-content mask mask-hexagon"
                 ]
+                []
+            , div
+                [ Attr.class "text-center md:text-left"
+                ]
+                [ h1
+                    [ Attr.class "text-5xl font-bold"
+                    ]
+                    [ text "musician. sound artist. dada."
+                    ]
                 , p
-                    [ Attr.class "py-2 md:py-6" ]
-                    [ text "Left-Field. Cinematic Ambient. Soundscapes. Avant-Garde. Sound Design. Collages. Softronica. Oneiric Story Telling. Remixes. Moon Musick. Glitch. Mixtapes. Creative Coding. Ambient Music." ]
-                , div [ Attr.class "flex flex-col md:flex-row items-center justify-between xl:mr-10" ]
+                    [ Attr.class "py-2 md:py-6"
+                    ]
+                    [ text "Left-Field. Cinematic Ambient. Soundscapes. Avant-Garde. Sound Design. Collages. Softronica. Oneiric Story Telling. Remixes. Moon Musick. Glitch. Mixtapes. Creative Coding. Ambient Music."
+                    ]
+                , div
+                    [ Attr.class "flex flex-col md:flex-row items-center justify-between xl:mr-10"
+                    ]
                     [ outlets anerAndrosOutlets "justify-center md:justify-start md:grow" "text-center text-xl" "md:first:pl-0 px-2 mb-4"
                     , label
                         [ Attr.class "btn btn-xs btn-outline swap swap-rotate mb-4"
@@ -173,11 +189,20 @@ hero model =
                         ]
                     ]
                 , if model.aboutVisible then
-                    div [ Attr.class "xl:mr-10 block" ] [ about ]
+                    div
+                        [ Attr.class "xl:mr-10 block"
+                        ]
+                        [ about ]
 
                   else
-                    div [ Attr.class "xl:mr-10 hidden" ] [ about ]
-                , div [ Attr.class "xl:mr-10" ] [ footer_ ]
+                    div
+                        [ Attr.class "xl:mr-10 hidden"
+                        ]
+                        [ about ]
+                , div
+                    [ Attr.class "xl:mr-10"
+                    ]
+                    [ footer_ ]
                 ]
             ]
         ]
