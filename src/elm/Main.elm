@@ -11,11 +11,11 @@ import Html
     exposing
         ( Html
         , a
+        , button
         , div
         , footer
         , h1
         , img
-        , label
         , li
         , main_
         , p
@@ -174,15 +174,15 @@ hero model =
                     [ text "Left-Field. Cinematic Ambient. Soundscapes. Avant-Garde. Sound Design. Collages. Softronica. Oneiric Story Telling. Remixes. Moon Musick. Glitch. Mixtapes. Creative Coding. Ambient Music."
                     ]
                 , div
-                    [ Attr.class "flex flex-col md:flex-row items-center justify-between xl:mr-10"
+                    [ Attr.class "flex flex-col md:flex-row items-center justify-between xl:mr-10 text-2xl md:text-xl"
                     ]
-                    [ outlets anerAndrosOutlets "justify-center md:justify-start md:grow" "text-center text-xl" "md:first:pl-0 px-2 mb-4"
-                    , label
-                        [ Attr.class "btn btn-xs btn-outline swap swap-rotate mb-4"
+                    [ outlets anerAndrosOutlets "justify-center md:justify-start md:grow" "text-center" "md:first:pl-0 px-2 mt-2 md:mt-0 mb-4"
+                    , button
+                        [ Attr.class "swap swap-rotate mb-4 md:mr-2"
                         , onClick (ShowAbout (not model.aboutVisible))
                         ]
                         [ if model.aboutVisible == False then
-                            text "About"
+                            Icon.view Icon.ellipsis
 
                           else
                             Icon.view Icon.xmark
