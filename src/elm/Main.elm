@@ -157,7 +157,7 @@ hero model =
                 [ Attr.src anerandros.logo
                 , Attr.alt "Aner Andros Logo"
                 , Attr.title "Aner Andros Logo"
-                , Attr.class "w-full h-full max-w-md rounded-2xl shadow-2xl bg-base-content mask mask-hexagon"
+                , Attr.class "max-w-md rounded-2xl shadow-2xl bg-base-content mask mask-hexagon"
                 ]
                 []
             , div
