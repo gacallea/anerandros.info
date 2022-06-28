@@ -151,9 +151,11 @@ hero model =
         [ div
             [ Attr.class "hero-content flex-col lg:flex-row"
             ]
-            [ img [ Attr.src anerandros.logo, Attr.class "max-w-md rounded-2xl shadow-2xl bg-base-content mask mask-hexagon" ] []
-            , div [ Attr.class "text-center md:text-left" ]
-                [ h1 [ Attr.class "text-5xl font-bold" ] [ text "musician. sound artist. dada." ]
+                [ Attr.src anerandros.logo
+                , Attr.alt "Aner Andros Logo"
+                , Attr.title "Aner Andros Logo"
+                , Attr.class "w-full h-full max-w-md rounded-2xl shadow-2xl bg-base-content mask mask-hexagon"
+                ]
                 , p
                     [ Attr.class "py-2 md:py-6" ]
                     [ text "Left-Field. Cinematic Ambient. Soundscapes. Avant-Garde. Sound Design. Collages. Softronica. Oneiric Story Telling. Remixes. Moon Musick. Glitch. Mixtapes. Creative Coding. Ambient Music." ]
@@ -184,7 +186,7 @@ hero model =
 outlets : List ( String, String ) -> String -> String -> String -> Html msg
 outlets outletKind justification ulAdditionalCss liPadding =
     div
-        [ Aria.label "music outlets social links"
+        [ Aria.label "music outlets and social links"
         , Attr.class "flex"
         , Attr.class justification
         ]
