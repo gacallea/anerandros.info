@@ -1,6 +1,6 @@
 # Aner Andros
 
-Aner Andros' [home page](https://anerandros.info/). Designed with [Love](./src/img/love.gif), [Elm](https://elm-lang.org/), and [Tailwind CSS](https://tailwindcss.com/).
+Aner Andros' [home page](https://anerandros.info/). Minimalist version.
 
 ## Tooling
 

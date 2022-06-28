@@ -22,6 +22,6 @@ module.exports = {
   ],
   // daisyUI config (optional)
   daisyui: {
-    themes: ['light', 'dark']
+    themes: ['valentine', 'coffee']
   }
 }
