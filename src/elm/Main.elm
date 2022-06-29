@@ -15,11 +15,11 @@ import Html
         , div
         , footer
         , h1
+        , h2
         , img
         , li
         , main_
         , p
-        , section
         , text
         , ul
         )
@@ -122,7 +122,9 @@ main =
 view : Model -> Html Msg
 view model =
     main_
-        [ Aria.label "main content", Attr.class "min-h-screen" ]
+        [ Aria.label "Main Content"
+        , Attr.class "min-h-screen"
+        ]
         [ Icon.css
         , hero model
         ]
@@ -168,8 +170,9 @@ hero model =
                     ]
                     [ text "musician. sound artist. dada."
                     ]
-                , p
+                , h2
                     [ Attr.class "py-2 md:py-6"
+                    , Aria.label "Sound Trades Summary"
                     ]
                     [ text "Left-Field. Cinematic Ambient. Soundscapes. Avant-Garde. Sound Design. Collages. Softronica. Oneiric Story Telling. Remixes. Moon Musick. Glitch. Mixtapes. Creative Coding. Ambient Music."
                     ]
@@ -179,6 +182,7 @@ hero model =
                     [ outlets anerAndrosOutlets "justify-center md:justify-start md:grow" "text-center" "md:first:pl-0 px-2 mt-2 md:mt-0 mb-4"
                     , button
                         [ Attr.class "swap swap-rotate mb-4 md:mr-2"
+                        , Aria.label "About Aner Andros"
                         , onClick (ShowAbout (not model.aboutVisible))
                         ]
                         [ if model.aboutVisible == False then
@@ -211,7 +215,7 @@ hero model =
 outlets : List ( String, String ) -> String -> String -> String -> Html msg
 outlets outletKind justification ulAdditionalCss liPadding =
     div
-        [ Aria.label "music outlets and social links"
+        [ Aria.label "Music Outlets And Social Links"
         , Attr.class "flex"
         , Attr.class justification
         ]
@@ -273,8 +277,8 @@ returnicon str =
 
 about : Html msg
 about =
-    section
-        [ Attr.id "about", Aria.label "about section" ]
+    div
+        [ Aria.label "About Section" ]
         [ div [ Attr.class "border-t border-base-content py-4" ]
             [ div [ Attr.class "text-center sm:text-left" ]
                 [ p [ Attr.class "pb-1" ]
@@ -346,7 +350,7 @@ about =
 
 footer_ : Html msg
 footer_ =
-    footer [ Attr.id "footer", Aria.label "footer" ]
+    footer [ Aria.label "Footer" ]
         [ div [ Attr.class "flex flex-col md:flex-row justify-between border-t border-base-content py-4 text-center text-sm" ]
             [ p []
                 [ text "© ℗ "
