@@ -179,9 +179,9 @@ hero model =
                 , div
                     [ Attr.class "flex flex-col md:flex-row items-center justify-between xl:mr-10 text-2xl md:text-xl"
                     ]
-                    [ outlets anerAndrosOutlets "justify-center md:justify-start md:grow" "text-center" "md:first:pl-0 px-2 mt-2 md:mt-0 mb-4"
+                    [ outlets anerAndrosOutlets "justify-center md:justify-start md:grow" "text-center" "md:first:pl-0 px-1 mt-2 md:mt-0 mb-4"
                     , button
-                        [ Attr.class "swap swap-rotate mb-4 md:mr-2"
+                        [ Attr.class "swap swap-rotate mb-4 btn btn-sm btn-circle btn-outline"
                         , Aria.label "About Aner Andros"
                         , onClick (ShowAbout (not model.aboutVisible))
                         ]
@@ -234,6 +234,10 @@ outlets outletKind justification ulAdditionalCss liPadding =
                             [ Attr.href <| Tuple.first service
                             , Attr.target "_blank"
                             , Attr.rel "noopener noreferrer"
+                            , Attr.class "btn btn-sm btn-circle btn-outline"
+                            , Attr.alt (Tuple.second service)
+                            , Attr.title (Tuple.second service)
+                            , Aria.label (Tuple.second service)
                             , Icon.fw
                             ]
                             [ Icon.view <| returnicon (Tuple.second service) ]
