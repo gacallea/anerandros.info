@@ -283,7 +283,7 @@ about =
             [ div [ Attr.class "text-center sm:text-left" ]
                 [ p [ Attr.class "pb-1" ]
                     [ text
-                        "Eclectic non-musician and producer of cinematic ambient, avant-garde, left-field, glitch, and softronica. Fond of improvisation, of the "
+                        "Eclectic non-musician, sound designer, creative coder, and producer. Fond of improvisation, of the "
                     , a
                         [ Attr.href "https://www.ableton.com/en/blog/studio-as-an-instrument-part-1/"
                         , Attr.class "link"
@@ -291,7 +291,7 @@ about =
                         , Attr.rel "noopener noreferrer"
                         ]
                         [ text
-                            "studio as an instrument"
+                            "studio as an instrument,"
                         ]
                     , text
                         " and of meticulously prepared live shows. While preserving empathy and intuition as key factors, when drawing oneiric soundscapes into a story, in the making of musical voyages. "
@@ -301,7 +301,7 @@ about =
                         , Attr.target "_blank"
                         , Attr.rel "noopener noreferrer"
                         ]
-                        [ text "VFS Sound Design graduate. " ]
+                        [ text "VFS Alumnus and Sound Design for Visual Media graduate. " ]
                     ]
                 , p [ Attr.class "py-1" ]
                     [ text "Formerly based in Bristol, UK, he has performed at the "
@@ -320,7 +320,7 @@ about =
                         , Attr.rel "noopener noreferrer"
                         ]
                         [ text "Parallel Madness." ]
-                    , text " Notable shows include: "
+                    , text " Notable bespoke shows include: the "
                     , a
                         [ Attr.href "https://www.cubecinema.com/id/8295/"
                         , Attr.class "link"
@@ -329,15 +329,32 @@ about =
                         ]
                         [ text "'100 Years of DADA'" ]
                     , text
-                        " celebratory event at the Cube Cinema, and bespoke lives at "
+                        " celebratory event, several "
+                    , a
+                        [ Attr.href "https://en.wikipedia.org/wiki/Robert_Rich_(musician)#1980s:_sleep_concerts_and_early_career"
+                        , Attr.class "link"
+                        , Attr.target "_blank"
+                        , Attr.rel "noopener noreferrer"
+                        ]
+                        [ text "Sleep Concerts," ]
+                    , text
+                        " and lives at "
                     , a
                         [ Attr.href "https://crux-events.org/"
                         , Attr.class "link"
                         , Attr.target "_blank"
                         , Attr.rel "noopener noreferrer"
                         ]
-                        [ text "Crux Events in London" ]
-                    , text ", and Cronosfera Festival in Italy."
+                        [ text "Crux Events" ]
+                    , text " in London, and "
+                    , a
+                        [ Attr.href "https://cronosfera-festival.webnode.it/"
+                        , Attr.class "link"
+                        , Attr.target "_blank"
+                        , Attr.rel "noopener noreferrer"
+                        ]
+                        [ text "Cronosfera Festival" ]
+                    , text ", in Italy."
                     ]
                 ]
             ]
